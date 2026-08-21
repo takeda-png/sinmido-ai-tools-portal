@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>ログイン｜Sinmido AI Tools</title>
+<meta name="description" content="株式会社シンミドウ AI活用ツール ポータル（限定公開）">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧰</text></svg>">
+</head>
+<body class="login-body">
+
+<main class="login-card" id="card">
+  <div class="login-mark"><span class="dot"></span>LIMITED ACCESS</div>
+
+  <h1>Sinmido AI Tools</h1>
+  <p class="lead">
+    シンミドウが実際に作って動かしているAIツールをまとめたポータルです。<br>
+    お渡しした合言葉を入力してください。
+  </p>
+
+  <div class="login-error" id="error" role="alert"></div>
+
+  <form id="form" novalidate>
+    <div class="field">
+      <label for="pw">合言葉</label>
+      <input type="password" id="pw" name="pw" placeholder="お渡しした合言葉"
+             autocomplete="current-password" autocapitalize="off"
+             autocorrect="off" spellcheck="false" required>
+    </div>
+
+    <label class="remember">
+      <input type="checkbox" id="remember">
+      この端末で 14 日間ログインを保持する
+    </label>
+
+    <button type="submit" class="btn-login" id="submit">入 る</button>
+  </form>
+
+  <p class="login-foot">
+    <strong>株式会社シンミドウ</strong><br>
+    このページは関係者向けの限定公開です。合言葉と URL の取り扱いにご注意ください。
+  </p>
+</main>
+
+<script src="assets/auth.js"></script>
+<script>
+(function () {
+  'use strict';
+
+  // すでにログイン済みならポータルへ
+  if (window.AIPAuth.isAuthed()) {
+    window.location.replace(window.AIPAuth.config.homePage);
+    return;
+  }
+
+  var form   = document.getElementById('form');
+  var pw     = document.getElementById('pw');
+  var remember = document.getElementById('remember');
+  var submit = document.getElementById('submit');
+  var error  = document.getElementById('error');
+  var card   = document.getElementById('card');
+
+  function fail(message) {
+    error.textContent = message;
+    error.classList.add('show');
+    card.classList.remove('shake');
+    void card.offsetWidth;          // アニメーションを再発火させる
+    card.classList.add('shake');
+    pw.select();
+  }
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    error.classList.remove('show');
+
+    var value = pw.value;
+    if (!value) { fail('合言葉を入力してください。'); return; }
+
+    submit.disabled = true;
+    submit.textContent = '確認しています…';
+
+    window.AIPAuth.verify(value).then(function (ok) {
+      if (ok) {
+        window.AIPAuth.grant(remember.checked);
+        window.location.replace(window.AIPAuth.config.homePage);
+        return;
+      }
+      submit.disabled = false;
+      submit.textContent = '入 る';
+      fail('合言葉が違います。もう一度お試しください。');
+    }).catch(function () {
+      submit.disabled = false;
+      submit.textContent = '入 る';
+      fail('この環境では照合できませんでした。https:// で開き直すか、別のブラウザでお試しください。');
+    });
+  });
+
+  pw.focus();
+})();
+</script>
+
+</body>
+</html>

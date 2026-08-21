@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ja" class="gate-pending">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Sinmido AI Tools｜AI活用ツール ポータル</title>
+<meta name="description" content="株式会社シンミドウが実際に開発・運用しているAI活用ツールをまとめたポータル（限定公開）">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧰</text></svg>">
+
+<!-- 未認証ならこの時点でログイン画面へ送る（本体を描画させない） -->
+<script src="assets/auth.js"></script>
+<script>window.AIPAuth.guard();</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="portal.html">
+      <span class="brand-mark">S</span>
+      <span class="brand-text">
+        <span class="brand-name">Sinmido AI Tools</span>
+        <span class="brand-sub">AI活用ツール ポータル</span>
+      </span>
+    </a>
+    <span class="header-spacer"></span>
+    <button type="button" class="btn-ghost" id="logout">ログアウト</button>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-inner">
+    <h1>作って、動かして、数字が出たものだけを<br>並べています。</h1>
+    <p>
+      構想やスライドではなく、実際に社内やお客様の現場で動いているAIツールです。
+      公開中のものはそのまま触れます。デモは架空データですが、画面と計算はそのまま本番と同じものです。
+    </p>
+    <div class="hero-stats" id="heroStats"></div>
+  </div>
+</section>
+
+<div class="controls">
+  <div class="search-row">
+    <div class="search-box">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+           stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/>
+      </svg>
+      <input type="search" id="search" placeholder="キーワードで探す（例：助成金、採用、広告）"
+             autocomplete="off" aria-label="ツールをキーワードで検索">
+    </div>
+  </div>
+  <div class="cat-tabs" id="catTabs"></div>
+</div>
+
+<p class="result-count" id="resultCount"></p>
+
+<main class="grid" id="grid"></main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div>
+      <strong style="color:#fff;">株式会社シンミドウ</strong><br>
+      <a href="https://sinmido.com/" target="_blank" rel="noopener noreferrer">sinmido.com</a>
+      <span style="opacity:.4;margin:0 6px;">/</span>
+      <a href="https://sinmido.com/contact/" target="_blank" rel="noopener noreferrer">お問い合わせ</a>
+    </div>
+    <div class="footer-note">
+      &copy; <span id="year"></span> Sinmido Inc. — 関係者向け限定公開ページ
+    </div>
+  </div>
+</footer>
+
+<script src="assets/tools.js"></script>
+<script src="assets/app.js"></script>
+
+</body>
+</html>
