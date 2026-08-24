@@ -102,7 +102,9 @@ def build_stored_name(src_path):
     base = os.path.basename(src_path)
     stem, dot_ext = os.path.splitext(base)
     ext = dot_ext.lstrip('.').lower()
-    digest = hashlib.md5(base.encode('utf-8')).hexdigest()[:8]
+    # ブラウザからのアップロード（admin-upload.js）と同じ名前になるよう
+    # SHA-256 を使う。同じファイルを両方から入れても二重にならない。
+    digest = hashlib.sha256(base.encode('utf-8')).hexdigest()[:8]
 
     # ファイル名が全部日本語だと英数字が何も残らないので、
     # 「拡張子-日付-ハッシュ」にして後から見分けがつくようにする

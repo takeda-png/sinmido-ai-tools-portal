@@ -176,7 +176,7 @@
     if (!FILES.length) {
       el.list.innerHTML =
         '<p class="empty">まだ資料がありません。<br>' +
-        'リポジトリの <code>資料を追加.bat</code> にファイルをドラッグ＆ドロップすると、ここに並びます。</p>';
+        '上の「資料をアップロード」欄にファイルをドラッグ＆ドロップすると、ここに並びます。</p>';
       el.count.textContent = '';
       return;
     }

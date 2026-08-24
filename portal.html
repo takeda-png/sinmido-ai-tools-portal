@@ -75,6 +75,54 @@
 
 <!-- ============================= 資料一覧 ============================= -->
 <section id="view-files" class="view" hidden>
+
+  <!-- 管理用のアップロード欄。トークン保存済みの端末か #admin でだけ出る -->
+  <section class="uploader" id="uploader" hidden>
+    <div class="up-inner">
+      <div class="up-head">
+        <h2>資料をアップロード</h2>
+        <button type="button" class="up-hide" id="upHide">この端末で非表示にする</button>
+      </div>
+
+      <div class="up-setup" id="upSetup">
+        <label for="upToken">GitHub トークン</label>
+        <div class="up-token-row">
+          <input type="password" id="upToken" autocomplete="off" spellcheck="false"
+                 placeholder="github_pat_ ではじまる文字列">
+          <button type="button" class="file-btn file-btn-dl" id="upSaveToken">保存</button>
+          <button type="button" class="file-btn" id="upClearToken" hidden>トークンを削除</button>
+        </div>
+        <p class="up-hint">
+          <a href="https://github.com/settings/personal-access-tokens/new" target="_blank" rel="noopener noreferrer">GitHub でトークンを作る</a>
+          → Repository access は <code>sinmido-ai-tools-portal</code> だけ、
+          Permissions は <code>Contents: Read and write</code> を選びます。<br>
+          トークンはこの端末のブラウザにだけ保存され、リポジトリには入りません。共用PCでは使い終わったら削除してください。
+        </p>
+      </div>
+
+      <div id="upMain" hidden>
+        <div class="up-drop" id="upDrop" role="button" tabindex="0">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+               stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M12 16V4m0 0L7.5 8.5M12 4l4.5 4.5"/><path d="M4 16v3a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-3"/>
+          </svg>
+          <strong>ここにファイルをドラッグ＆ドロップ</strong>
+          <span>クリックして選ぶこともできます（1ファイル 25MB まで／複数可）</span>
+        </div>
+
+        <input type="file" id="upInput" multiple hidden>
+
+        <div class="up-queue" id="upQueue"></div>
+
+        <div class="up-actions">
+          <button type="button" class="file-btn file-btn-dl" id="upSubmit" disabled>公開する</button>
+        </div>
+
+        <div class="up-log" id="upLog" aria-live="polite"></div>
+      </div>
+    </div>
+  </section>
+
   <div class="controls">
     <div class="search-row">
       <div class="search-box">
@@ -132,6 +180,7 @@
 <script src="assets/files.js"></script>
 <script src="assets/app.js"></script>
 <script src="assets/files-ui.js"></script>
+<script src="assets/admin-upload.js"></script>
 
 </body>
 </html>
