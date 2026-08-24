@@ -4,8 +4,8 @@
 **関係者向けの限定公開ポータル**です。商談や提案でURLをお渡しして使います。
 
 - ログイン画面: `index.html`
-- ポータル本体: `portal.html`
-- 掲載データ: `assets/tools.js`
+- ポータル本体: `portal.html`（「ツール」「資料」の2タブ）
+- 掲載データ: `assets/tools.js`（ツール）/ `files/_manifest.json`（資料）
 
 ---
 
@@ -80,6 +80,59 @@ passHash: 'ここに出てきた64文字',
 
 ---
 
+## 資料（ファイル）を配布する
+
+ポータルの **「📁 資料」タブ** に PDF・画像・CSV・Excel・ZIP などを並べられます。
+PDF / 画像 / CSV はポータル上でそのまま開け、それ以外はダウンロードになります。
+
+### 追加するには（かんたん）
+
+**`資料を追加.bat` に、追加したいファイルをドラッグ＆ドロップするだけ**です。
+
+表示名・説明・カテゴリ・タグを順に聞かれる（Enter で既定値）ので、
+答え終わると `files/` への取り込み → `assets/files.js` の生成 → commit → push まで自動で走ります。
+1〜2分で公開ページに反映されます。
+
+### コマンドでやる場合
+
+```bash
+python add_files.py 提案書.pdf 実績.xlsx
+python add_files.py 提案書.pdf --cat teian --desc "2026年版" --tags 提案,工務店
+python add_files.py 提案書.pdf -y            # 質問せず既定値で取り込む
+python add_files.py 提案書.pdf --no-push     # コミットまでで止める
+python add_files.py --list                   # 掲載中の一覧（ID が分かる）
+python add_files.py --remove <ID>            # 1件取り下げ（ファイルも消えます）
+python add_files.py --rebuild                # manifest から files.js を作り直す
+```
+
+### 説明文やカテゴリを後から直す
+
+`files/_manifest.json` を直接編集して、
+
+```bash
+python add_files.py --rebuild
+```
+
+を実行すると `assets/files.js` が作り直されて push されます。
+**`assets/files.js` は自動生成なので、直接編集しないでください。**
+
+カテゴリ（`teian` / `shiryo` / `data` / `image` / `other`）を増やしたいときは、
+`files/_manifest.json` の `categories` に `{ "id": "...", "label": "..." }` を足してから `--rebuild` します。
+
+### ⚠️ 資料を置くときの注意
+
+- **ログインは資料ファイルを守りません。** ファイルの URL
+  （`.../files/pdf-20260824-xxxxxxxx.pdf`）を直接知っている人は、
+  合言葉なしでダウンロードできます。**社外秘の資料は置かないでください。**
+- リポジトリは Public です。**一度 push したファイルは git の履歴に残ります**
+  （取り下げても過去のコミットからは取り出せます）。
+- GitHub の制限で **1ファイル 100MB を超えると push できません**（50MB で警告）。
+  スクリプトが事前に止めます。動画は YouTube の限定公開などをご検討ください。
+- ファイル名は英数字に置き換えて保存されます（日本語URLで壊れないため）。
+  **一覧に出る表示名は元のファイル名のまま**なので、見た目は変わりません。
+
+---
+
 ## ローカルで確認する
 
 `crypto.subtle`（合言葉の照合に使用）は **セキュアコンテキストでしか動きません**。
@@ -138,7 +191,9 @@ if (empty($_SESSION['aip'])) { header('Location: login.php'); exit; }
 
 このとき `assets/auth.js` の読み込みと `guard()` の行、
 `portal.html` のログアウトボタンの処理を PHP 側（`logout.php`）に差し替えます。
-`style.css` / `tools.js` / `app.js` は**一切変更不要**です。
+`style.css` / `tools.js` / `app.js` / `files.js` / `files-ui.js` は**一切変更不要**です。
+資料を本当に保護したい場合は、移行後に `files/` を PHP 経由の配信
+（セッションを確認してから `readfile()` する）に変えてください。
 
 > sinmido.com は WordPress のため、サブディレクトリ（例 `/ai-tools/`）に直置きするか、
 > Basic 認証（`.htaccess`）をかける方法もあります。
@@ -154,8 +209,14 @@ ai-tools-portal/
 ├── assets/
 │   ├── style.css       スタイル（配色はコーポレートカラー 紺 #1B4F9C）
 │   ├── auth.js         合言葉の照合・ログイン状態の保持
-│   ├── tools.js        掲載データ ★ここだけ触れば運用できます
-│   └── app.js          カード描画・検索・カテゴリ絞り込み
+│   ├── tools.js        ツールの掲載データ ★ここを触れば運用できます
+│   ├── app.js          ツールのカード描画・検索・カテゴリ絞り込み
+│   ├── files.js        資料の掲載データ（⚠️自動生成・直接編集しない）
+│   └── files-ui.js     資料の一覧描画・タブ切替・プレビュー
+├── files/              配布する資料の実体
+│   └── _manifest.json  資料の管理台帳 ★説明文を直すのはここ
+├── add_files.py        資料の取り込み〜push を自動化するスクリプト
+├── 資料を追加.bat       ↑にファイルをD&Dするためのランチャー
 ├── .nojekyll
 └── README.md
 ```

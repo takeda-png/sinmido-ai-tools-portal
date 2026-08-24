@@ -1,0 +1,25 @@
+{
+  "categories": [
+    {
+      "id": "teian",
+      "label": "提案・企画書"
+    },
+    {
+      "id": "shiryo",
+      "label": "説明資料・マニュアル"
+    },
+    {
+      "id": "data",
+      "label": "データ（CSV/Excel）"
+    },
+    {
+      "id": "image",
+      "label": "画像・スクリーンショット"
+    },
+    {
+      "id": "other",
+      "label": "その他"
+    }
+  ],
+  "files": []
+}

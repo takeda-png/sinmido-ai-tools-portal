@@ -43,23 +43,76 @@
   </div>
 </section>
 
-<div class="controls">
-  <div class="search-row">
-    <div class="search-box">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
-           stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-        <circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/>
-      </svg>
-      <input type="search" id="search" placeholder="キーワードで探す（例：助成金、採用、広告）"
-             autocomplete="off" aria-label="ツールをキーワードで検索">
+<nav class="view-tabs" id="viewTabs" role="tablist" aria-label="表示の切り替え">
+  <button type="button" class="view-tab active" data-view="tools" role="tab" aria-selected="true">
+    <span class="view-ico" aria-hidden="true">🧰</span>ツール<span class="n" id="nTools"></span>
+  </button>
+  <button type="button" class="view-tab" data-view="files" role="tab" aria-selected="false">
+    <span class="view-ico" aria-hidden="true">📁</span>資料<span class="n" id="nFiles"></span>
+  </button>
+</nav>
+
+<!-- ============================ ツール一覧 ============================ -->
+<main id="view-tools" class="view">
+  <div class="controls">
+    <div class="search-row">
+      <div class="search-box">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+             stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/>
+        </svg>
+        <input type="search" id="search" placeholder="キーワードで探す（例：助成金、採用、広告）"
+               autocomplete="off" aria-label="ツールをキーワードで検索">
+      </div>
     </div>
+    <div class="cat-tabs" id="catTabs"></div>
   </div>
-  <div class="cat-tabs" id="catTabs"></div>
+
+  <p class="result-count" id="resultCount"></p>
+
+  <div class="grid" id="grid"></div>
+</main>
+
+<!-- ============================= 資料一覧 ============================= -->
+<section id="view-files" class="view" hidden>
+  <div class="controls">
+    <div class="search-row">
+      <div class="search-box">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+             stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/>
+        </svg>
+        <input type="search" id="fileSearch" placeholder="資料をキーワードで探す（例：提案書、実績、CSV）"
+               autocomplete="off" aria-label="資料をキーワードで検索">
+      </div>
+    </div>
+    <div class="cat-tabs" id="fileCatTabs"></div>
+  </div>
+
+  <p class="result-count" id="fileCount"></p>
+
+  <div class="file-grid" id="fileList"></div>
+
+  <p class="file-note">
+    PDF・画像・CSV はこの画面でそのまま開けます。Excel・PowerPoint・ZIP はダウンロードしてご覧ください。<br>
+    <span class="file-note-warn">ファイルのURLを直接知っている人は、ログインなしでも取得できます。社外秘の資料は置かないでください。</span>
+  </p>
+</section>
+
+<!-- ============================ プレビュー ============================ -->
+<div class="viewer" id="viewer" role="dialog" aria-modal="true" aria-labelledby="viewerTitle" hidden>
+  <div class="viewer-panel">
+    <div class="viewer-bar">
+      <div class="viewer-heads">
+        <strong class="viewer-title" id="viewerTitle"></strong>
+        <span class="viewer-meta" id="viewerMeta"></span>
+      </div>
+      <a class="file-btn file-btn-dl" id="viewerDl" href="#" download>ダウンロード</a>
+      <button type="button" class="viewer-close" id="viewerClose" aria-label="閉じる">&times;</button>
+    </div>
+    <div class="viewer-body" id="viewerBody"></div>
+  </div>
 </div>
-
-<p class="result-count" id="resultCount"></p>
-
-<main class="grid" id="grid"></main>
 
 <footer class="site-footer">
   <div class="footer-inner">
@@ -76,7 +129,9 @@
 </footer>
 
 <script src="assets/tools.js"></script>
+<script src="assets/files.js"></script>
 <script src="assets/app.js"></script>
+<script src="assets/files-ui.js"></script>
 
 </body>
 </html>
