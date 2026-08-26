@@ -443,17 +443,43 @@ def translate(items, key):
 # --------------------------------------------------------------------------
 
 def read_previous():
+    """前回の (記事一覧, meta) を返す。読めなければ空。"""
     if not os.path.exists(NEWS_JS):
-        return []
+        return [], {}
     with open(NEWS_JS, "r", encoding="utf-8") as f:
         src = f.read()
-    m = re.search(r"var NEWS\s*=\s*(\[[\s\S]*?\n\]);", src)
-    if not m:
-        return []
-    try:
-        return json.loads(m.group(1))
-    except ValueError:
-        return []
+
+    def grab(pattern):
+        m = re.search(pattern, src)
+        if not m:
+            return None
+        try:
+            return json.loads(m.group(1))
+        except ValueError:
+            return None
+
+    items = grab(r"var NEWS\s*=\s*(\[[\s\S]*?\n\]);")
+    meta = grab(r"var NEWS_META\s*=\s*(\{[\s\S]*?\n\});")
+    return (items or []), (meta or {})
+
+
+def keep_previous_ja(items, previous):
+    """前回すでに日本語になっていた分を引き継ぐ。
+
+    API キーを外したときや、翻訳が一時的に失敗したときに、
+    せっかくの日本語が英語へ戻ってしまうのを防ぐ。
+    """
+    prev = dict((i.get("id"), i) for i in previous)
+    for it in items:
+        p = prev.get(it["id"])
+        if not p:
+            continue
+        for k in ("titleJa", "summaryJa", "why"):
+            if p.get(k) and not it.get(k):
+                it[k] = p[k]
+        if (not it.get("bulletsJa") and p.get("bulletsJa") and it.get("bullets")
+                and len(p["bulletsJa"]) == len(it["bullets"])):
+            it["bulletsJa"] = p["bulletsJa"]
 
 
 # --------------------------------------------------------------------------
@@ -476,10 +502,15 @@ var NEWS = %s;
 """
 
 
-def write_news_js(items, lang):
+def now_jst():
+    return datetime.datetime.now(
+        datetime.timezone(datetime.timedelta(hours=9))
+    ).strftime("%Y-%m-%dT%H:%M:%S+09:00")
+
+
+def write_news_js(items, lang, updated=None):
     meta = {
-        "updated": datetime.datetime.now(
-            datetime.timezone(datetime.timedelta(hours=9))).strftime("%Y-%m-%dT%H:%M:%S+09:00"),
+        "updated": updated or now_jst(),
         "lang": lang,
         "sources": [
             {"id": "anthropic", "label": "Anthropic 公式",
@@ -506,7 +537,7 @@ def main():
                     help="取得するだけで assets/news.js を書き換えない")
     args = ap.parse_args()
 
-    previous = read_previous()
+    previous, prev_meta = read_previous()
     items = []
 
     prev_summary = dict((i["id"], i.get("summary", "")) for i in previous
@@ -531,16 +562,18 @@ def main():
 
     items.sort(key=lambda x: (x.get("date") or "", x.get("id")), reverse=True)
 
-    lang = "en"
     key = os.environ.get("ANTHROPIC_API_KEY", "").strip()
     if key:
         try:
-            n = translate(items, key)
-            lang = "ja" if n else "en"
+            translate(items, key)
         except Exception as e:                       # noqa: BLE001
-            log("  翻訳できませんでした（%s）→ 英語のまま出します" % e)
+            log("  翻訳できませんでした（%s）→ 前回の日本語を使います" % e)
     else:
-        log("  ANTHROPIC_API_KEY が無いので英語のまま出します")
+        log("  ANTHROPIC_API_KEY が無いので翻訳はしません")
+
+    keep_previous_ja(items, previous)
+    lang = "ja" if any(i.get("titleJa") or i.get("bulletsJa")
+                       for i in items) else "en"
 
     if args.dry_run:
         log("")
@@ -548,6 +581,12 @@ def main():
             log("  %s  [%s] %s" % (i.get("date", "?"), i.get("catJa") or i.get("cat"),
                                    i.get("titleJa") or i.get("title")))
         log("\n--dry-run のため assets/news.js は書き換えていません。")
+        return 0
+
+    # 中身が前回と同じなら書かない。
+    # 毎回ファイルを書き直すと、更新日時が変わるだけのコミットが毎日積み上がる。
+    if items == previous and lang == prev_meta.get("lang"):
+        log("\n前回から変わっていません。ファイルは触りません。")
         return 0
 
     write_news_js(items, lang)
