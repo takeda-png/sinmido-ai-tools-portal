@@ -50,6 +50,9 @@
   <button type="button" class="view-tab" data-view="files" role="tab" aria-selected="false">
     <span class="view-ico" aria-hidden="true">📁</span>資料<span class="n" id="nFiles"></span>
   </button>
+  <button type="button" class="view-tab" data-view="news" role="tab" aria-selected="false">
+    <span class="view-ico" aria-hidden="true">📰</span>ニュース<span class="n" id="nNews"></span>
+  </button>
 </nav>
 
 <!-- ============================ ツール一覧 ============================ -->
@@ -153,6 +156,29 @@
   </p>
 </section>
 
+<!-- ======================= Claude 最新情報 ======================= -->
+<section id="view-news" class="view" hidden>
+  <div class="controls">
+    <div class="search-row">
+      <div class="search-box">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+             stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/>
+        </svg>
+        <input type="search" id="newsSearch" placeholder="ニュースをキーワードで探す（例：Opus、セキュリティ）"
+               autocomplete="off" aria-label="ニュースをキーワードで検索">
+      </div>
+    </div>
+    <div class="cat-tabs" id="newsSrcTabs"></div>
+  </div>
+
+  <p class="result-count" id="newsCount"></p>
+
+  <div class="news-list" id="newsList"></div>
+
+  <p class="file-note" id="newsNote"></p>
+</section>
+
 <!-- ========================== 導入手順書 ========================== -->
 <div class="guide" id="guide" role="dialog" aria-modal="true" aria-labelledby="guideTitle" hidden>
   <div class="guide-panel">
@@ -202,8 +228,10 @@
 
 <script src="assets/tools.js"></script>
 <script src="assets/files.js"></script>
+<script src="assets/news.js"></script>
 <script src="assets/app.js"></script>
 <script src="assets/files-ui.js"></script>
+<script src="assets/news-ui.js"></script>
 <script src="assets/admin-upload.js"></script>
 
 </body>

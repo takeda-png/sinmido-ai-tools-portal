@@ -4,8 +4,9 @@
 **関係者向けの限定公開ポータル**です。商談や提案でURLをお渡しして使います。
 
 - ログイン画面: `index.html`
-- ポータル本体: `portal.html`（「ツール」「資料」の2タブ）
+- ポータル本体: `portal.html`（「ツール」「資料」「ニュース」の3タブ）
 - 掲載データ: `assets/tools.js`（ツール）/ `files/_manifest.json`（資料）
+- ニュースは毎朝 GitHub Actions が自動更新（`assets/news.js` は手で触りません）
 
 ---
 
@@ -165,6 +166,65 @@ python add_files.py --rebuild
 
 ---
 
+## Claude の最新情報（ニュースタブ）
+
+3つ目のタブに、Claude 関連の新着を自動で並べています。**手作業はありません。**
+
+| 情報源 | 中身 | 取り方 |
+|---|---|---|
+| Anthropic 公式ニュース | 新モデルの発表・お知らせ・調査レポートなど | `anthropic.com/news` の一覧から見出し・日付・カテゴリを取り、要約は各記事ページの description を使う |
+| Claude Code の更新 | 週ごとにまとめた更新内容（リリース回数・新機能/修正の件数・主な追加機能） | 公式 CHANGELOG ＋ npm レジストリ（公開日） |
+
+### いつ更新されるか
+
+`.github/workflows/update-news.yml` が **毎朝 7:00（日本時間）** に動き、
+前回と中身が変わっていれば `assets/news.js` をコミットします。
+GitHub Pages がそれを受けて配信を作り直すので、こちらの操作は要りません。
+
+**今すぐ更新したいとき**
+GitHub → Actions → 「Claude 最新情報の更新」 → Run workflow
+
+**手元で試したいとき**
+
+```bash
+python tools/fetch_news.py --dry-run   # 取得して一覧を表示するだけ
+python tools/fetch_news.py             # assets/news.js を作り直す
+```
+
+外部ライブラリは使っていないので、Python さえあれば動きます。
+
+### 日本語で表示する（任意）
+
+**Anthropic に日本語のニュースページはありません。** そのため既定では
+見出しと要約が英語のまま出ます。日本語にしたい場合は API キーを登録してください。
+
+1. [Anthropic Console](https://console.anthropic.com/) で API キーを発行
+2. GitHub → Settings → Secrets and variables → Actions → New repository secret
+3. Name = `ANTHROPIC_API_KEY` / Secret = 発行したキー
+
+登録すると、次の実行から見出し・要約が日本語になり、「ここが効く」の1行が付きます。
+原題は各カードに小さく残るので、原文にもあたれます。
+
+- **費用は月に数十円程度**です。訳した結果は `tools/news_ja.json` に貯まるので、
+  毎日全件を訳し直すことはありません（新しい記事の分だけ）。
+- キーが無くても**エラーにはならず**、英語のまま出ます。
+- 使うモデルを変えたいときは、ワークフローに `NEWS_MODEL` を足してください。
+
+### 壊れたときの直し方
+
+相手のサイトが作り変わると、取得に失敗することがあります。
+そのときは **前回取れていた内容をそのまま残す** ので、ニュース欄が空になることはありません。
+Actions のログに「取得できませんでした」と出ていたら、`tools/fetch_news.py` の
+`fetch_anthropic()` の読み取り部分を直してください。
+class 名にはビルドごとに変わるハッシュが入るため、そこには依存させていません
+（`/news/…` へのリンクの内側にある `<time>` と見出しの並びだけを見ています）。
+
+> **スケジュールについての注意**
+> GitHub は、60日間まったく動きが無いリポジトリの定期実行を自動で止めます。
+> 止まっていたら Actions の画面に再開ボタンが出ます。
+
+---
+
 ## ローカルで確認する
 
 `crypto.subtle`（合言葉の照合に使用）は **セキュアコンテキストでしか動きません**。
@@ -195,6 +255,14 @@ push から反映まで 15〜30 秒ほどかかります。
 静的ファイルだけで組んであるので、**ファイルをそのままアップロードすれば動きます**。
 本物の認証にする場合は、`index.html` を次の `login.php` に置き換え、
 `portal.html` を `portal.php` にリネームして先頭にガードを1行入れるだけです。
+
+> **ニュースタブについて**
+> 移行後は GitHub Actions が使えなくなるので、更新の仕組みだけ差し替えが要ります。
+> サーバーで PHP が動くなら、`tools/fetch_news.py` と同じことをする PHP を
+> cron か WP-Cron で回すのが素直です（`assets/news.js` を書き出すだけなので、
+> 画面側の `news-ui.js` と CSS はそのまま使えます）。
+> sinmido.com は FTP/SSH が IP ブロックされているため、ファイルの設置は
+> Code Snippets の REST API 経由（16進チャンク）になります。
 
 **`login.php`（見た目は index.html のまま、`<form>` の中身だけ差し替え）**
 
@@ -245,9 +313,16 @@ ai-tools-portal/
 │   ├── app.js          ツールのカード描画・検索・カテゴリ絞り込み
 │   ├── files.js        資料の掲載データ（⚠️自動生成・直接編集しない）
 │   ├── files-ui.js     資料の一覧描画・タブ切替・プレビュー
+│   ├── news.js         ニュースの掲載データ（⚠️自動生成・直接編集しない）
+│   ├── news-ui.js      ニュースの一覧描画・情報源の絞り込み
 │   └── admin-upload.js 画面からのアップロード（GitHub API・管理者だけに表示）
 ├── files/              配布する資料の実体
 │   └── _manifest.json  資料の管理台帳 ★説明文を直すのはここ
+├── tools/
+│   ├── fetch_news.py   ニュースを取得して assets/news.js を作る
+│   └── news_ja.json    日本語訳の貯め置き（⚠️自動生成）
+├── .github/workflows/
+│   └── update-news.yml 毎朝7時にニュースを取り込むGitHub Actions
 ├── add_files.py        資料の取り込み〜push を自動化するスクリプト
 ├── 資料を追加.bat       ↑にファイルをD&Dするためのランチャー
 ├── .nojekyll

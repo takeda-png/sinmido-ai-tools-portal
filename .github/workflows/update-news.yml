@@ -1,0 +1,62 @@
+# ============================================================================
+# Claude 最新情報の自動更新
+# ----------------------------------------------------------------------------
+# 毎朝 7:00（日本時間）に tools/fetch_news.py を走らせ、変わっていれば
+# assets/news.js をコミットします。GitHub Pages はコミットを受けて配信を
+# 作り直すので、こちらで何もしなくてもポータルのニュースが新しくなります。
+#
+# 手で今すぐ動かしたいとき:
+#   GitHub → Actions → 「Claude 最新情報の更新」 → Run workflow
+#
+# 日本語で出したいとき:
+#   Settings → Secrets and variables → Actions → New repository secret
+#   Name = ANTHROPIC_API_KEY / Secret = APIキー
+#   登録されていなければ英語のまま出ます（エラーにはなりません）。
+# ============================================================================
+
+name: Claude 最新情報の更新
+
+on:
+  schedule:
+    # UTC で書く。22:00 UTC = 翌朝 7:00 JST
+    - cron: '0 22 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: update-news
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: リポジトリを取得
+        uses: actions/checkout@v4
+
+      - name: Python を用意
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: ニュースを取得して assets/news.js を作り直す
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: python tools/fetch_news.py
+
+      - name: 変わっていればコミットする
+        run: |
+          if [ -z "$(git status --porcelain assets/news.js tools/news_ja.json)" ]; then
+            echo "前回から変わっていないので、何もしません。"
+            exit 0
+          fi
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/news.js tools/news_ja.json
+          git commit -m "ニュースを自動更新（$(TZ=Asia/Tokyo date +'%Y-%m-%d')）"
+          git push
+          echo "更新しました。"

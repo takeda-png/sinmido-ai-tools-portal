@@ -366,10 +366,21 @@
 
   /* ---------- 表示の切り替え ---------- */
 
+  /* タブは「ツール／資料／ニュース」と増えていくので、
+     data-view と <section id="view-○○"> の対応だけを見て切り替える。
+     タブを足すときは HTML に1組足すだけでよく、ここは触らなくていい。 */
   function setView(view) {
-    var isFiles = (view === 'files');
-    el.viewTools.hidden = isFiles;
-    el.viewFiles.hidden = !isFiles;
+    var sections = document.querySelectorAll('.view');
+    var known = false;
+
+    Array.prototype.forEach.call(sections, function (s) {
+      if (s.id === 'view-' + view) known = true;
+    });
+    if (!known) view = 'tools';
+
+    Array.prototype.forEach.call(sections, function (s) {
+      s.hidden = (s.id !== 'view-' + view);
+    });
 
     Array.prototype.forEach.call(
       el.viewTabs.querySelectorAll('.view-tab'),
@@ -381,9 +392,9 @@
     );
 
     try {
-      history.replaceState(null, '', isFiles ? '#files' : '#tools');
+      history.replaceState(null, '', '#' + view);
     } catch (e) {
-      window.location.hash = isFiles ? 'files' : 'tools';
+      window.location.hash = view;
     }
   }
 
@@ -441,7 +452,8 @@
   renderCatTabs();
   renderList();
 
-  if (String(window.location.hash).toLowerCase() === '#files') setView('files');
+  var hash = String(window.location.hash || '').replace(/^#/, '').toLowerCase();
+  if (hash) setView(hash);
 
   /* ツールカードの添付資料からプレビューを呼べるようにする */
   window.AIPFiles = {
