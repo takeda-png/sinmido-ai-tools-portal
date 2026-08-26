@@ -9,7 +9,7 @@
    ========================================================================== */
 
 var NEWS_META = {
-  "updated": "2026-08-26T16:02:35+09:00",
+  "updated": "2026-08-26T16:15:03+09:00",
   "lang": "en",
   "sources": [
     {
@@ -26,6 +26,22 @@ var NEWS_META = {
 };
 
 var NEWS = [
+  {
+    "id": "claudecode:2026-08-24",
+    "src": "claudecode",
+    "date": "2026-08-25",
+    "cat": "Release notes",
+    "catJa": "更新",
+    "title": "Claude Code の更新（8/24〜8/25）",
+    "summary": "3 回リリース（v2.1.243〜v2.1.246）。新機能 13件・修正 80件・改善 29件。",
+    "bullets": [
+      "Added a startup warning for Bash allow rules with a wildcard before the subcommand (e.g. Bash(git * main)), since they also match options inserted before the subcommand",
+      "Added an Auto mode tab to /permissions for viewing and editing auto mode classifier rules",
+      "Added the turn's completion time to the end-of-turn duration line, e.g. ✻ Sautéed for 23s · done 6:05 PM"
+    ],
+    "url": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md",
+    "srcJa": true
+  },
   {
     "id": "anthropic:wellbeing-research-grants",
     "src": "anthropic",
