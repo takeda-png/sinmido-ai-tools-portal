@@ -26,6 +26,7 @@
     stats:   document.getElementById('heroStats'),
     logout:  document.getElementById('logout'),
     year:    document.getElementById('year'),
+    fnote:      document.querySelector('.file-note'),
     guide:      document.getElementById('guide'),
     guideTitle: document.getElementById('guideTitle'),
     guideMeta:  document.getElementById('guideMeta'),
@@ -190,7 +191,11 @@
       { n: total,  label: '掲載ツール' },
       { n: live,   label: '公開中' },
       { n: demo,   label: 'デモ体験可' },
-      { n: docs,   label: 'ダウンロード資料' }
+      /* 資料がまだ1件も無いうちは「0」を出しても意味が無いので、
+         入るまではカテゴリ数を出しておく */
+      docs > 0
+        ? { n: docs, label: 'ダウンロード資料' }
+        : { n: CATEGORIES.length - 1, label: 'カテゴリ' }
     ];
 
     el.stats.innerHTML = rows.map(function (r) {
@@ -466,6 +471,9 @@
   renderStats();
   renderTabs();
   renderGrid();
+
+  /* 資料が1件も無いうちは、添付資料と手順書の説明文が指すものが無いので隠す */
+  if (el.fnote && !allFiles().length) el.fnote.hidden = true;
 
   /* 資料タブから「このツールの手順書を見る」を呼べるように */
   window.AIPTools = {
