@@ -16,12 +16,22 @@ assets/files.js を作り直し、GitHub へ push するところまでやりま
       python add_files.py 提案書.pdf --cat teian --desc "2026年版" --tags 提案,工務店
       python add_files.py --rebuild        # files/_manifest.json から files.js を作り直す
       python add_files.py --list           # いま載っている資料の一覧
+      python add_files.py --tools          # ツールIDの一覧（--tool に渡す値）
       python add_files.py --remove <ID>    # 資料を1件取り下げる
       python add_files.py 提案書.pdf --no-push   # コミットまでで止める（push しない）
 
+ツールのカードに出したいとき:
+      python add_files.py チェックリスト.xlsx --tool joseikin
+          → 「研修助成金シミュレーター」のカードに添付資料として並びます
+      python add_files.py 導入手順.pdf --tool scope --guide
+          → 「SCOPE」のカードの［導入手順書］ボタンから開けます
+
+  --tool を付けずに実行すると、対話でツールを選べます（Enter で紐づけなし＝
+  資料タブにだけ並びます）。
+
 説明文やカテゴリを後から直したいときは files/_manifest.json を編集して
   python add_files.py --rebuild
-を実行してください。
+を実行してください。tool / role もそこで直せます。
 """
 
 import argparse
@@ -38,6 +48,7 @@ ROOT      = os.path.dirname(os.path.abspath(__file__))
 FILES_DIR = os.path.join(ROOT, 'files')
 MANIFEST  = os.path.join(FILES_DIR, '_manifest.json')
 OUT_JS    = os.path.join(ROOT, 'assets', 'files.js')
+TOOLS_JS  = os.path.join(ROOT, 'assets', 'tools.js')
 
 # GitHub の制限: 100MB を超えると push できない / 50MB で警告が出る
 HARD_LIMIT = 100 * 1024 * 1024
@@ -63,6 +74,42 @@ EXT_TO_CAT = {
     'png': 'image', 'jpg': 'image', 'jpeg': 'image',
     'gif': 'image', 'webp': 'image', 'svg': 'image', 'bmp': 'image',
 }
+
+
+# --------------------------------------------------------------------------
+# ツール一覧（assets/tools.js から id と name だけ拾う）
+# --------------------------------------------------------------------------
+
+# tools.js の
+#     id: 'scope',
+#     name: 'SCOPE（Web分析AI）',
+# という並びだけを拾う（\s* は改行も含むので、この2行が続いていれば取れる）
+TOOL_RE = re.compile(
+    r"""id:\s*['"]([A-Za-z0-9_-]+)['"]\s*,\s*name:\s*['"]([^'"]+)['"]"""
+)
+
+
+def load_tools():
+    """[(id, 表示名), ...] を返す。読めなければ空リスト。"""
+    if not os.path.exists(TOOLS_JS):
+        return []
+    with open(TOOLS_JS, 'r', encoding='utf-8') as fh:
+        src = fh.read()
+    return TOOL_RE.findall(src)
+
+
+def resolve_tool(raw, tools):
+    """ツールIDか表示名の一部を受け取り、正しいIDに直す。見つからなければ None。"""
+    raw = (raw or '').strip()
+    if not raw:
+        return ''
+    ids = [t[0] for t in tools]
+    if raw in ids:
+        return raw
+    hit = [t for t in tools if raw.lower() in t[1].lower()]
+    if len(hit) == 1:
+        return hit[0][0]
+    return None
 
 
 # --------------------------------------------------------------------------
@@ -163,12 +210,15 @@ def write_js(data):
         '    cat:  {cat},\n'
         '    desc: {desc},\n'
         '    tags: {tags},\n'
+        '    tool: {tool},\n'
+        '    role: {role},\n'
         '    date: {date}\n'
         '  }}'.format(
             id=js(f['id']), name=js(f['name']),
             path=js('files/' + f['file']), ext=js(f.get('ext', '')),
             size=int(f.get('size', 0)), cat=js(f.get('cat', 'other')),
             desc=js(f.get('desc', '')), tags=js(f.get('tags', [])),
+            tool=js(f.get('tool', '')), role=js(f.get('role', 'doc')),
             date=js(f.get('date', ''))
         )
         for f in entries
@@ -240,6 +290,31 @@ def ask(prompt, default=''):
     return answer or default
 
 
+def choose_tool(tools):
+    """どのツールの資料かを選ぶ。Enter だけならツールに紐づけない（資料タブのみ）。"""
+    if not tools:
+        return ''
+    print('    どのツールの資料ですか？（Enter＝ツールに紐づけない）')
+    for i, (tid, name) in enumerate(tools):
+        print('      [{0:>2}] {1}'.format(i + 1, name))
+    raw = ask('    番号かEnter > ')
+    if not raw:
+        return ''
+    if raw.isdigit() and 1 <= int(raw) <= len(tools):
+        return tools[int(raw) - 1][0]
+    resolved = resolve_tool(raw, tools)
+    if resolved is None:
+        print('    ! 見つからなかったので、ツールには紐づけません。')
+        return ''
+    return resolved
+
+
+def choose_role():
+    """資料そのものか、導入手順書か。"""
+    raw = ask('    種類: [1]資料（既定）  [2]導入手順書  > ')
+    return 'guide' if raw.strip() in ('2', 'guide', '手順書') else 'doc'
+
+
 def choose_category(cats, default_id):
     labels = {c['id']: c['label'] for c in cats}
     print('    カテゴリ:', '  '.join(
@@ -261,12 +336,18 @@ def cmd_list(data):
         print('まだ資料は登録されていません。')
         return
     labels = {c['id']: c['label'] for c in data['categories']}
+    tools = dict(load_tools())
     print('登録されている資料 {0} 件:\n'.format(len(data['files'])))
     for f in sorted(data['files'], key=lambda x: x.get('date', ''), reverse=True):
         print('  {0:<14} {1}'.format(f['id'], f['name']))
         print('  {0:<14} {1} / {2:.1f}MB / {3}'.format(
             '', labels.get(f.get('cat'), f.get('cat')),
             f.get('size', 0) / 1048576.0, f.get('date', '')))
+        if f.get('tool'):
+            print('  {0:<14} → {1}「{2}」'.format(
+                '',
+                '導入手順書' if f.get('role') == 'guide' else '添付資料',
+                tools.get(f['tool'], f['tool'])))
         print()
 
 
@@ -294,6 +375,7 @@ def cmd_remove(data, target, push):
 def cmd_add(data, paths, args):
     os.makedirs(FILES_DIR, exist_ok=True)
     existing = {f['id'] for f in data['files']}
+    tools = load_tools()
     added = []
 
     for src in paths:
@@ -342,11 +424,31 @@ def cmd_add(data, paths, args):
             raw = ask('    タグ（カンマ区切り・任意）> ')
             tags = [t.strip() for t in raw.split(',') if t.strip()]
 
+        # どのツールのカードに出すか／資料か導入手順書か
+        if args.tool is not None:
+            tool = resolve_tool(args.tool, tools)
+            if tool is None:
+                print('! --tool "{0}" に当てはまるツールがありません。'
+                      '--tools で一覧を確認してください。'.format(args.tool))
+                return 1
+        elif args.yes:
+            tool = ''
+        else:
+            tool = choose_tool(tools)
+
+        if args.guide:
+            role = 'guide'
+        elif not tool or args.yes:
+            role = 'doc'
+        else:
+            role = choose_role()
+
         shutil.copy2(src, os.path.join(FILES_DIR, stored))
 
         entry = {
             'id': fid, 'name': display, 'file': stored, 'ext': ext,
             'size': size, 'cat': cat, 'desc': desc, 'tags': tags,
+            'tool': tool, 'role': role,
             'date': date.today().isoformat(),
         }
         data['files'] = [f for f in data['files'] if f['id'] != fid]
@@ -354,6 +456,12 @@ def cmd_add(data, paths, args):
         existing.add(fid)
         added.append(display)
         print('  取り込みました → files/{0}'.format(stored))
+        if tool:
+            tname = dict(tools).get(tool, tool)
+            print('  「{0}」のカードに{1}として出ます。'.format(
+                tname, '導入手順書' if role == 'guide' else '添付資料'))
+        else:
+            print('  資料タブにだけ並びます（ツールには紐づけていません）。')
 
     if not added:
         print('\n追加できたファイルはありませんでした。')
@@ -377,6 +485,10 @@ def main():
     p.add_argument('--desc', help='説明文')
     p.add_argument('--tags', help='タグ（カンマ区切り）')
     p.add_argument('--name', help='表示名')
+    p.add_argument('--tool', help='紐づけるツールID（--tools で一覧・"" で紐づけない）')
+    p.add_argument('--guide', action='store_true',
+                   help='そのツールの「導入手順書」として登録する')
+    p.add_argument('--tools', action='store_true', help='ツールIDの一覧を表示')
     p.add_argument('-y', '--yes', action='store_true', help='質問せず既定値で取り込む')
     p.add_argument('--no-push', action='store_true', help='コミットまでで止める')
     p.add_argument('--rebuild', action='store_true', help='manifest から files.js を作り直す')
@@ -385,6 +497,16 @@ def main():
     args = p.parse_args()
 
     data = load_manifest()
+
+    if args.tools:
+        tools = load_tools()
+        if not tools:
+            print('assets/tools.js からツールを読み取れませんでした。')
+            return 1
+        print('ツール一覧（--tool に渡すID）:\n')
+        for tid, name in tools:
+            print('  {0:<18} {1}'.format(tid, name))
+        return 0
 
     if args.list:
         cmd_list(data)

@@ -1021,6 +1021,13 @@ a{ color:inherit; }
   box-shadow:0 0 0 3px rgba(27,79,156,.12);
 }
 
+.up-row-note{
+  margin:10px 0 0;
+  font-size:11.5px;
+  line-height:1.8;
+  color:var(--ink-weak);
+}
+
 .up-actions{ margin-top:14px; }
 .up-actions .file-btn[disabled]{
   opacity:.45;
@@ -1212,4 +1219,356 @@ body.viewer-open{ overflow:hidden; }
   .up-inner{ padding:16px; }
   .up-fields{ grid-template-columns:1fr; }
   .up-token-row input{ flex:1 1 100%; }
+}
+
+
+/* ==========================================================================
+   ツールカードの添付資料・導入手順書
+   ========================================================================== */
+
+/* カード全体をクリックできるようにリンクを敷き詰める。
+   添付資料と手順書ボタンは、その上に重ねて押し分けられるようにする。 */
+.card-stretch::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:1;
+  border-radius:var(--radius);
+}
+
+.card-files{
+  position:relative;
+  z-index:2;
+  margin:0 0 15px;
+  padding-top:13px;
+  border-top:1px dashed var(--line);
+}
+.card-files-head{
+  display:flex;
+  align-items:center;
+  gap:6px;
+  margin:0 0 9px;
+  font-size:11.5px;
+  font-weight:700;
+  letter-spacing:.04em;
+  color:var(--ink-weak);
+}
+.card-files-head svg{ width:13px; height:13px; }
+.card-files-head .n{
+  font-size:10.5px;
+  color:var(--ink-mid);
+  background:#F1F4F8;
+  border-radius:999px;
+  padding:1px 7px;
+}
+
+.att-list{
+  list-style:none;
+  margin:0;
+  padding:0;
+  display:flex;
+  flex-direction:column;
+  gap:6px;
+}
+.att-row{ display:flex; align-items:center; gap:6px; min-width:0; }
+
+.att{
+  flex:1 1 auto;
+  min-width:0;
+  display:flex;
+  align-items:center;
+  gap:8px;
+  padding:7px 9px;
+  text-decoration:none;
+  color:inherit;
+  background:#F7F9FC;
+  border:1px solid var(--line);
+  border-radius:9px;
+  transition:border-color .15s, background .15s;
+}
+.att:hover{ border-color:var(--navy); background:var(--navy-soft); }
+
+.att-ext{
+  flex:0 0 auto;
+  min-width:40px;
+  padding:3px 5px;
+  border-radius:5px;
+  text-align:center;
+  font-size:9.5px;
+  font-weight:700;
+  letter-spacing:.04em;
+  line-height:1.6;
+  color:#fff;
+  background:var(--ink-mid);
+}
+.att-name{
+  flex:1 1 auto;
+  min-width:0;
+  font-size:12.5px;
+  font-weight:700;
+  line-height:1.6;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+.att-size{ flex:0 0 auto; font-size:10.5px; color:var(--ink-weak); }
+.att-dl{ flex:0 0 auto; display:inline-flex; color:var(--navy); }
+.att-dl svg{ width:14px; height:14px; }
+
+.att-eye{
+  flex:0 0 auto;
+  font:inherit;
+  cursor:pointer;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:32px;
+  height:32px;
+  padding:0;
+  color:var(--ink-mid);
+  background:var(--surface);
+  border:1px solid var(--line);
+  border-radius:9px;
+  transition:border-color .15s, color .15s, background .15s;
+}
+.att-eye:hover{ border-color:var(--navy); color:var(--navy); background:var(--navy-soft); }
+.att-eye svg{ width:15px; height:15px; }
+
+.card-actions{
+  display:flex;
+  align-items:center;
+  justify-content:flex-end;
+  flex-wrap:wrap;
+  gap:10px;
+  min-width:0;
+}
+.card-guide{
+  position:relative;
+  z-index:2;
+  font:inherit;
+  cursor:pointer;
+  display:inline-flex;
+  align-items:center;
+  gap:5px;
+  padding:5px 10px;
+  font-size:12px;
+  font-weight:700;
+  white-space:nowrap;
+  color:var(--accent);
+  background:var(--accent-soft);
+  border:1px solid #EBD9C2;
+  border-radius:8px;
+  transition:background .15s, border-color .15s;
+}
+.card-guide:hover{ background:#F6E6D2; border-color:var(--accent); }
+.card-guide svg{ width:13px; height:13px; }
+
+/* ==========================================================================
+   導入手順書（モーダル）
+   ========================================================================== */
+
+.guide{
+  position:fixed;
+  inset:0;
+  z-index:120;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:28px;
+  background:rgba(13,42,82,.55);
+}
+.guide[hidden]{ display:none; }
+
+.guide-panel{
+  width:min(760px, 100%);
+  max-height:92vh;
+  display:flex;
+  flex-direction:column;
+  background:var(--surface);
+  border-radius:14px;
+  overflow:hidden;
+  box-shadow:var(--shadow-lift);
+}
+.guide-bar{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  padding:14px 16px;
+  background:#FBFCFE;
+  border-bottom:1px solid var(--line);
+}
+.guide-heads{ min-width:0; flex:1; }
+.guide-title{
+  display:block;
+  font-size:15px;
+  line-height:1.5;
+  overflow-wrap:anywhere;
+}
+.guide-meta{ font-size:11.5px; color:var(--ink-weak); }
+.guide-actions{ flex:0 0 auto; display:flex; gap:8px; }
+
+.guide-body{ overflow:auto; padding:22px 24px 28px; }
+
+.guide-lead{
+  margin:0 0 18px;
+  font-size:13.5px;
+  line-height:1.95;
+  color:var(--ink-mid);
+}
+.guide-need{
+  margin:0 0 20px;
+  padding:14px 16px;
+  background:var(--navy-soft);
+  border-radius:10px;
+}
+.guide-need h4{
+  margin:0 0 6px;
+  font-size:12.5px;
+  color:var(--navy);
+  letter-spacing:.03em;
+}
+.guide-need ul{ margin:0; padding-left:1.2em; }
+.guide-need li{ font-size:13px; line-height:1.9; color:var(--ink-mid); }
+
+.guide-steps{ list-style:none; margin:0; padding:0; }
+.guide-step{
+  position:relative;
+  display:flex;
+  gap:14px;
+  padding:0 0 20px;
+}
+.guide-step:last-child{ padding-bottom:0; }
+.guide-step:not(:last-child)::before{
+  content:"";
+  position:absolute;
+  left:31px;
+  top:26px;
+  bottom:4px;
+  width:2px;
+  background:var(--line);
+}
+.guide-num{
+  flex:0 0 64px;
+  height:22px;
+  margin-top:2px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  font-size:10px;
+  font-weight:700;
+  letter-spacing:.06em;
+  color:#fff;
+  background:var(--navy);
+  border-radius:999px;
+}
+.guide-step-body{ min-width:0; flex:1; }
+.guide-step-body h4{
+  margin:0 0 5px;
+  font-size:14.5px;
+  line-height:1.6;
+}
+.guide-step-body p{
+  margin:0;
+  font-size:13.5px;
+  line-height:1.9;
+  color:var(--ink-mid);
+}
+.guide-step-body .guide-step-note{
+  margin-top:7px;
+  font-size:12px;
+  line-height:1.8;
+  color:var(--ink-weak);
+}
+
+.guide-note{
+  margin:22px 0 0;
+  padding-top:16px;
+  border-top:1px solid var(--line);
+  font-size:12.5px;
+  line-height:1.9;
+  color:var(--ink-weak);
+}
+
+.guide-file{
+  display:flex;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-top:22px;
+  padding:14px;
+  background:#F7F9FC;
+  border:1px solid var(--line);
+  border-radius:10px;
+}
+.guide-file .att-ext{ min-width:46px; padding:7px 8px; font-size:11px; }
+/* 手順書ファイル欄の「見る」は文字が入るので、カード内の丸アイコン用の
+   固定サイズ（.att-eye の 32x32）を打ち消して通常のボタンに戻す */
+.guide-file .file-btn.att-eye{
+  width:auto;
+  height:auto;
+  padding:9px 14px;
+  border-radius:9px;
+  white-space:nowrap;
+}
+.guide-file .file-btn.att-eye svg{ width:14px; height:14px; }
+.guide-file-text{ flex:1 1 150px; min-width:0; display:flex; flex-direction:column; }
+.guide-file-text strong{ font-size:13.5px; overflow-wrap:anywhere; }
+.guide-file-text span{ font-size:11px; color:var(--ink-weak); }
+
+/* 資料タブ側：どのツールの資料かを示すバッジ */
+.file-tool{
+  display:inline-flex;
+  align-items:center;
+  gap:5px;
+  margin:0 20px 2px;
+  padding:3px 9px;
+  font-size:11px;
+  font-weight:700;
+  color:var(--navy);
+  background:var(--navy-soft);
+  border-radius:999px;
+}
+.file-tool.is-guide{ color:var(--accent); background:var(--accent-soft); }
+
+/* ---------------------------- スマホ ---------------------------- */
+
+@media (max-width:640px){
+  .guide{ padding:0; }
+  .guide-panel{
+    width:100%;
+    height:100%;
+    max-height:none;
+    border-radius:0;
+  }
+  .guide-bar{ flex-wrap:wrap; padding:12px; gap:8px; }
+  .guide-actions{ order:3; width:100%; }
+  .guide-actions .file-btn{ flex:1; justify-content:center; }
+  .guide-body{ padding:18px 16px 26px; }
+  .guide-step{ gap:10px; }
+  .guide-num{ flex-basis:58px; }
+  .guide-step:not(:last-child)::before{ left:28px; }
+  .att-size{ display:none; }
+}
+
+/* ---------------------------- 印刷 ---------------------------- */
+
+@media print{
+  body.guide-open > *{ display:none !important; }
+  body.guide-open .guide{
+    display:block !important;
+    position:static;
+    padding:0;
+    background:#fff;
+  }
+  body.guide-open .guide-panel{
+    width:100%;
+    max-height:none;
+    border-radius:0;
+    box-shadow:none;
+  }
+  body.guide-open .guide-bar{ background:#fff; }
+  body.guide-open .guide-body{ overflow:visible; padding:16px 0 0; }
+  .guide-actions,
+  .guide-bar .viewer-close{ display:none !important; }
+  .guide-step{ break-inside:avoid; page-break-inside:avoid; }
 }

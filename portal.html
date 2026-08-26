@@ -71,6 +71,12 @@
   <p class="result-count" id="resultCount"></p>
 
   <div class="grid" id="grid"></div>
+
+  <p class="file-note">
+    カードに <strong>添付資料</strong> があるツールは、その場でファイルをダウンロードできます。
+    <strong>導入手順書</strong>があるものは、ボタンから手順を開いて印刷・PDF保存できます。<br>
+    <span class="file-note-warn">ファイルのURLを直接知っている人は、ログインなしでも取得できます。社外秘の資料は置かないでください。</span>
+  </p>
 </main>
 
 <!-- ============================= 資料一覧 ============================= -->
@@ -146,6 +152,24 @@
     <span class="file-note-warn">ファイルのURLを直接知っている人は、ログインなしでも取得できます。社外秘の資料は置かないでください。</span>
   </p>
 </section>
+
+<!-- ========================== 導入手順書 ========================== -->
+<div class="guide" id="guide" role="dialog" aria-modal="true" aria-labelledby="guideTitle" hidden>
+  <div class="guide-panel">
+    <div class="guide-bar">
+      <div class="guide-heads">
+        <strong class="guide-title" id="guideTitle"></strong>
+        <span class="guide-meta" id="guideMeta"></span>
+      </div>
+      <div class="guide-actions">
+        <a class="file-btn" id="guideDl" href="#" download hidden>手順書をダウンロード</a>
+        <button type="button" class="file-btn" id="guidePrint">印刷 / PDF保存</button>
+      </div>
+      <button type="button" class="viewer-close" id="guideClose" aria-label="閉じる">&times;</button>
+    </div>
+    <div class="guide-body" id="guideBody"></div>
+  </div>
+</div>
 
 <!-- ============================ プレビュー ============================ -->
 <div class="viewer" id="viewer" role="dialog" aria-modal="true" aria-labelledby="viewerTitle" hidden>

@@ -55,6 +55,23 @@
     return m ? (m[1] + '.' + m[2] + '.' + m[3]) : String(s);
   }
 
+  /* ダウンロード時のファイル名。表示名に拡張子が無ければ足す
+     （足さないと拡張子なしで保存され、Excel などが開けなくなる） */
+  function dlName(f) {
+    var name = String(f && f.name || 'file');
+    var ext  = String(f && f.ext || '').toLowerCase();
+    if (!ext) return name;
+    return name.toLowerCase().slice(-(ext.length + 1)) === ('.' + ext)
+      ? name : (name + '.' + ext);
+  }
+
+  /* この資料がどのツールのものか（assets/tools.js を引く） */
+  function toolNameOf(f) {
+    if (!f || !f.tool || typeof TOOLS === 'undefined') return '';
+    var hit = TOOLS.filter(function (t) { return t.id === f.tool; });
+    return hit.length ? hit[0].name : '';
+  }
+
   var IMAGE_EXT = ['png', 'jpg', 'jpeg', 'gif', 'webp', 'svg', 'bmp'];
   var TEXT_EXT  = ['csv', 'txt', 'md', 'tsv', 'json'];
 
@@ -86,6 +103,12 @@
     '<path d="M1.8 12S5.5 5 12 5s10.2 7 10.2 7-3.7 7-10.2 7S1.8 12 1.8 12Z"/>' +
     '<circle cx="12" cy="12" r="3"/></svg>';
 
+  var ICON_BOOK =
+    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" ' +
+    'stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +
+    '<path d="M4 4.5A1.5 1.5 0 0 1 5.5 3H12v16H5.5A1.5 1.5 0 0 0 4 20.5Z"/>' +
+    '<path d="M20 4.5A1.5 1.5 0 0 0 18.5 3H12v16h6.5a1.5 1.5 0 0 1 1.5 1.5Z"/></svg>';
+
   var ICON_DL =
     '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" ' +
     'stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +
@@ -97,7 +120,9 @@
     if (state.cat !== 'all' && f.cat !== state.cat) return false;
     var q = state.q.trim().toLowerCase();
     if (!q) return true;
-    var hay = [f.name, f.desc, (f.tags || []).join(' '), f.ext].join(' ').toLowerCase();
+    var hay = [f.name, f.desc, (f.tags || []).join(' '), f.ext,
+               toolNameOf(f), f.role === 'guide' ? '導入手順書 手順書' : '']
+      .join(' ').toLowerCase();
     return q.split(/\s+/).every(function (w) { return hay.indexOf(w) !== -1; });
   }
 
@@ -152,8 +177,25 @@
         ICON_EYE + '見る</button>'
       : '';
 
+    /* このツールの導入手順書へ。手順書そのもののカードには出さない
+       （同じものが開くだけで、ダウンロードのボタンと重なるため） */
+    var guideBtn = (f.tool && f.role !== 'guide' &&
+                    window.AIPTools && window.AIPTools.hasGuide &&
+                    window.AIPTools.hasGuide(f.tool))
+      ? '<button type="button" class="file-btn file-btn-guide" data-tool="' +
+        esc(f.tool) + '">' + ICON_BOOK + '導入手順書</button>'
+      : '';
+
+    var tname = toolNameOf(f);
+    var toolBadge = tname
+      ? '<span class="file-tool' + (f.role === 'guide' ? ' is-guide' : '') + '">' +
+        (f.role === 'guide' ? '📖 ' : '🧰 ') + esc(tname) +
+        (f.role === 'guide' ? ' の導入手順書' : ' の資料') + '</span>'
+      : '';
+
     return '<article class="file-card">' +
       thumb +
+      toolBadge +
       '<div class="file-head">' +
         '<span class="file-ext ' + extClass(f.ext) + '">' +
           esc(String(f.ext || '?').toUpperCase()) + '</span>' +
@@ -166,8 +208,9 @@
       (tags ? '<div class="card-tags">' + tags + '</div>' : '') +
       '<div class="file-foot">' +
         preview +
+        guideBtn +
         '<a class="file-btn file-btn-dl" href="' + esc(f.path) + '" download="' +
-          esc(f.name) + '">' + ICON_DL + 'ダウンロード</a>' +
+          esc(dlName(f)) + '">' + ICON_DL + 'ダウンロード</a>' +
       '</div>' +
     '</article>';
   }
@@ -208,7 +251,7 @@
       [String(f.ext || '').toUpperCase(), fmtSize(f.size), fmtDate(f.date)]
         .filter(Boolean).join(' ・ ');
     el.vDl.href = f.path;
-    el.vDl.setAttribute('download', f.name);
+    el.vDl.setAttribute('download', dlName(f));
     el.vBody.innerHTML = '<p class="viewer-loading">読み込んでいます…</p>';
     el.viewer.hidden = false;
     document.body.classList.add('viewer-open');
@@ -366,6 +409,14 @@
   });
 
   el.list.addEventListener('click', function (e) {
+    var gb = e.target.closest('.file-btn-guide');
+    if (gb) {
+      if (window.AIPTools && window.AIPTools.openGuide) {
+        window.AIPTools.openGuide(gb.getAttribute('data-tool'));
+      }
+      return;
+    }
+
     var btn = e.target.closest('.file-btn-view');
     if (!btn) return;
     var f = FILES[Number(btn.getAttribute('data-i'))];
@@ -391,4 +442,26 @@
   renderList();
 
   if (String(window.location.hash).toLowerCase() === '#files') setView('files');
+
+  /* ツールカードの添付資料からプレビューを呼べるようにする */
+  window.AIPFiles = {
+    open: function (f) {
+      if (!f) return;
+      if (!canPreview(f)) {
+        var a = document.createElement('a');
+        a.href = f.path;
+        a.setAttribute('download', dlName(f));
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        return;
+      }
+      openViewer(f);
+    },
+    get: function (id) {
+      var hit = FILES.filter(function (f) { return f.id === id; });
+      return hit.length ? hit[0] : null;
+    },
+    setView: setView
+  };
 })();

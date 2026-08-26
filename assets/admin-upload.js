@@ -255,6 +255,8 @@
           '    cat:  ' + jsLit(f.cat || 'other') + ',\n' +
           '    desc: ' + jsLit(f.desc || '') + ',\n' +
           '    tags: ' + jsLit(f.tags || []) + ',\n' +
+          '    tool: ' + jsLit(f.tool || '') + ',\n' +
+          '    role: ' + jsLit(f.role || 'doc') + ',\n' +
           '    date: ' + jsLit(f.date || '') + '\n' +
           '  }';
       }).join(',\n') +
@@ -262,6 +264,14 @@
   }
 
   /* ---------- 待ち行列（アップロード前の入力欄） ---------- */
+
+  /* assets/tools.js のツールを、そのままプルダウンに出す */
+  function toolOptions() {
+    if (typeof TOOLS === 'undefined') return '';
+    return TOOLS.map(function (t) {
+      return '<option value="' + esc(t.id) + '">' + esc(t.name) + '</option>';
+    }).join('');
+  }
 
   var queue = [];
 
@@ -306,9 +316,19 @@
                 (c.id === cat ? ' selected' : '') + '>' + esc(c.label) + '</option>';
             }).join('') +
           '</select></label>' +
+          '<label>どのツールの資料か<select class="up-tool">' +
+            '<option value="">（ツールに紐づけない）</option>' +
+            toolOptions() +
+          '</select></label>' +
+          '<label>種類<select class="up-role">' +
+            '<option value="doc">添付資料</option>' +
+            '<option value="guide">導入手順書</option>' +
+          '</select></label>' +
           '<label class="up-wide">説明（任意）<input type="text" class="up-desc" placeholder="どんな資料かひとこと"></label>' +
           '<label class="up-wide">タグ（任意・カンマ区切り）<input type="text" class="up-tags" placeholder="提案, 工務店"></label>' +
         '</div>' +
+        '<p class="up-row-note">ツールを選ぶと、そのカードにダウンロードのリンクが並びます。' +
+          '「導入手順書」を選ぶと、カードの［導入手順書］ボタンから開けます。</p>' +
       '</div>';
     }).join('');
 
@@ -320,12 +340,16 @@
     return Array.prototype.map.call(el.queue.querySelectorAll('.up-row'), function (row, i) {
       var tags = row.querySelector('.up-tags').value
         .split(',').map(function (t) { return t.trim(); }).filter(Boolean);
+      var tool = row.querySelector('.up-tool').value;
       return {
         file: queue[i].file,
         name: row.querySelector('.up-name').value.trim() || queue[i].file.name,
         cat:  row.querySelector('.up-cat').value,
         desc: row.querySelector('.up-desc').value.trim(),
-        tags: tags
+        tags: tags,
+        tool: tool,
+        /* ツールを選んでいないのに「導入手順書」だけ選ばれても意味がないので落とす */
+        role: tool ? row.querySelector('.up-role').value : 'doc'
       };
     });
   }
@@ -401,7 +425,8 @@
           manifest.files.push({
             id: meta.id, name: item.name, file: meta.file, ext: meta.ext,
             size: item.file.size, cat: item.cat, desc: item.desc,
-            tags: item.tags, date: today()
+            tags: item.tags, tool: item.tool || '', role: item.role || 'doc',
+            date: today()
           });
           log('　→ 送信しました。', 'ok');
         });
