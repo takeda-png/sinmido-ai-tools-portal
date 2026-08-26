@@ -162,28 +162,6 @@ var TOOLS = [
     icon: '🗾'
   },
   {
-    id: 'hitokara',
-    name: 'hitokara（人的資本サーベイ）',
-    tagline: 'ISO30414 準拠で組織を数値化',
-    desc: '国際規格 ISO30414 に沿って人的資本を可視化するサーベイ。エンゲージメント・離職リスク・育成状況を数値で押さえ、次の一手を決めるための材料にします。',
-    cat: 'saiyo',
-    tags: ['人的資本', 'ISO30414', 'サーベイ'],
-    url: 'https://sinmido.com/hitokara/',
-    status: 'public',
-    icon: '🧭'
-  },
-  {
-    id: 'hugkumi',
-    name: 'HUGKUMI',
-    tagline: '子育て世代の定着を支える福利厚生',
-    desc: '子育て中の社員を支える福利厚生サービス。採用力と定着率の両方に効く制度として、企業単位で導入できます。',
-    cat: 'saiyo',
-    tags: ['福利厚生', '定着率', '子育て支援'],
-    url: 'https://dx-insight.com/service/hugkumi/',
-    status: 'public',
-    icon: '🤝'
-  },
-  {
     id: 'whitepaper-100',
     name: '埼玉県内企業100社 新卒採用実態調査',
     tagline: '採用した会社としなかった会社の差',
@@ -198,18 +176,6 @@ var TOOLS = [
 
   /* ---------------- 分析・診断 ---------------- */
 
-  {
-    id: 'scope',
-    name: 'SCOPE（Web分析AI）',
-    tagline: 'サイトに来た「会社」が分かる',
-    desc: 'GA4では分からない「どの企業が見に来て、どこで離脱したか」を法人単位で可視化。改善すべき箇所をAIが指摘し、広告費を増やさずにCVRを上げることを狙います。',
-    cat: 'bunseki',
-    tags: ['Web分析', 'CVR改善', '法人特定'],
-    url: 'https://sinmido.com/scope/',
-    status: 'public',
-    icon: '🔍',
-    featured: true
-  },
   {
     id: 'ai-shindan',
     name: 'AI検索 無料診断',
