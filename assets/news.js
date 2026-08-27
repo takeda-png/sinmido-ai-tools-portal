@@ -5,11 +5,11 @@
       GitHub Actions（.github/workflows/update-news.yml）が毎日つくり直します。
       手元で作り直すときは  python tools/fetch_news.py
 
-   最終取得: 2026-08-26
+   最終取得: 2026-08-27
    ========================================================================== */
 
 var NEWS_META = {
-  "updated": "2026-08-26T16:15:03+09:00",
+  "updated": "2026-08-27T11:25:05+09:00",
   "lang": "en",
   "sources": [
     {
@@ -29,15 +29,15 @@ var NEWS = [
   {
     "id": "claudecode:2026-08-24",
     "src": "claudecode",
-    "date": "2026-08-25",
+    "date": "2026-08-26",
     "cat": "Release notes",
     "catJa": "更新",
-    "title": "Claude Code の更新（8/24〜8/25）",
-    "summary": "3 回リリース（v2.1.243〜v2.1.246）。新機能 13件・修正 80件・改善 29件。",
+    "title": "Claude Code の更新（8/24〜8/26）",
+    "summary": "4 回リリース（v2.1.243〜v2.1.247）。新機能 17件・修正 99件・改善 39件。",
     "bullets": [
-      "Added a startup warning for Bash allow rules with a wildcard before the subcommand (e.g. Bash(git * main)), since they also match options inserted before the subcommand",
-      "Added an Auto mode tab to /permissions for viewing and editing auto mode classifier rules",
-      "Added the turn's completion time to the end-of-turn duration line, e.g. ✻ Sautéed for 23s · done 6:05 PM"
+      "Added the SendFeedback tool: when something goes wrong in a session, Claude can draft a feedback report for you to review and send from /feedback (turn off with the feedbackDrafts setting)",
+      "Added {id, text, cooldownSessions, priority} entries, tipsFile, and label to spinnerTipsOverride, so organizations can rotate their own tips alongside the built-in ones",
+      "Added a tip on Bash permission prompts pointing to auto mode, with a one-keystroke \"Yes, and switch to auto mode\" option"
     ],
     "url": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md",
     "srcJa": true
