@@ -5,11 +5,11 @@
       GitHub Actions（.github/workflows/update-news.yml）が毎日つくり直します。
       手元で作り直すときは  python tools/fetch_news.py
 
-   最終取得: 2026-08-27
+   最終取得: 2026-08-28
    ========================================================================== */
 
 var NEWS_META = {
-  "updated": "2026-08-27T11:25:05+09:00",
+  "updated": "2026-08-28T14:52:22+09:00",
   "lang": "en",
   "sources": [
     {
@@ -29,18 +29,38 @@ var NEWS = [
   {
     "id": "claudecode:2026-08-24",
     "src": "claudecode",
-    "date": "2026-08-26",
+    "date": "2026-08-27",
     "cat": "Release notes",
     "catJa": "更新",
-    "title": "Claude Code の更新（8/24〜8/26）",
-    "summary": "4 回リリース（v2.1.243〜v2.1.247）。新機能 17件・修正 99件・改善 39件。",
+    "title": "Claude Code の更新（8/24〜8/27）",
+    "summary": "6 回リリース（v2.1.243〜v2.1.250）。新機能 24件・修正 129件・改善 52件。",
     "bullets": [
-      "Added the SendFeedback tool: when something goes wrong in a session, Claude can draft a feedback report for you to review and send from /feedback (turn off with the feedbackDrafts setting)",
-      "Added {id, text, cooldownSessions, priority} entries, tipsFile, and label to spinnerTipsOverride, so organizations can rotate their own tips alongside the built-in ones",
-      "Added a tip on Bash permission prompts pointing to auto mode, with a one-keystroke \"Yes, and switch to auto mode\" option"
+      "Added --restricted (or CLAUDE_CODE_RESTRICTED=1): removes the built-in tools that run commands or code and WebFetch (unless named in --tools), keeps file tools inside the working directory, refuses bypassPermissions, and ignores user, project and local settings files",
+      "Added experimental.cacheTtl (\"5m\" or \"1h\") to agent frontmatter: a per-agent prompt cache TTL used when no subagent TTL setting is configured",
+      "Added claude self-hosted-runner --client-label <label> (or SELF_HOSTED_RUNNER_CLIENT_LABEL) to override the label the runner registers with (default: hostname)"
     ],
     "url": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md",
     "srcJa": true
+  },
+  {
+    "id": "anthropic:model-hardware-standard-research-preview",
+    "src": "anthropic",
+    "date": "2026-08-27",
+    "cat": "Announcements",
+    "catJa": "お知らせ",
+    "title": "Previewing the Model Hardware Standard",
+    "summary": "We’re opening a research preview of the Model Hardware Standard (MHS), a shared specification for AI agents to safely operate physical devices, to a first group of scientific research labs and advanced manufacturers.",
+    "url": "https://www.anthropic.com/news/model-hardware-standard-research-preview"
+  },
+  {
+    "id": "anthropic:expanding-support-for-scientists",
+    "src": "anthropic",
+    "date": "2026-08-27",
+    "cat": "Announcements",
+    "catJa": "お知らせ",
+    "title": "Expanding our support for scientists",
+    "summary": "",
+    "url": "https://www.anthropic.com/news/expanding-support-for-scientists"
   },
   {
     "id": "anthropic:wellbeing-research-grants",
@@ -169,26 +189,6 @@ var NEWS = [
     "title": "Introducing Claude Opus 5",
     "summary": "Opus 5 is a step change improvement for the Opus tier powering long-running agents while delivering improvements in coding and professional work.",
     "url": "https://www.anthropic.com/news/claude-opus-5"
-  },
-  {
-    "id": "anthropic:economic-futures-research-fund-agenda",
-    "src": "anthropic",
-    "date": "2026-07-22",
-    "cat": "Economics",
-    "catJa": "経済",
-    "title": "A research agenda for the Economic Futures Research Fund",
-    "summary": "We’re committing $200 million to the Anthropic Economic Futures Research Fund to support ambitious external research.",
-    "url": "https://www.anthropic.com/news/economic-futures-research-fund-agenda"
-  },
-  {
-    "id": "anthropic:anthropic-economic-index-connector",
-    "src": "anthropic",
-    "date": "2026-07-22",
-    "cat": "Product",
-    "catJa": "製品",
-    "title": "Ask Claude about the Anthropic Economic Index",
-    "summary": "We're launching the Anthropic Economic Index connector for Claude, which lets anyone explore the data directly.",
-    "url": "https://www.anthropic.com/news/anthropic-economic-index-connector"
   },
   {
     "id": "anthropic:claude-sonnet-5",
