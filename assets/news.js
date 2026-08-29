@@ -5,11 +5,11 @@
       GitHub Actions（.github/workflows/update-news.yml）が毎日つくり直します。
       手元で作り直すときは  python tools/fetch_news.py
 
-   最終取得: 2026-08-28
+   最終取得: 2026-08-29
    ========================================================================== */
 
 var NEWS_META = {
-  "updated": "2026-08-28T14:52:22+09:00",
+  "updated": "2026-08-29T12:25:30+09:00",
   "lang": "en",
   "sources": [
     {
@@ -29,15 +29,15 @@ var NEWS = [
   {
     "id": "claudecode:2026-08-24",
     "src": "claudecode",
-    "date": "2026-08-27",
+    "date": "2026-08-28",
     "cat": "Release notes",
     "catJa": "更新",
-    "title": "Claude Code の更新（8/24〜8/27）",
-    "summary": "6 回リリース（v2.1.243〜v2.1.250）。新機能 24件・修正 129件・改善 52件。",
+    "title": "Claude Code の更新（8/24〜8/28）",
+    "summary": "7 回リリース（v2.1.243〜v2.1.251）。新機能 29件・修正 169件・改善 78件。",
     "bullets": [
-      "Added --restricted (or CLAUDE_CODE_RESTRICTED=1): removes the built-in tools that run commands or code and WebFetch (unless named in --tools), keeps file tools inside the working directory, refuses bypassPermissions, and ignores user, project and local settings files",
-      "Added experimental.cacheTtl (\"5m\" or \"1h\") to agent frontmatter: a per-agent prompt cache TTL used when no subagent TTL setting is configured",
-      "Added claude self-hosted-runner --client-label <label> (or SELF_HOSTED_RUNNER_CLIENT_LABEL) to override the label the runner registers with (default: hostname)"
+      "Added PreModelSwitch and PostModelSwitch hook events (block, confirm, or annotate a model switch); SessionStart resume hooks now receive session staleness and the estimated re-cache cost",
+      "Added live streaming of a foreground subagent's tool calls and results to Remote Control clients (background subagents, the default, still show status only)",
+      "Added a Spend limit bar to /usage and a rate_limits.spend_limit status line field for developers behind a Claude apps gateway with spend limits"
     ],
     "url": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md",
     "srcJa": true
