@@ -5,11 +5,11 @@
       GitHub Actions（.github/workflows/update-news.yml）が毎日つくり直します。
       手元で作り直すときは  python tools/fetch_news.py
 
-   最終取得: 2026-08-29
+   最終取得: 2026-09-01
    ========================================================================== */
 
 var NEWS_META = {
-  "updated": "2026-08-29T12:25:30+09:00",
+  "updated": "2026-09-01T09:54:18+09:00",
   "lang": "en",
   "sources": [
     {
@@ -26,6 +26,32 @@ var NEWS_META = {
 };
 
 var NEWS = [
+  {
+    "id": "claudecode:2026-08-31",
+    "src": "claudecode",
+    "date": "2026-08-31",
+    "cat": "Release notes",
+    "catJa": "更新",
+    "title": "Claude Code の更新（8/31）",
+    "summary": "1 回リリース（v2.1.252〜v2.1.252）。新機能 0件・修正 4件・改善 0件。",
+    "bullets": [
+      "Fixed Bash commands failing with \"task output swap refused (tasks dir moved or linked)\" on some Macs",
+      "Fixed \"always allow\" not saving in a project that has no .claude/settings.local.json yet",
+      "Fixed Remote Control sessions hosted by Claude Desktop or VS Code stalling for minutes after a tool finished when the connection to claude.ai was degraded"
+    ],
+    "url": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md",
+    "srcJa": true
+  },
+  {
+    "id": "anthropic:improving-alignment-security-efforts",
+    "src": "anthropic",
+    "date": "2026-08-31",
+    "cat": "",
+    "catJa": "ニュース",
+    "title": "Improving our alignment and security efforts",
+    "summary": "",
+    "url": "https://www.anthropic.com/news/improving-alignment-security-efforts"
+  },
   {
     "id": "claudecode:2026-08-24",
     "src": "claudecode",
@@ -113,22 +139,6 @@ var NEWS = [
     "title": "How Claude’s text watermark works",
     "summary": "In this article, we share answers to some of the questions we’ve received about how our chosen watermarking method works, whether it affects Claude’s outputs, and why we’re making this change.",
     "url": "https://www.anthropic.com/news/claude-text-watermark"
-  },
-  {
-    "id": "claudecode:2026-08-03",
-    "src": "claudecode",
-    "date": "2026-08-08",
-    "cat": "Release notes",
-    "catJa": "更新",
-    "title": "Claude Code の更新（8/3〜8/8）",
-    "summary": "6 回リリース（v2.1.221〜v2.1.226）。新機能 15件・修正 66件・改善 44件。",
-    "bullets": [
-      "Added gateway spend-limit support to Claude Code's usage warning; the limit-reached message now names the cap, its reset time, and the operator's message (requires the gateway on 2.1.225)",
-      "Added a workspace trust prompt to claude agents for untrusted directories, matching the behavior of claude",
-      "Added self-hosted environments: claude self-hosted-runner turns your own machines or containers into a place Claude Code web, mobile, and desktop sessions can run, on Team and Enterprise plans"
-    ],
-    "url": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md",
-    "srcJa": true
   },
   {
     "id": "anthropic:improving-fable-5-s-biology-safeguards",
