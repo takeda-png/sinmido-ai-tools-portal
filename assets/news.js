@@ -5,11 +5,11 @@
       GitHub Actions（.github/workflows/update-news.yml）が毎日つくり直します。
       手元で作り直すときは  python tools/fetch_news.py
 
-   最終取得: 2026-09-01
+   最終取得: 2026-09-02
    ========================================================================== */
 
 var NEWS_META = {
-  "updated": "2026-09-01T09:54:18+09:00",
+  "updated": "2026-09-02T08:40:48+09:00",
   "lang": "en",
   "sources": [
     {
@@ -29,18 +29,28 @@ var NEWS = [
   {
     "id": "claudecode:2026-08-31",
     "src": "claudecode",
-    "date": "2026-08-31",
+    "date": "2026-09-01",
     "cat": "Release notes",
     "catJa": "更新",
-    "title": "Claude Code の更新（8/31）",
-    "summary": "1 回リリース（v2.1.252〜v2.1.252）。新機能 0件・修正 4件・改善 0件。",
+    "title": "Claude Code の更新（8/31〜9/1）",
+    "summary": "3 回リリース（v2.1.252〜v2.1.258）。新機能 8件・修正 69件・改善 33件。",
     "bullets": [
-      "Fixed Bash commands failing with \"task output swap refused (tasks dir moved or linked)\" on some Macs",
-      "Fixed \"always allow\" not saving in a project that has no .claude/settings.local.json yet",
-      "Fixed Remote Control sessions hosted by Claude Desktop or VS Code stalling for minutes after a tool finished when the connection to claude.ai was degraded"
+      "Added Claude Fable 5.1 (claude-fable-5-1), now the default Fable model — 1M context, $10/$50 per Mtok with $0.25/Mtok cache reads",
+      "Added \"Time format\" (timeFormat) and timeZone settings: 12-hour, 24-hour, 24-hour UTC, or a strftime pattern for the turn-end clock and transcript-view timestamps",
+      "Added a Containment Escape rule to auto mode so cloud metadata-credential fetches, egress evasion, and cross-tenant reach are no longer auto-approved unless your environment marks them expected"
     ],
     "url": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md",
     "srcJa": true
+  },
+  {
+    "id": "anthropic:enterprise-frontier-safeguards",
+    "src": "anthropic",
+    "date": "2026-09-01",
+    "cat": "Announcements",
+    "catJa": "お知らせ",
+    "title": "Developing Enterprise Frontier Safeguards with our customers",
+    "summary": "",
+    "url": "https://www.anthropic.com/news/enterprise-frontier-safeguards"
   },
   {
     "id": "anthropic:improving-alignment-security-efforts",
@@ -49,7 +59,7 @@ var NEWS = [
     "cat": "",
     "catJa": "ニュース",
     "title": "Improving our alignment and security efforts",
-    "summary": "",
+    "summary": "On July 30, we reported three incidents in which Claude models gained unauthorized access to real computer systems. We are conducting an in-depth analysis of both incidents, and planning to work with METR for an independent review. In the meantime, we’re sharing some of the changes we’ve made over the past month.",
     "url": "https://www.anthropic.com/news/improving-alignment-security-efforts"
   },
   {
@@ -181,16 +191,6 @@ var NEWS = [
     "url": "https://www.anthropic.com/news/position-open-weights-models"
   },
   {
-    "id": "anthropic:cognizant-anthropic",
-    "src": "anthropic",
-    "date": "2026-07-27",
-    "cat": "Announcements",
-    "catJa": "お知らせ",
-    "title": "Cognizant and Anthropic expand their partnership to bring Claude to enterprise clients",
-    "summary": "Cognizant embeds Claude across its platforms, with 30,000+ associates trained, and becomes a Global Premier Partner in the Claude Partner Network.",
-    "url": "https://www.anthropic.com/news/cognizant-anthropic"
-  },
-  {
     "id": "anthropic:claude-opus-5",
     "src": "anthropic",
     "date": "2026-07-24",
@@ -199,15 +199,5 @@ var NEWS = [
     "title": "Introducing Claude Opus 5",
     "summary": "Opus 5 is a step change improvement for the Opus tier powering long-running agents while delivering improvements in coding and professional work.",
     "url": "https://www.anthropic.com/news/claude-opus-5"
-  },
-  {
-    "id": "anthropic:claude-sonnet-5",
-    "src": "anthropic",
-    "date": "2026-06-30",
-    "cat": "Product",
-    "catJa": "製品",
-    "title": "Introducing Claude Sonnet 5",
-    "summary": "Sonnet 5 delivers frontier performance across coding, agents, and professional work at scale.",
-    "url": "https://www.anthropic.com/news/claude-sonnet-5"
   }
 ];
