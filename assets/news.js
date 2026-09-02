@@ -5,11 +5,11 @@
       GitHub Actions（.github/workflows/update-news.yml）が毎日つくり直します。
       手元で作り直すときは  python tools/fetch_news.py
 
-   最終取得: 2026-09-02
+   最終取得: 2026-09-03
    ========================================================================== */
 
 var NEWS_META = {
-  "updated": "2026-09-02T08:40:48+09:00",
+  "updated": "2026-09-03T08:41:02+09:00",
   "lang": "en",
   "sources": [
     {
@@ -29,15 +29,15 @@ var NEWS = [
   {
     "id": "claudecode:2026-08-31",
     "src": "claudecode",
-    "date": "2026-09-01",
+    "date": "2026-09-02",
     "cat": "Release notes",
     "catJa": "更新",
-    "title": "Claude Code の更新（8/31〜9/1）",
-    "summary": "3 回リリース（v2.1.252〜v2.1.258）。新機能 8件・修正 69件・改善 33件。",
+    "title": "Claude Code の更新（8/31〜9/2）",
+    "summary": "4 回リリース（v2.1.252〜v2.1.259）。新機能 12件・修正 95件・改善 40件。",
     "bullets": [
-      "Added Claude Fable 5.1 (claude-fable-5-1), now the default Fable model — 1M context, $10/$50 per Mtok with $0.25/Mtok cache reads",
-      "Added \"Time format\" (timeFormat) and timeZone settings: 12-hour, 24-hour, 24-hour UTC, or a strftime pattern for the turn-end clock and transcript-view timestamps",
-      "Added a Containment Escape rule to auto mode so cloud metadata-credential fetches, egress evasion, and cross-tenant reach are no longer auto-approved unless your environment marks them expected"
+      "Added managedMcpServers managed setting: organizations can provide HTTP/SSE MCP servers to every user (same entry shape as .mcp.json); entries that name a command to run are skipped",
+      "Added --permission-prompts none for unattended headless hosts: anything that would prompt is denied automatically while the active permission mode (including auto mode) keeps deciding",
+      "Added recognition of glab mr create/merge/close/reopen/note/update so GitLab merge requests show as MR !N in the collapsed tool summary and refresh the footer MR badge"
     ],
     "url": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md",
     "srcJa": true
