@@ -5,11 +5,11 @@
       GitHub Actions（.github/workflows/update-news.yml）が毎日つくり直します。
       手元で作り直すときは  python tools/fetch_news.py
 
-   最終取得: 2026-09-03
+   最終取得: 2026-09-05
    ========================================================================== */
 
 var NEWS_META = {
-  "updated": "2026-09-03T08:41:02+09:00",
+  "updated": "2026-09-05T08:34:08+09:00",
   "lang": "en",
   "sources": [
     {
@@ -29,15 +29,15 @@ var NEWS = [
   {
     "id": "claudecode:2026-08-31",
     "src": "claudecode",
-    "date": "2026-09-02",
+    "date": "2026-09-04",
     "cat": "Release notes",
     "catJa": "更新",
-    "title": "Claude Code の更新（8/31〜9/2）",
-    "summary": "4 回リリース（v2.1.252〜v2.1.259）。新機能 12件・修正 95件・改善 40件。",
+    "title": "Claude Code の更新（8/31〜9/4）",
+    "summary": "6 回リリース（v2.1.252〜v2.1.261）。新機能 22件・修正 154件・改善 104件。",
     "bullets": [
-      "Added managedMcpServers managed setting: organizations can provide HTTP/SSE MCP servers to every user (same entry shape as .mcp.json); entries that name a command to run are skipped",
-      "Added --permission-prompts none for unattended headless hosts: anything that would prompt is denied automatically while the active permission mode (including auto mode) keeps deciding",
-      "Added recognition of glab mr create/merge/close/reopen/note/update so GitLab merge requests show as MR !N in the collapsed tool summary and refresh the footer MR badge"
+      "Added an \"Organization policy\" line to /status and claude doctor that says why your organization's policy could not be loaded, such as a proxy not passing the endpoint through",
+      "Added bashOutputMaxChars and taskOutputMaxChars settings to raise how much command and background-task output Claude receives inline before it is saved to a file, up to 128K characters",
+      "Added --append-subagent-system-prompt-file to read the subagent system prompt from a file, for prompts too large to pass on the command line"
     ],
     "url": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md",
     "srcJa": true
@@ -174,8 +174,8 @@ var NEWS = [
     "id": "anthropic:investigating-incidents-cybersecurity-evals",
     "src": "anthropic",
     "date": "2026-07-30",
-    "cat": "",
-    "catJa": "ニュース",
+    "cat": "Announcements",
+    "catJa": "お知らせ",
     "title": "Investigating three real-world incidents in our cybersecurity evaluations",
     "summary": "In a review of our cybersecurity evaluation transcripts, we found three incidents in which a Claude model reached the internet from within or while interacting with a third-party evaluation environment, and then gained unauthorized access to the real systems of three different organizations. Below we describe what happened, how it happened, and what we’re changing. We encourage other AI labs to perform similar reviews.",
     "url": "https://www.anthropic.com/news/investigating-incidents-cybersecurity-evals"
