@@ -5,11 +5,11 @@
       GitHub Actions（.github/workflows/update-news.yml）が毎日つくり直します。
       手元で作り直すときは  python tools/fetch_news.py
 
-   最終取得: 2026-09-05
+   最終取得: 2026-09-07
    ========================================================================== */
 
 var NEWS_META = {
-  "updated": "2026-09-05T08:34:08+09:00",
+  "updated": "2026-09-07T08:21:16+09:00",
   "lang": "en",
   "sources": [
     {
@@ -29,11 +29,11 @@ var NEWS = [
   {
     "id": "claudecode:2026-08-31",
     "src": "claudecode",
-    "date": "2026-09-04",
+    "date": "2026-09-06",
     "cat": "Release notes",
     "catJa": "更新",
-    "title": "Claude Code の更新（8/31〜9/4）",
-    "summary": "6 回リリース（v2.1.252〜v2.1.261）。新機能 22件・修正 154件・改善 104件。",
+    "title": "Claude Code の更新（8/31〜9/6）",
+    "summary": "7 回リリース（v2.1.252〜v2.1.263）。新機能 22件・修正 154件・改善 105件。",
     "bullets": [
       "Added an \"Organization policy\" line to /status and claude doctor that says why your organization's policy could not be loaded, such as a proxy not passing the endpoint through",
       "Added bashOutputMaxChars and taskOutputMaxChars settings to raise how much command and background-task output Claude receives inline before it is saved to a file, up to 128K characters",
