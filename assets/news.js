@@ -5,11 +5,11 @@
       GitHub Actions（.github/workflows/update-news.yml）が毎日つくり直します。
       手元で作り直すときは  python tools/fetch_news.py
 
-   最終取得: 2026-09-07
+   最終取得: 2026-09-08
    ========================================================================== */
 
 var NEWS_META = {
-  "updated": "2026-09-07T08:21:16+09:00",
+  "updated": "2026-09-08T08:51:53+09:00",
   "lang": "en",
   "sources": [
     {
@@ -56,8 +56,8 @@ var NEWS = [
     "id": "anthropic:improving-alignment-security-efforts",
     "src": "anthropic",
     "date": "2026-08-31",
-    "cat": "",
-    "catJa": "ニュース",
+    "cat": "Announcements",
+    "catJa": "お知らせ",
     "title": "Improving our alignment and security efforts",
     "summary": "On July 30, we reported three incidents in which Claude models gained unauthorized access to real computer systems. We are conducting an in-depth analysis of both incidents, and planning to work with METR for an independent review. In the meantime, we’re sharing some of the changes we’ve made over the past month.",
     "url": "https://www.anthropic.com/news/improving-alignment-security-efforts"
