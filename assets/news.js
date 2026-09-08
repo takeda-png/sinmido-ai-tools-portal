@@ -5,11 +5,11 @@
       GitHub Actions（.github/workflows/update-news.yml）が毎日つくり直します。
       手元で作り直すときは  python tools/fetch_news.py
 
-   最終取得: 2026-09-08
+   最終取得: 2026-09-09
    ========================================================================== */
 
 var NEWS_META = {
-  "updated": "2026-09-08T08:51:53+09:00",
+  "updated": "2026-09-09T08:45:13+09:00",
   "lang": "en",
   "sources": [
     {
@@ -26,6 +26,22 @@ var NEWS_META = {
 };
 
 var NEWS = [
+  {
+    "id": "claudecode:2026-09-07",
+    "src": "claudecode",
+    "date": "2026-09-08",
+    "cat": "Release notes",
+    "catJa": "更新",
+    "title": "Claude Code の更新（9/8）",
+    "summary": "1 回リリース（v2.1.265〜v2.1.265）。新機能 3件・修正 31件・改善 16件。",
+    "bullets": [
+      "Added user.email and user.groups to the telemetry Claude Desktop and Cowork send through a Claude apps gateway, matching terminal sessions",
+      "Added support for pointing --plugin-dir at a folder of plugins: each child folder with a manifest loads, and children added or removed while running are picked up",
+      "Added a 1 GB cap on tool results saved to disk; the in-conversation preview says when a saved file was truncated"
+    ],
+    "url": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md",
+    "srcJa": true
+  },
   {
     "id": "claudecode:2026-08-31",
     "src": "claudecode",
@@ -120,22 +136,6 @@ var NEWS = [
       "Added the one-time fullscreen renderer offer on Bedrock, Vertex, Foundry and other previously excluded setups; new installs there now start in fullscreen",
       "Added /claude-api upgrade to migrate Python projects from anthropic 0.x to 1.x, and updated the skill's Python reference for 1.x (timeouts use anthropic.Timeout, not httpx.Timeout)",
       "Added a keybindingFlavor setting: set it to \"readline\" to make Ctrl+W in the prompt delete back to the previous whitespace, as in Bash; the default (\"classic\") is unchanged"
-    ],
-    "url": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md",
-    "srcJa": true
-  },
-  {
-    "id": "claudecode:2026-08-10",
-    "src": "claudecode",
-    "date": "2026-08-14",
-    "cat": "Release notes",
-    "catJa": "更新",
-    "title": "Claude Code の更新（8/10〜8/14）",
-    "summary": "6 回リリース（v2.1.227〜v2.1.233）。新機能 10件・修正 59件・改善 56件。",
-    "bullets": [
-      "Added GitLab merge request URL support to the --worktree flag and the claude agents view (where MRs display as !N)",
-      "Added an opt-in forward_user_identity apps gateway setting on Anthropic upstreams that sends the signed-in user's identity as headers, so a proxy behind the gateway can attribute spend per user",
-      "Added opt-in memory cgroup support for Bash tool commands on Linux (CLAUDE_CODE_TOOL_MEMORY_LIMIT) so a runaway build can't stall the session"
     ],
     "url": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md",
     "srcJa": true
