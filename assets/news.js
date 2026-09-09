@@ -5,11 +5,11 @@
       GitHub Actions（.github/workflows/update-news.yml）が毎日つくり直します。
       手元で作り直すときは  python tools/fetch_news.py
 
-   最終取得: 2026-09-09
+   最終取得: 2026-09-10
    ========================================================================== */
 
 var NEWS_META = {
-  "updated": "2026-09-09T08:45:13+09:00",
+  "updated": "2026-09-10T08:40:34+09:00",
   "lang": "en",
   "sources": [
     {
@@ -29,15 +29,15 @@ var NEWS = [
   {
     "id": "claudecode:2026-09-07",
     "src": "claudecode",
-    "date": "2026-09-08",
+    "date": "2026-09-09",
     "cat": "Release notes",
     "catJa": "更新",
-    "title": "Claude Code の更新（9/8）",
-    "summary": "1 回リリース（v2.1.265〜v2.1.265）。新機能 3件・修正 31件・改善 16件。",
+    "title": "Claude Code の更新（9/8〜9/9）",
+    "summary": "3 回リリース（v2.1.265〜v2.1.267）。新機能 5件・修正 60件・改善 39件。",
     "bullets": [
-      "Added user.email and user.groups to the telemetry Claude Desktop and Cowork send through a Claude apps gateway, matching terminal sessions",
-      "Added support for pointing --plugin-dir at a folder of plugins: each child folder with a manifest loads, and children added or removed while running are picked up",
-      "Added a 1 GB cap on tool results saved to disk; the in-conversation preview says when a saved file was truncated"
+      "Added maxEffortLevel setting (top-level or per model under modelSettings): caps the effort level on every provider, including Bedrock, Vertex and Foundry; users can still pick a lower level",
+      "Added --system-prompt-snapshot off to render the system prompt fresh on every request instead of reusing the conversation's recorded prompt (for iterating on prompt text)",
+      "Added user.email and user.groups to the telemetry Claude Desktop and Cowork send through a Claude apps gateway, matching terminal sessions"
     ],
     "url": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md",
     "srcJa": true
@@ -167,7 +167,7 @@ var NEWS = [
     "cat": "Announcements",
     "catJa": "お知らせ",
     "title": "Mariano-Florentino (Tino) Cuéllar to join Anthropic as Chief Global Affairs Officer",
-    "summary": "",
+    "summary": "Former California Supreme Court Justice Tino Cuéllar joins Anthropic to lead policy, international engagement, and government relations worldwide.",
     "url": "https://www.anthropic.com/news/tino-cuellar"
   },
   {
