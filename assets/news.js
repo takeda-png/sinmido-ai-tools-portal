@@ -5,11 +5,11 @@
       GitHub Actions（.github/workflows/update-news.yml）が毎日つくり直します。
       手元で作り直すときは  python tools/fetch_news.py
 
-   最終取得: 2026-09-10
+   最終取得: 2026-09-11
    ========================================================================== */
 
 var NEWS_META = {
-  "updated": "2026-09-10T08:40:34+09:00",
+  "updated": "2026-09-11T08:33:48+09:00",
   "lang": "en",
   "sources": [
     {
@@ -29,15 +29,15 @@ var NEWS = [
   {
     "id": "claudecode:2026-09-07",
     "src": "claudecode",
-    "date": "2026-09-09",
+    "date": "2026-09-10",
     "cat": "Release notes",
     "catJa": "更新",
-    "title": "Claude Code の更新（9/8〜9/9）",
-    "summary": "3 回リリース（v2.1.265〜v2.1.267）。新機能 5件・修正 60件・改善 39件。",
+    "title": "Claude Code の更新（9/8〜9/10）",
+    "summary": "4 回リリース（v2.1.265〜v2.1.268）。新機能 12件・修正 98件・改善 90件。",
     "bullets": [
-      "Added maxEffortLevel setting (top-level or per model under modelSettings): caps the effort level on every provider, including Bedrock, Vertex and Foundry; users can still pick a lower level",
-      "Added --system-prompt-snapshot off to render the system prompt fresh on every request instead of reusing the conversation's recorded prompt (for iterating on prompt text)",
-      "Added user.email and user.groups to the telemetry Claude Desktop and Cowork send through a Claude apps gateway, matching terminal sessions"
+      "Added to the Claude apps gateway: with pricing: set in gateway.yaml, signed-in Claude Code clients receive the same rates through managed settings, so /cost and telemetry match the spend meter",
+      "Added a startup warning for gateways when access_control.allow_cidrs is empty, and a one-time warning the first time a request arrives from a public address",
+      "Added the gatewayInternalNetworks managed setting, letting administrators allow /login to a Claude apps gateway on their organization's own public IPv4 block"
     ],
     "url": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md",
     "srcJa": true
