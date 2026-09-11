@@ -5,11 +5,11 @@
       GitHub Actions（.github/workflows/update-news.yml）が毎日つくり直します。
       手元で作り直すときは  python tools/fetch_news.py
 
-   最終取得: 2026-09-11
+   最終取得: 2026-09-12
    ========================================================================== */
 
 var NEWS_META = {
-  "updated": "2026-09-11T08:33:48+09:00",
+  "updated": "2026-09-12T08:41:28+09:00",
   "lang": "en",
   "sources": [
     {
@@ -29,15 +29,15 @@ var NEWS = [
   {
     "id": "claudecode:2026-09-07",
     "src": "claudecode",
-    "date": "2026-09-10",
+    "date": "2026-09-11",
     "cat": "Release notes",
     "catJa": "更新",
-    "title": "Claude Code の更新（9/8〜9/10）",
-    "summary": "4 回リリース（v2.1.265〜v2.1.268）。新機能 12件・修正 98件・改善 90件。",
+    "title": "Claude Code の更新（9/8〜9/11）",
+    "summary": "5 回リリース（v2.1.265〜v2.1.269）。新機能 19件・修正 139件・改善 140件。",
     "bullets": [
-      "Added to the Claude apps gateway: with pricing: set in gateway.yaml, signed-in Claude Code clients receive the same rates through managed settings, so /cost and telemetry match the spend meter",
-      "Added a startup warning for gateways when access_control.allow_cidrs is empty, and a one-time warning the first time a request arrives from a public address",
-      "Added the gatewayInternalNetworks managed setting, letting administrators allow /login to a Claude apps gateway on their organization's own public IPv4 block"
+      "Added claude plugin eval: run a plugin's eval suite against Claude Code and get scored, reproducible results (JSON + HTML report); see claude plugin eval --help",
+      "Added /output-style [name] to list and switch output styles, including over Remote Control and in cloud and other headless sessions",
+      "Added a diff of the files a Bash command changed to the Bash tool result when the Bash tool handles file edits (setting bashEditDiffEnabled)"
     ],
     "url": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md",
     "srcJa": true
