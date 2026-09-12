@@ -5,11 +5,11 @@
       GitHub Actions（.github/workflows/update-news.yml）が毎日つくり直します。
       手元で作り直すときは  python tools/fetch_news.py
 
-   最終取得: 2026-09-12
+   最終取得: 2026-09-13
    ========================================================================== */
 
 var NEWS_META = {
-  "updated": "2026-09-12T08:41:28+09:00",
+  "updated": "2026-09-13T08:34:28+09:00",
   "lang": "en",
   "sources": [
     {
@@ -29,11 +29,11 @@ var NEWS = [
   {
     "id": "claudecode:2026-09-07",
     "src": "claudecode",
-    "date": "2026-09-11",
+    "date": "2026-09-12",
     "cat": "Release notes",
     "catJa": "更新",
-    "title": "Claude Code の更新（9/8〜9/11）",
-    "summary": "5 回リリース（v2.1.265〜v2.1.269）。新機能 19件・修正 139件・改善 140件。",
+    "title": "Claude Code の更新（9/8〜9/12）",
+    "summary": "6 回リリース（v2.1.265〜v2.1.270）。新機能 19件・修正 140件・改善 140件。",
     "bullets": [
       "Added claude plugin eval: run a plugin's eval suite against Claude Code and get scored, reproducible results (JSON + HTML report); see claude plugin eval --help",
       "Added /output-style [name] to list and switch output styles, including over Remote Control and in cloud and other headless sessions",
