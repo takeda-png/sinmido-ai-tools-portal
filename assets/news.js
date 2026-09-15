@@ -5,11 +5,11 @@
       GitHub Actions（.github/workflows/update-news.yml）が毎日つくり直します。
       手元で作り直すときは  python tools/fetch_news.py
 
-   最終取得: 2026-09-15
+   最終取得: 2026-09-16
    ========================================================================== */
 
 var NEWS_META = {
-  "updated": "2026-09-15T09:04:50+09:00",
+  "updated": "2026-09-16T08:49:37+09:00",
   "lang": "en",
   "sources": [
     {
@@ -29,15 +29,15 @@ var NEWS = [
   {
     "id": "claudecode:2026-09-14",
     "src": "claudecode",
-    "date": "2026-09-14",
+    "date": "2026-09-15",
     "cat": "Release notes",
     "catJa": "更新",
-    "title": "Claude Code の更新（9/14）",
-    "summary": "1 回リリース（v2.1.271〜v2.1.271）。新機能 8件・修正 40件・改善 48件。",
+    "title": "Claude Code の更新（9/14〜9/15）",
+    "summary": "3 回リリース（v2.1.271〜v2.1.273）。新機能 11件・修正 59件・改善 91件。",
     "bullets": [
-      "Added fast mode in Claude Code Remote sessions (cloud and self-hosted runners): the host's fast-mode setting or /fast typed in the session applies where your organization allows it",
-      "Added mouse support to the /config panel in fullscreen mode: the wheel scrolls the settings list, a click on a setting's value changes it, and the row under the pointer is highlighted",
-      "Added claude self-hosted-runner --drain-marker-file <path>: when that file exists at a SIGTERM drain, the runner reports its exit to the server as a host drain (telemetry only)"
+      "Added x-claude-code-request-class, x-claude-code-agent-type, x-claude-code-prev-tool-durations, x-claude-code-compaction and x-claude-code-context-compacted request headers for LLM gateways; opt in with CLAUDE_CODE_GATEWAY_HINT_HEADERS=1",
+      "Added a notification when an MCP server disconnects mid-session and automatic reconnection gives up, pointing at /mcp",
+      "Added forking a session started with claude --remote-control or /remote-control from the Claude app; the fork runs as a background session on your computer"
     ],
     "url": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md",
     "srcJa": true
