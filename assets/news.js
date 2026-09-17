@@ -5,11 +5,11 @@
       GitHub Actions（.github/workflows/update-news.yml）が毎日つくり直します。
       手元で作り直すときは  python tools/fetch_news.py
 
-   最終取得: 2026-09-16
+   最終取得: 2026-09-18
    ========================================================================== */
 
 var NEWS_META = {
-  "updated": "2026-09-16T08:49:37+09:00",
+  "updated": "2026-09-18T08:48:11+09:00",
   "lang": "en",
   "sources": [
     {
@@ -29,18 +29,28 @@ var NEWS = [
   {
     "id": "claudecode:2026-09-14",
     "src": "claudecode",
-    "date": "2026-09-15",
+    "date": "2026-09-17",
     "cat": "Release notes",
     "catJa": "更新",
-    "title": "Claude Code の更新（9/14〜9/15）",
-    "summary": "3 回リリース（v2.1.271〜v2.1.273）。新機能 11件・修正 59件・改善 91件。",
+    "title": "Claude Code の更新（9/14〜9/17）",
+    "summary": "5 回リリース（v2.1.271〜v2.1.275）。新機能 24件・修正 133件・改善 208件。",
     "bullets": [
-      "Added x-claude-code-request-class, x-claude-code-agent-type, x-claude-code-prev-tool-durations, x-claude-code-compaction and x-claude-code-context-compacted request headers for LLM gateways; opt in with CLAUDE_CODE_GATEWAY_HINT_HEADERS=1",
-      "Added a notification when an MCP server disconnects mid-session and automatic reconnection gives up, pointing at /mcp",
-      "Added forking a session started with claude --remote-control or /remote-control from the Claude app; the fork runs as a background session on your computer"
+      "Added the signed-in account to Claude apps gateway sign-in: when the gateway names it, you confirm it before the credential is saved, and /status shows it",
+      "Added a send-now key (ctrl+enter, or ctrl+x ctrl+s) that interrupts the current turn and sends all queued messages at once; sent and queued messages show in gray until the model receives them",
+      "Added a startup warning when a configured otelHeadersHelper fails, so sessions that silently export no telemetry are noticed"
     ],
     "url": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md",
     "srcJa": true
+  },
+  {
+    "id": "anthropic:life-sciences-verification-program",
+    "src": "anthropic",
+    "date": "2026-09-17",
+    "cat": "Announcements",
+    "catJa": "お知らせ",
+    "title": "Introducing the Life Sciences Verification Program",
+    "summary": "",
+    "url": "https://www.anthropic.com/news/life-sciences-verification-program"
   },
   {
     "id": "claudecode:2026-09-07",
@@ -179,25 +189,5 @@ var NEWS = [
     "title": "Investigating three real-world incidents in our cybersecurity evaluations",
     "summary": "In a review of our cybersecurity evaluation transcripts, we found three incidents in which a Claude model reached the internet from within or while interacting with a third-party evaluation environment, and then gained unauthorized access to the real systems of three different organizations. Below we describe what happened, how it happened, and what we’re changing. We encourage other AI labs to perform similar reviews.",
     "url": "https://www.anthropic.com/news/investigating-incidents-cybersecurity-evals"
-  },
-  {
-    "id": "anthropic:position-open-weights-models",
-    "src": "anthropic",
-    "date": "2026-07-27",
-    "cat": "Announcements",
-    "catJa": "お知らせ",
-    "title": "Our position on open-weights models",
-    "summary": "Anthropic CEO Dario Amodei on open-weights models",
-    "url": "https://www.anthropic.com/news/position-open-weights-models"
-  },
-  {
-    "id": "anthropic:claude-opus-5",
-    "src": "anthropic",
-    "date": "2026-07-24",
-    "cat": "Product",
-    "catJa": "製品",
-    "title": "Introducing Claude Opus 5",
-    "summary": "Opus 5 is a step change improvement for the Opus tier powering long-running agents while delivering improvements in coding and professional work.",
-    "url": "https://www.anthropic.com/news/claude-opus-5"
   }
 ];
