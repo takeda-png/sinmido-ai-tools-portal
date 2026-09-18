@@ -5,11 +5,11 @@
       GitHub Actions（.github/workflows/update-news.yml）が毎日つくり直します。
       手元で作り直すときは  python tools/fetch_news.py
 
-   最終取得: 2026-09-18
+   最終取得: 2026-09-19
    ========================================================================== */
 
 var NEWS_META = {
-  "updated": "2026-09-18T08:48:11+09:00",
+  "updated": "2026-09-19T08:45:39+09:00",
   "lang": "en",
   "sources": [
     {
@@ -29,18 +29,28 @@ var NEWS = [
   {
     "id": "claudecode:2026-09-14",
     "src": "claudecode",
-    "date": "2026-09-17",
+    "date": "2026-09-18",
     "cat": "Release notes",
     "catJa": "更新",
-    "title": "Claude Code の更新（9/14〜9/17）",
-    "summary": "5 回リリース（v2.1.271〜v2.1.275）。新機能 24件・修正 133件・改善 208件。",
+    "title": "Claude Code の更新（9/14〜9/18）",
+    "summary": "7 回リリース（v2.1.271〜v2.1.277）。新機能 28件・修正 182件・改善 243件。",
     "bullets": [
-      "Added the signed-in account to Claude apps gateway sign-in: when the gateway names it, you confirm it before the credential is saved, and /status shows it",
-      "Added a send-now key (ctrl+enter, or ctrl+x ctrl+s) that interrupts the current turn and sends all queued messages at once; sent and queued messages show in gray until the model receives them",
-      "Added a startup warning when a configured otelHeadersHelper fails, so sessions that silently export no telemetry are noticed"
+      "Added AGENTS.md support: in a project with no CLAUDE.md, Claude Code reads AGENTS.md instead; change it under \"Project instructions\" in /config (not yet on Bedrock, Vertex or Foundry)",
+      "Added CLAUDE_GATEWAY_PROXY_IS_EGRESS_BOUNDARY=1 for Claude apps gateways whose only egress is a forward proxy: every outbound request hands the proxy the hostname instead of resolving it locally",
+      "Added an optional headers: map on Claude apps gateway upstreams, to send static headers to a proxy you run in front of a provider"
     ],
     "url": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md",
     "srcJa": true
+  },
+  {
+    "id": "anthropic:accenture-embedded-evaluation",
+    "src": "anthropic",
+    "date": "2026-09-18",
+    "cat": "Announcements",
+    "catJa": "お知らせ",
+    "title": "Partnering with Accenture on embedded evaluation",
+    "summary": "We’re partnering with Accenture on independent evaluation of frontier AI—part of our recent commitment to embed evaluators at Anthropic. Both we and Accenture expect to invest at least $1 billion to build capacity in this area over the next five years.",
+    "url": "https://www.anthropic.com/news/accenture-embedded-evaluation"
   },
   {
     "id": "anthropic:life-sciences-verification-program",
@@ -179,15 +189,5 @@ var NEWS = [
     "title": "Mariano-Florentino (Tino) Cuéllar to join Anthropic as Chief Global Affairs Officer",
     "summary": "Former California Supreme Court Justice Tino Cuéllar joins Anthropic to lead policy, international engagement, and government relations worldwide.",
     "url": "https://www.anthropic.com/news/tino-cuellar"
-  },
-  {
-    "id": "anthropic:investigating-incidents-cybersecurity-evals",
-    "src": "anthropic",
-    "date": "2026-07-30",
-    "cat": "Announcements",
-    "catJa": "お知らせ",
-    "title": "Investigating three real-world incidents in our cybersecurity evaluations",
-    "summary": "In a review of our cybersecurity evaluation transcripts, we found three incidents in which a Claude model reached the internet from within or while interacting with a third-party evaluation environment, and then gained unauthorized access to the real systems of three different organizations. Below we describe what happened, how it happened, and what we’re changing. We encourage other AI labs to perform similar reviews.",
-    "url": "https://www.anthropic.com/news/investigating-incidents-cybersecurity-evals"
   }
 ];
