@@ -5,11 +5,11 @@
       GitHub Actions（.github/workflows/update-news.yml）が毎日つくり直します。
       手元で作り直すときは  python tools/fetch_news.py
 
-   最終取得: 2026-09-19
+   最終取得: 2026-09-20
    ========================================================================== */
 
 var NEWS_META = {
-  "updated": "2026-09-19T08:45:39+09:00",
+  "updated": "2026-09-20T08:47:18+09:00",
   "lang": "en",
   "sources": [
     {
@@ -29,15 +29,15 @@ var NEWS = [
   {
     "id": "claudecode:2026-09-14",
     "src": "claudecode",
-    "date": "2026-09-18",
+    "date": "2026-09-19",
     "cat": "Release notes",
     "catJa": "更新",
-    "title": "Claude Code の更新（9/14〜9/18）",
-    "summary": "7 回リリース（v2.1.271〜v2.1.277）。新機能 28件・修正 182件・改善 243件。",
+    "title": "Claude Code の更新（9/14〜9/19）",
+    "summary": "8 回リリース（v2.1.271〜v2.1.278）。新機能 29件・修正 182件・改善 244件。",
     "bullets": [
+      "Added an Auto mode server row to /status showing whether this session's auto mode classifier runs on the server",
       "Added AGENTS.md support: in a project with no CLAUDE.md, Claude Code reads AGENTS.md instead; change it under \"Project instructions\" in /config (not yet on Bedrock, Vertex or Foundry)",
-      "Added CLAUDE_GATEWAY_PROXY_IS_EGRESS_BOUNDARY=1 for Claude apps gateways whose only egress is a forward proxy: every outbound request hands the proxy the hostname instead of resolving it locally",
-      "Added an optional headers: map on Claude apps gateway upstreams, to send static headers to a proxy you run in front of a provider"
+      "Added CLAUDE_GATEWAY_PROXY_IS_EGRESS_BOUNDARY=1 for Claude apps gateways whose only egress is a forward proxy: every outbound request hands the proxy the hostname instead of resolving it locally"
     ],
     "url": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md",
     "srcJa": true
