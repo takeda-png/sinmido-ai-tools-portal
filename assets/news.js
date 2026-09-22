@@ -5,11 +5,11 @@
       GitHub Actions（.github/workflows/update-news.yml）が毎日つくり直します。
       手元で作り直すときは  python tools/fetch_news.py
 
-   最終取得: 2026-09-20
+   最終取得: 2026-09-22
    ========================================================================== */
 
 var NEWS_META = {
-  "updated": "2026-09-20T08:47:18+09:00",
+  "updated": "2026-09-22T09:24:05+09:00",
   "lang": "en",
   "sources": [
     {
@@ -33,7 +33,7 @@ var NEWS = [
     "cat": "Release notes",
     "catJa": "更新",
     "title": "Claude Code の更新（9/14〜9/19）",
-    "summary": "8 回リリース（v2.1.271〜v2.1.278）。新機能 29件・修正 182件・改善 244件。",
+    "summary": "8 回リリース（v2.1.271〜v2.1.278）。新機能 29件・修正 182件・改善 243件。",
     "bullets": [
       "Added an Auto mode server row to /status showing whether this session's auto mode classifier runs on the server",
       "Added AGENTS.md support: in a project with no CLAUDE.md, Claude Code reads AGENTS.md instead; change it under \"Project instructions\" in /config (not yet on Bedrock, Vertex or Foundry)",
