@@ -5,11 +5,11 @@
       GitHub Actions（.github/workflows/update-news.yml）が毎日つくり直します。
       手元で作り直すときは  python tools/fetch_news.py
 
-   最終取得: 2026-09-22
+   最終取得: 2026-09-23
    ========================================================================== */
 
 var NEWS_META = {
-  "updated": "2026-09-22T09:24:05+09:00",
+  "updated": "2026-09-23T08:54:52+09:00",
   "lang": "en",
   "sources": [
     {
@@ -26,6 +26,22 @@ var NEWS_META = {
 };
 
 var NEWS = [
+  {
+    "id": "claudecode:2026-09-21",
+    "src": "claudecode",
+    "date": "2026-09-22",
+    "cat": "Release notes",
+    "catJa": "更新",
+    "title": "Claude Code の更新（9/22）",
+    "summary": "1 回リリース（v2.1.280〜v2.1.280）。新機能 4件・修正 53件・改善 57件。",
+    "bullets": [
+      "Added Claude Opus 5.5 (claude-opus-5-5), now the default Opus model — 1M context, $4/$20 per Mtok with $0.20/Mtok cache reads",
+      "Added mouse support to more lists in fullscreen mode: the wheel scrolls the /skills list, and a skill's state options in /plugin can be clicked",
+      "Added CLAUDE_CODE_MAX_MCP_DESCRIPTION_LENGTH to change the 2,048-character cap on MCP tool descriptions and server instructions for every MCP server in the session"
+    ],
+    "url": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md",
+    "srcJa": true
+  },
   {
     "id": "claudecode:2026-09-14",
     "src": "claudecode",
@@ -113,22 +129,6 @@ var NEWS = [
     "title": "Improving our alignment and security efforts",
     "summary": "On July 30, we reported three incidents in which Claude models gained unauthorized access to real computer systems. We are conducting an in-depth analysis of both incidents, and planning to work with METR for an independent review. In the meantime, we’re sharing some of the changes we’ve made over the past month.",
     "url": "https://www.anthropic.com/news/improving-alignment-security-efforts"
-  },
-  {
-    "id": "claudecode:2026-08-24",
-    "src": "claudecode",
-    "date": "2026-08-28",
-    "cat": "Release notes",
-    "catJa": "更新",
-    "title": "Claude Code の更新（8/24〜8/28）",
-    "summary": "7 回リリース（v2.1.243〜v2.1.251）。新機能 29件・修正 169件・改善 78件。",
-    "bullets": [
-      "Added PreModelSwitch and PostModelSwitch hook events (block, confirm, or annotate a model switch); SessionStart resume hooks now receive session staleness and the estimated re-cache cost",
-      "Added live streaming of a foreground subagent's tool calls and results to Remote Control clients (background subagents, the default, still show status only)",
-      "Added a Spend limit bar to /usage and a rate_limits.spend_limit status line field for developers behind a Claude apps gateway with spend limits"
-    ],
-    "url": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md",
-    "srcJa": true
   },
   {
     "id": "anthropic:model-hardware-standard-research-preview",
