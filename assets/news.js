@@ -5,11 +5,11 @@
       GitHub Actions（.github/workflows/update-news.yml）が毎日つくり直します。
       手元で作り直すときは  python tools/fetch_news.py
 
-   最終取得: 2026-09-23
+   最終取得: 2026-09-24
    ========================================================================== */
 
 var NEWS_META = {
-  "updated": "2026-09-23T08:54:52+09:00",
+  "updated": "2026-09-24T09:07:00+09:00",
   "lang": "en",
   "sources": [
     {
@@ -29,18 +29,28 @@ var NEWS = [
   {
     "id": "claudecode:2026-09-21",
     "src": "claudecode",
-    "date": "2026-09-22",
+    "date": "2026-09-23",
     "cat": "Release notes",
     "catJa": "更新",
-    "title": "Claude Code の更新（9/22）",
-    "summary": "1 回リリース（v2.1.280〜v2.1.280）。新機能 4件・修正 53件・改善 57件。",
+    "title": "Claude Code の更新（9/22〜9/23）",
+    "summary": "2 回リリース（v2.1.280〜v2.1.281）。新機能 13件・修正 143件・改善 134件。",
     "bullets": [
-      "Added Claude Opus 5.5 (claude-opus-5-5), now the default Opus model — 1M context, $4/$20 per Mtok with $0.20/Mtok cache reads",
-      "Added mouse support to more lists in fullscreen mode: the wheel scrolls the /skills list, and a skill's state options in /plugin can be clicked",
-      "Added CLAUDE_CODE_MAX_MCP_DESCRIPTION_LENGTH to change the 2,048-character cap on MCP tool descriptions and server instructions for every MCP server in the session"
+      "Added Claude apps gateway support for newer Claude Desktop keys in desktop policy blocks, including blockReadsOutsideWorkingDirectories and disableBypassPermissionsMode",
+      "Added assume_role on Claude apps gateway Bedrock upstreams: the gateway calls Bedrock as an IAM role it assumes through STS, in another AWS account if needed, optionally one session per developer",
+      "Added guardrail: {id, version} on Claude apps gateway Bedrock upstreams to apply an Amazon Bedrock guardrail to every request sent through them (set it on all Bedrock upstreams or none)"
     ],
     "url": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md",
     "srcJa": true
+  },
+  {
+    "id": "anthropic:claude-discovers-novel-enzyme-system",
+    "src": "anthropic",
+    "date": "2026-09-23",
+    "cat": "Science",
+    "catJa": "Science",
+    "title": "Claude discovers a novel enzyme system with CRISPR-like repeats",
+    "summary": "In early results from our new life sciences research lab, Claude agents found an enzyme system whose function is still unknown.",
+    "url": "https://www.anthropic.com/news/claude-discovers-novel-enzyme-system"
   },
   {
     "id": "claudecode:2026-09-14",
@@ -179,15 +189,5 @@ var NEWS = [
     "title": "Improving Fable 5's biology safeguards",
     "summary": "We’re making updates to Claude Fable 5’s biology safeguards in a way that substantially reduces false positives. Fable 5 users will now experience many fewer “fallbacks”—where the system switches to a less capable model after they make a biology-related query.",
     "url": "https://www.anthropic.com/news/improving-fable-5-s-biology-safeguards"
-  },
-  {
-    "id": "anthropic:tino-cuellar",
-    "src": "anthropic",
-    "date": "2026-08-04",
-    "cat": "Announcements",
-    "catJa": "お知らせ",
-    "title": "Mariano-Florentino (Tino) Cuéllar to join Anthropic as Chief Global Affairs Officer",
-    "summary": "Former California Supreme Court Justice Tino Cuéllar joins Anthropic to lead policy, international engagement, and government relations worldwide.",
-    "url": "https://www.anthropic.com/news/tino-cuellar"
   }
 ];
