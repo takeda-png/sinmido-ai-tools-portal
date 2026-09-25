@@ -5,11 +5,11 @@
       GitHub Actions（.github/workflows/update-news.yml）が毎日つくり直します。
       手元で作り直すときは  python tools/fetch_news.py
 
-   最終取得: 2026-09-24
+   最終取得: 2026-09-25
    ========================================================================== */
 
 var NEWS_META = {
-  "updated": "2026-09-24T09:07:00+09:00",
+  "updated": "2026-09-25T09:09:21+09:00",
   "lang": "en",
   "sources": [
     {
@@ -29,15 +29,15 @@ var NEWS = [
   {
     "id": "claudecode:2026-09-21",
     "src": "claudecode",
-    "date": "2026-09-23",
+    "date": "2026-09-24",
     "cat": "Release notes",
     "catJa": "更新",
-    "title": "Claude Code の更新（9/22〜9/23）",
-    "summary": "2 回リリース（v2.1.280〜v2.1.281）。新機能 13件・修正 143件・改善 134件。",
+    "title": "Claude Code の更新（9/22〜9/24）",
+    "summary": "3 回リリース（v2.1.280〜v2.1.282）。新機能 18件・修正 187件・改善 171件。",
     "bullets": [
-      "Added Claude apps gateway support for newer Claude Desktop keys in desktop policy blocks, including blockReadsOutsideWorkingDirectories and disableBypassPermissionsMode",
-      "Added assume_role on Claude apps gateway Bedrock upstreams: the gateway calls Bedrock as an IAM role it assumes through STS, in another AWS account if needed, optionally one session per developer",
-      "Added guardrail: {id, version} on Claude apps gateway Bedrock upstreams to apply an Amazon Bedrock guardrail to every request sent through them (set it on all Bedrock upstreams or none)"
+      "Added a maxProseWidth setting that caps the width of Claude's prose in wide terminals while tables and code blocks keep the full width",
+      "Added a startup notice, and /status and claude doctor entries, listing telemetry variables in a project's settings files that were ignored or that turned telemetry off",
+      "Added the allowClaudeInChromeWithManagedMcp managed setting to let claude --chrome run alongside an exclusive managed-mcp.json; the error shown when Chrome is blocked now names it"
     ],
     "url": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md",
     "srcJa": true
