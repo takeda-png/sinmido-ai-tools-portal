@@ -5,11 +5,11 @@
       GitHub Actions（.github/workflows/update-news.yml）が毎日つくり直します。
       手元で作り直すときは  python tools/fetch_news.py
 
-   最終取得: 2026-09-25
+   最終取得: 2026-09-26
    ========================================================================== */
 
 var NEWS_META = {
-  "updated": "2026-09-25T09:09:21+09:00",
+  "updated": "2026-09-26T09:15:46+09:00",
   "lang": "en",
   "sources": [
     {
@@ -29,15 +29,15 @@ var NEWS = [
   {
     "id": "claudecode:2026-09-21",
     "src": "claudecode",
-    "date": "2026-09-24",
+    "date": "2026-09-25",
     "cat": "Release notes",
     "catJa": "更新",
-    "title": "Claude Code の更新（9/22〜9/24）",
-    "summary": "3 回リリース（v2.1.280〜v2.1.282）。新機能 18件・修正 187件・改善 171件。",
+    "title": "Claude Code の更新（9/22〜9/25）",
+    "summary": "4 回リリース（v2.1.280〜v2.1.283）。新機能 27件・修正 224件・改善 220件。",
     "bullets": [
-      "Added a maxProseWidth setting that caps the width of Claude's prose in wide terminals while tables and code blocks keep the full width",
-      "Added a startup notice, and /status and claude doctor entries, listing telemetry variables in a project's settings files that were ignored or that turned telemetry off",
-      "Added the allowClaudeInChromeWithManagedMcp managed setting to let claude --chrome run alongside an exclusive managed-mcp.json; the error shown when Chrome is blocked now names it"
+      "Added x-claude-code-prompt-id to the gateway hint headers so LLM gateways can group the requests that serve one user prompt; opt in with CLAUDE_CODE_GATEWAY_HINT_HEADERS=1",
+      "Added availableModelsMatch managed setting: with \"exact\", an availableModels entry allows only the model version it names, so new releases stay blocked until listed",
+      "Added deniedModels managed setting to block specific models, even when availableModels allows them"
     ],
     "url": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md",
     "srcJa": true
@@ -62,7 +62,7 @@ var NEWS = [
     "summary": "8 回リリース（v2.1.271〜v2.1.278）。新機能 29件・修正 182件・改善 243件。",
     "bullets": [
       "Added an Auto mode server row to /status showing whether this session's auto mode classifier runs on the server",
-      "Added AGENTS.md support: in a project with no CLAUDE.md, Claude Code reads AGENTS.md instead; change it under \"Project instructions\" in /config (not yet on Bedrock, Vertex or Foundry)",
+      "Added AGENTS.md support: in a project with no CLAUDE.md, Claude Code reads AGENTS.md instead; change it under \"Project instructions\" in /config",
       "Added CLAUDE_GATEWAY_PROXY_IS_EGRESS_BOUNDARY=1 for Claude apps gateways whose only egress is a forward proxy: every outbound request hands the proxy the hostname instead of resolving it locally"
     ],
     "url": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md",
