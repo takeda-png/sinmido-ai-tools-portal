@@ -5,11 +5,11 @@
       GitHub Actions（.github/workflows/update-news.yml）が毎日つくり直します。
       手元で作り直すときは  python tools/fetch_news.py
 
-   最終取得: 2026-09-26
+   最終取得: 2026-09-29
    ========================================================================== */
 
 var NEWS_META = {
-  "updated": "2026-09-26T09:15:46+09:00",
+  "updated": "2026-09-29T10:21:18+09:00",
   "lang": "en",
   "sources": [
     {
@@ -26,6 +26,22 @@ var NEWS_META = {
 };
 
 var NEWS = [
+  {
+    "id": "claudecode:2026-09-28",
+    "src": "claudecode",
+    "date": "2026-09-28",
+    "cat": "Release notes",
+    "catJa": "更新",
+    "title": "Claude Code の更新（9/28）",
+    "summary": "1 回リリース（v2.1.284〜v2.1.284）。新機能 9件・修正 39件・改善 52件。",
+    "bullets": [
+      "Added Claude Sonnet 5.5 (claude-sonnet-5-5), now the default Sonnet model on the Anthropic API — 1M context, $2/$10 per Mtok with $0.20/Mtok cache reads",
+      "Added a \"Yes, but ask again next time\" answer to auto mode's prompt before a read outside the working directories, so you can allow that one read and still be asked about later ones",
+      "Added dollar amounts to the Claude apps gateway spend limit in /usage and the status line (for example \"$271.40 / $500.00 spent this month\") when the gateway runs this version or later; the status line's rate_limits.spend_limit also gains used_usd, limit_usd and period"
+    ],
+    "url": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md",
+    "srcJa": true
+  },
   {
     "id": "claudecode:2026-09-21",
     "src": "claudecode",
@@ -100,22 +116,6 @@ var NEWS = [
       "Added claude plugin eval: run a plugin's eval suite against Claude Code and get scored, reproducible results (JSON + HTML report); see claude plugin eval --help",
       "Added /output-style [name] to list and switch output styles, including over Remote Control and in cloud and other headless sessions",
       "Added a diff of the files a Bash command changed to the Bash tool result when the Bash tool handles file edits (setting bashEditDiffEnabled)"
-    ],
-    "url": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md",
-    "srcJa": true
-  },
-  {
-    "id": "claudecode:2026-08-31",
-    "src": "claudecode",
-    "date": "2026-09-06",
-    "cat": "Release notes",
-    "catJa": "更新",
-    "title": "Claude Code の更新（8/31〜9/6）",
-    "summary": "7 回リリース（v2.1.252〜v2.1.263）。新機能 22件・修正 154件・改善 105件。",
-    "bullets": [
-      "Added an \"Organization policy\" line to /status and claude doctor that says why your organization's policy could not be loaded, such as a proxy not passing the endpoint through",
-      "Added bashOutputMaxChars and taskOutputMaxChars settings to raise how much command and background-task output Claude receives inline before it is saved to a file, up to 128K characters",
-      "Added --append-subagent-system-prompt-file to read the subagent system prompt from a file, for prompts too large to pass on the command line"
     ],
     "url": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md",
     "srcJa": true
