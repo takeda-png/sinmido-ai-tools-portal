@@ -5,11 +5,11 @@
       GitHub Actions（.github/workflows/update-news.yml）が毎日つくり直します。
       手元で作り直すときは  python tools/fetch_news.py
 
-   最終取得: 2026-09-29
+   最終取得: 2026-09-30
    ========================================================================== */
 
 var NEWS_META = {
-  "updated": "2026-09-29T10:21:18+09:00",
+  "updated": "2026-09-30T09:53:45+09:00",
   "lang": "en",
   "sources": [
     {
@@ -29,15 +29,15 @@ var NEWS = [
   {
     "id": "claudecode:2026-09-28",
     "src": "claudecode",
-    "date": "2026-09-28",
+    "date": "2026-09-29",
     "cat": "Release notes",
     "catJa": "更新",
-    "title": "Claude Code の更新（9/28）",
-    "summary": "1 回リリース（v2.1.284〜v2.1.284）。新機能 9件・修正 39件・改善 52件。",
+    "title": "Claude Code の更新（9/28〜9/29）",
+    "summary": "2 回リリース（v2.1.284〜v2.1.285）。新機能 15件・修正 99件・改善 122件。",
     "bullets": [
-      "Added Claude Sonnet 5.5 (claude-sonnet-5-5), now the default Sonnet model on the Anthropic API — 1M context, $2/$10 per Mtok with $0.20/Mtok cache reads",
-      "Added a \"Yes, but ask again next time\" answer to auto mode's prompt before a read outside the working directories, so you can allow that one read and still be asked about later ones",
-      "Added dollar amounts to the Claude apps gateway spend limit in /usage and the status line (for example \"$271.40 / $500.00 spent this month\") when the gateway runs this version or later; the status line's rate_limits.spend_limit also gains used_usd, limit_usd and period"
+      "Added CLAUDE_CODE_DISABLE_WEB_FETCH environment variable to turn off the WebFetch tool",
+      "Added claude --desktop to open the Claude desktop app on the current directory, or on a session with --continue / --resume <id>",
+      "Added claude plugin configure <plugin> to show a plugin's options and which are unset, or save new values read from stdin with --values-stdin"
     ],
     "url": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md",
     "srcJa": true
