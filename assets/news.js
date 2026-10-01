@@ -5,11 +5,11 @@
       GitHub Actions（.github/workflows/update-news.yml）が毎日つくり直します。
       手元で作り直すときは  python tools/fetch_news.py
 
-   最終取得: 2026-09-30
+   最終取得: 2026-10-01
    ========================================================================== */
 
 var NEWS_META = {
-  "updated": "2026-09-30T09:53:45+09:00",
+  "updated": "2026-10-01T09:55:05+09:00",
   "lang": "en",
   "sources": [
     {
@@ -29,15 +29,15 @@ var NEWS = [
   {
     "id": "claudecode:2026-09-28",
     "src": "claudecode",
-    "date": "2026-09-29",
+    "date": "2026-09-30",
     "cat": "Release notes",
     "catJa": "更新",
-    "title": "Claude Code の更新（9/28〜9/29）",
-    "summary": "2 回リリース（v2.1.284〜v2.1.285）。新機能 15件・修正 99件・改善 122件。",
+    "title": "Claude Code の更新（9/28〜9/30）",
+    "summary": "3 回リリース（v2.1.284〜v2.1.286）。新機能 17件・修正 135件・改善 172件。",
     "bullets": [
-      "Added CLAUDE_CODE_DISABLE_WEB_FETCH environment variable to turn off the WebFetch tool",
-      "Added claude --desktop to open the Claude desktop app on the current directory, or on a session with --continue / --resume <id>",
-      "Added claude plugin configure <plugin> to show a plugin's options and which are unset, or save new values read from stdin with --values-stdin"
+      "Added a count such as \"2 of 5\" to the permission prompt when several permission requests stack up",
+      "Added mouse support for the \"N more\" rows of lists in fullscreen mode: click one to jump to that end of the list, with hover and pressed states",
+      "Added CLAUDE_CODE_DISABLE_WEB_FETCH environment variable to turn off the WebFetch tool"
     ],
     "url": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md",
     "srcJa": true
