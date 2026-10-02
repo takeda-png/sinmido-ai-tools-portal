@@ -5,11 +5,11 @@
       GitHub Actions（.github/workflows/update-news.yml）が毎日つくり直します。
       手元で作り直すときは  python tools/fetch_news.py
 
-   最終取得: 2026-10-01
+   最終取得: 2026-10-02
    ========================================================================== */
 
 var NEWS_META = {
-  "updated": "2026-10-01T09:55:05+09:00",
+  "updated": "2026-10-02T10:12:06+09:00",
   "lang": "en",
   "sources": [
     {
@@ -29,18 +29,28 @@ var NEWS = [
   {
     "id": "claudecode:2026-09-28",
     "src": "claudecode",
-    "date": "2026-09-30",
+    "date": "2026-10-01",
     "cat": "Release notes",
     "catJa": "更新",
-    "title": "Claude Code の更新（9/28〜9/30）",
-    "summary": "3 回リリース（v2.1.284〜v2.1.286）。新機能 17件・修正 135件・改善 172件。",
+    "title": "Claude Code の更新（9/28〜10/1）",
+    "summary": "4 回リリース（v2.1.284〜v2.1.287）。新機能 22件・修正 185件・改善 223件。",
     "bullets": [
-      "Added a count such as \"2 of 5\" to the permission prompt when several permission requests stack up",
-      "Added mouse support for the \"N more\" rows of lists in fullscreen mode: click one to jump to that end of the list, with hover and pressed states",
-      "Added CLAUDE_CODE_DISABLE_WEB_FETCH environment variable to turn off the WebFetch tool"
+      "Added Claude Mods: plugins may now modify deeper behavior",
+      "Added You should know, a built-in mod where a side agent watches your back and flags things you or Claude might miss. Turn it on with /plugin enable cc-plugin-you-should-know@builtin (for first-party sessions with telemetry on)",
+      "Added an n:<text> filter to the agents view that matches session names and tasks; a filter now shows matches in collapsed sections and Enter opens the first match"
     ],
     "url": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md",
     "srcJa": true
+  },
+  {
+    "id": "anthropic:barclays-scales-claude",
+    "src": "anthropic",
+    "date": "2026-10-01",
+    "cat": "Announcements",
+    "catJa": "お知らせ",
+    "title": "Barclays scales Claude to upgrade operations and improve client experience",
+    "summary": "Barclays, the British universal bank, is expanding its strategic collaboration with Anthropic to integrate secure, enterprise-grade AI systems across its global operations.",
+    "url": "https://www.anthropic.com/news/barclays-scales-claude"
   },
   {
     "id": "claudecode:2026-09-21",
@@ -179,15 +189,5 @@ var NEWS = [
     "title": "How Claude’s text watermark works",
     "summary": "In this article, we share answers to some of the questions we’ve received about how our chosen watermarking method works, whether it affects Claude’s outputs, and why we’re making this change.",
     "url": "https://www.anthropic.com/news/claude-text-watermark"
-  },
-  {
-    "id": "anthropic:improving-fable-5-s-biology-safeguards",
-    "src": "anthropic",
-    "date": "2026-08-07",
-    "cat": "Product",
-    "catJa": "製品",
-    "title": "Improving Fable 5's biology safeguards",
-    "summary": "We’re making updates to Claude Fable 5’s biology safeguards in a way that substantially reduces false positives. Fable 5 users will now experience many fewer “fallbacks”—where the system switches to a less capable model after they make a biology-related query.",
-    "url": "https://www.anthropic.com/news/improving-fable-5-s-biology-safeguards"
   }
 ];
