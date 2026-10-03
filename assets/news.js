@@ -5,11 +5,11 @@
       GitHub Actions（.github/workflows/update-news.yml）が毎日つくり直します。
       手元で作り直すときは  python tools/fetch_news.py
 
-   最終取得: 2026-10-02
+   最終取得: 2026-10-03
    ========================================================================== */
 
 var NEWS_META = {
-  "updated": "2026-10-02T10:12:06+09:00",
+  "updated": "2026-10-03T09:49:23+09:00",
   "lang": "en",
   "sources": [
     {
@@ -29,18 +29,28 @@ var NEWS = [
   {
     "id": "claudecode:2026-09-28",
     "src": "claudecode",
-    "date": "2026-10-01",
+    "date": "2026-10-02",
     "cat": "Release notes",
     "catJa": "更新",
-    "title": "Claude Code の更新（9/28〜10/1）",
-    "summary": "4 回リリース（v2.1.284〜v2.1.287）。新機能 22件・修正 185件・改善 223件。",
+    "title": "Claude Code の更新（9/28〜10/2）",
+    "summary": "5 回リリース（v2.1.284〜v2.1.288）。新機能 29件・修正 243件・改善 247件。",
     "bullets": [
-      "Added Claude Mods: plugins may now modify deeper behavior",
-      "Added You should know, a built-in mod where a side agent watches your back and flags things you or Claude might miss. Turn it on with /plugin enable cc-plugin-you-should-know@builtin (for first-party sessions with telemetry on)",
-      "Added an n:<text> filter to the agents view that matches session names and tasks; a filter now shows matches in collapsed sections and Enter opens the first match"
+      "Added $.ui.selection() for mods: returns the text you last selected in fullscreen mode and, when the selection lies within one transcript row, that row",
+      "Added a built-in gh api to cloud sessions whose image has no GitHub CLI, and fixed the built-in sending control characters from file names, jq filters or GitHub errors to the terminal",
+      "Added recovery for a prompt cleared with Ctrl+C: pressing Up on the empty prompt brings the draft back, including pasted text and images"
     ],
     "url": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md",
     "srcJa": true
+  },
+  {
+    "id": "anthropic:claude-frontier-academy",
+    "src": "anthropic",
+    "date": "2026-10-02",
+    "cat": "Announcements",
+    "catJa": "お知らせ",
+    "title": "Anthropic invests $100 million to train 10,000 engineers and tackle the enterprise AI talent gap",
+    "summary": "Claude Frontier Academy trains Frontier Deployed Engineers to the standard of Anthropic’s own — a $100 million commitment to train 10,000 by the end of 2027.",
+    "url": "https://www.anthropic.com/news/claude-frontier-academy"
   },
   {
     "id": "anthropic:barclays-scales-claude",
@@ -179,15 +189,5 @@ var NEWS = [
     "title": "Funding better evaluations of AI’s impact on wellbeing",
     "summary": "Anthropic is launching a $5 million grant program to fund independent research into how AI impacts users’ wellbeing.",
     "url": "https://www.anthropic.com/news/wellbeing-research-grants"
-  },
-  {
-    "id": "anthropic:claude-text-watermark",
-    "src": "anthropic",
-    "date": "2026-08-14",
-    "cat": "Announcements",
-    "catJa": "お知らせ",
-    "title": "How Claude’s text watermark works",
-    "summary": "In this article, we share answers to some of the questions we’ve received about how our chosen watermarking method works, whether it affects Claude’s outputs, and why we’re making this change.",
-    "url": "https://www.anthropic.com/news/claude-text-watermark"
   }
 ];
