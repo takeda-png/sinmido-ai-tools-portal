@@ -5,11 +5,11 @@
       GitHub Actions（.github/workflows/update-news.yml）が毎日つくり直します。
       手元で作り直すときは  python tools/fetch_news.py
 
-   最終取得: 2026-10-03
+   最終取得: 2026-10-04
    ========================================================================== */
 
 var NEWS_META = {
-  "updated": "2026-10-03T09:49:23+09:00",
+  "updated": "2026-10-04T09:14:11+09:00",
   "lang": "en",
   "sources": [
     {
@@ -29,15 +29,15 @@ var NEWS = [
   {
     "id": "claudecode:2026-09-28",
     "src": "claudecode",
-    "date": "2026-10-02",
+    "date": "2026-10-03",
     "cat": "Release notes",
     "catJa": "更新",
-    "title": "Claude Code の更新（9/28〜10/2）",
-    "summary": "5 回リリース（v2.1.284〜v2.1.288）。新機能 29件・修正 243件・改善 247件。",
+    "title": "Claude Code の更新（9/28〜10/3）",
+    "summary": "6 回リリース（v2.1.284〜v2.1.289）。新機能 30件・修正 266件・改善 250件。",
     "bullets": [
+      "Added agent.spawn for teammates, one agent id across plugin hook events, and idle and waiting states in $.agent.list()",
       "Added $.ui.selection() for mods: returns the text you last selected in fullscreen mode and, when the selection lies within one transcript row, that row",
-      "Added a built-in gh api to cloud sessions whose image has no GitHub CLI, and fixed the built-in sending control characters from file names, jq filters or GitHub errors to the terminal",
-      "Added recovery for a prompt cleared with Ctrl+C: pressing Up on the empty prompt brings the draft back, including pasted text and images"
+      "Added a built-in gh api to cloud sessions whose image has no GitHub CLI, and fixed the built-in sending control characters from file names, jq filters or GitHub errors to the terminal"
     ],
     "url": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md",
     "srcJa": true
