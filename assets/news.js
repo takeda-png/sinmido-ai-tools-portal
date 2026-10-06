@@ -5,11 +5,11 @@
       GitHub Actions（.github/workflows/update-news.yml）が毎日つくり直します。
       手元で作り直すときは  python tools/fetch_news.py
 
-   最終取得: 2026-10-04
+   最終取得: 2026-10-06
    ========================================================================== */
 
 var NEWS_META = {
-  "updated": "2026-10-04T09:14:11+09:00",
+  "updated": "2026-10-06T10:59:04+09:00",
   "lang": "en",
   "sources": [
     {
@@ -26,6 +26,22 @@ var NEWS_META = {
 };
 
 var NEWS = [
+  {
+    "id": "claudecode:2026-10-05",
+    "src": "claudecode",
+    "date": "2026-10-05",
+    "cat": "Release notes",
+    "catJa": "更新",
+    "title": "Claude Code の更新（10/5）",
+    "summary": "1 回リリース（v2.1.290〜v2.1.290）。新機能 11件・修正 112件・改善 67件。",
+    "bullets": [
+      "Added serverToolUses to the result of a mod's turn.step hook: the tool calls the API ran itself (the advisor), each with its id, name, input, start and end",
+      "Added agentId to the tool.check event of plugin hooks, so a hook can tell a subagent's permission check from the main session's",
+      "Added ceiling to the question and verdict a mod's tool.check hook reads, naming the approval an organization requires for a tool"
+    ],
+    "url": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md",
+    "srcJa": true
+  },
   {
     "id": "claudecode:2026-09-28",
     "src": "claudecode",
@@ -123,22 +139,6 @@ var NEWS = [
     "title": "Introducing the Life Sciences Verification Program",
     "summary": "",
     "url": "https://www.anthropic.com/news/life-sciences-verification-program"
-  },
-  {
-    "id": "claudecode:2026-09-07",
-    "src": "claudecode",
-    "date": "2026-09-12",
-    "cat": "Release notes",
-    "catJa": "更新",
-    "title": "Claude Code の更新（9/8〜9/12）",
-    "summary": "6 回リリース（v2.1.265〜v2.1.270）。新機能 19件・修正 140件・改善 140件。",
-    "bullets": [
-      "Added claude plugin eval: run a plugin's eval suite against Claude Code and get scored, reproducible results (JSON + HTML report); see claude plugin eval --help",
-      "Added /output-style [name] to list and switch output styles, including over Remote Control and in cloud and other headless sessions",
-      "Added a diff of the files a Bash command changed to the Bash tool result when the Bash tool handles file edits (setting bashEditDiffEnabled)"
-    ],
-    "url": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md",
-    "srcJa": true
   },
   {
     "id": "anthropic:enterprise-frontier-safeguards",
