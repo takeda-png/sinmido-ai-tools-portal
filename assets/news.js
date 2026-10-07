@@ -5,11 +5,11 @@
       GitHub Actions（.github/workflows/update-news.yml）が毎日つくり直します。
       手元で作り直すときは  python tools/fetch_news.py
 
-   最終取得: 2026-10-06
+   最終取得: 2026-10-07
    ========================================================================== */
 
 var NEWS_META = {
-  "updated": "2026-10-06T10:59:04+09:00",
+  "updated": "2026-10-07T10:08:17+09:00",
   "lang": "en",
   "sources": [
     {
@@ -29,18 +29,28 @@ var NEWS = [
   {
     "id": "claudecode:2026-10-05",
     "src": "claudecode",
-    "date": "2026-10-05",
+    "date": "2026-10-06",
     "cat": "Release notes",
     "catJa": "更新",
-    "title": "Claude Code の更新（10/5）",
-    "summary": "1 回リリース（v2.1.290〜v2.1.290）。新機能 11件・修正 112件・改善 67件。",
+    "title": "Claude Code の更新（10/5〜10/6）",
+    "summary": "3 回リリース（v2.1.290〜v2.1.292）。新機能 17件・修正 166件・改善 101件。",
     "bullets": [
-      "Added serverToolUses to the result of a mod's turn.step hook: the tool calls the API ran itself (the advisor), each with its id, name, input, start and end",
-      "Added agentId to the tool.check event of plugin hooks, so a hook can tell a subagent's permission check from the main session's",
-      "Added ceiling to the question and verdict a mod's tool.check hook reads, naming the approval an organization requires for a tool"
+      "Added --marketplace <source> to claude plugin install: adds the marketplace if needed, under the same policy checks as claude plugin marketplace add, then installs the plugin from it",
+      "Added an effort parameter to the Agent tool, so Claude runs a sub-agent at the effort level you ask for",
+      "Added CLAUDE_CODE_OVERLOADED_RETRY_BASE_DELAY_MS environment variable to set a longer base delay for the backoff when retrying an overloaded (529) request"
     ],
     "url": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md",
     "srcJa": true
+  },
+  {
+    "id": "anthropic:cyber-verification-program",
+    "src": "anthropic",
+    "date": "2026-10-06",
+    "cat": "Announcements",
+    "catJa": "お知らせ",
+    "title": "Expanding the Cyber Verification Program",
+    "summary": "We’re launching a new, expanded version of our Cyber Verification Program (CVP), which makes advanced cyber capabilities and reduced blocking classifiers available to qualifying security professionals.",
+    "url": "https://www.anthropic.com/news/cyber-verification-program"
   },
   {
     "id": "claudecode:2026-09-28",
@@ -179,15 +189,5 @@ var NEWS = [
     "title": "Expanding our support for scientists",
     "summary": "",
     "url": "https://www.anthropic.com/news/expanding-support-for-scientists"
-  },
-  {
-    "id": "anthropic:wellbeing-research-grants",
-    "src": "anthropic",
-    "date": "2026-08-25",
-    "cat": "Announcements",
-    "catJa": "お知らせ",
-    "title": "Funding better evaluations of AI’s impact on wellbeing",
-    "summary": "Anthropic is launching a $5 million grant program to fund independent research into how AI impacts users’ wellbeing.",
-    "url": "https://www.anthropic.com/news/wellbeing-research-grants"
   }
 ];
