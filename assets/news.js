@@ -5,11 +5,11 @@
       GitHub Actions（.github/workflows/update-news.yml）が毎日つくり直します。
       手元で作り直すときは  python tools/fetch_news.py
 
-   最終取得: 2026-10-07
+   最終取得: 2026-10-08
    ========================================================================== */
 
 var NEWS_META = {
-  "updated": "2026-10-07T10:08:17+09:00",
+  "updated": "2026-10-08T10:26:41+09:00",
   "lang": "en",
   "sources": [
     {
@@ -29,15 +29,15 @@ var NEWS = [
   {
     "id": "claudecode:2026-10-05",
     "src": "claudecode",
-    "date": "2026-10-06",
+    "date": "2026-10-07",
     "cat": "Release notes",
     "catJa": "更新",
-    "title": "Claude Code の更新（10/5〜10/6）",
-    "summary": "3 回リリース（v2.1.290〜v2.1.292）。新機能 17件・修正 166件・改善 101件。",
+    "title": "Claude Code の更新（10/5〜10/7）",
+    "summary": "4 回リリース（v2.1.290〜v2.1.293）。新機能 20件・修正 199件・改善 121件。",
     "bullets": [
-      "Added --marketplace <source> to claude plugin install: adds the marketplace if needed, under the same policy checks as claude plugin marketplace add, then installs the plugin from it",
-      "Added an effort parameter to the Agent tool, so Claude runs a sub-agent at the effort level you ask for",
-      "Added CLAUDE_CODE_OVERLOADED_RETRY_BASE_DELAY_MS environment variable to set a longer base delay for the backoff when retrying an overloaded (529) request"
+      "Added Claude Haiku 5.5 (claude-haiku-5-5), now the default Haiku model on the Anthropic API — 1M context, $0.10/$0.50 per Mtok ($0.50/$2.50 for prompts over 100K)",
+      "Added agentType to the subagentStatusLine payload, so scripts can tell custom subagent types apart",
+      "Added isDeferred to $.tool.register for mods: false lists the tool's schema in the prompt from the start instead of behind tool search"
     ],
     "url": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md",
     "srcJa": true
@@ -49,7 +49,7 @@ var NEWS = [
     "cat": "Announcements",
     "catJa": "お知らせ",
     "title": "Expanding the Cyber Verification Program",
-    "summary": "We’re launching a new, expanded version of our Cyber Verification Program (CVP), which makes advanced cyber capabilities and reduced blocking classifiers available to qualifying security professionals.",
+    "summary": "We’re launching a new, expanded version of our Cyber Verification Program, which makes advanced cyber capabilities and reduced blocking classifiers available to qualifying security professionals.",
     "url": "https://www.anthropic.com/news/cyber-verification-program"
   },
   {
