@@ -5,11 +5,11 @@
       GitHub Actions（.github/workflows/update-news.yml）が毎日つくり直します。
       手元で作り直すときは  python tools/fetch_news.py
 
-   最終取得: 2026-10-08
+   最終取得: 2026-10-09
    ========================================================================== */
 
 var NEWS_META = {
-  "updated": "2026-10-08T10:26:41+09:00",
+  "updated": "2026-10-09T10:33:39+09:00",
   "lang": "en",
   "sources": [
     {
@@ -29,18 +29,48 @@ var NEWS = [
   {
     "id": "claudecode:2026-10-05",
     "src": "claudecode",
-    "date": "2026-10-07",
+    "date": "2026-10-08",
     "cat": "Release notes",
     "catJa": "更新",
-    "title": "Claude Code の更新（10/5〜10/7）",
-    "summary": "4 回リリース（v2.1.290〜v2.1.293）。新機能 20件・修正 199件・改善 121件。",
+    "title": "Claude Code の更新（10/5〜10/8）",
+    "summary": "6 回リリース（v2.1.290〜v2.1.295）。新機能 35件・修正 285件・改善 165件。",
     "bullets": [
-      "Added Claude Haiku 5.5 (claude-haiku-5-5), now the default Haiku model on the Anthropic API — 1M context, $0.10/$0.50 per Mtok ($0.50/$2.50 for prompts over 100K)",
-      "Added agentType to the subagentStatusLine payload, so scripts can tell custom subagent types apart",
-      "Added isDeferred to $.tool.register for mods: false lists the tool's schema in the prompt from the start instead of behind tool search"
+      "Added onFailure: \"block\" for command and HTTP hooks: a hook that can't start, times out, or exits with an unexpected code blocks the action instead of letting it through",
+      "Added Program Status Protocol (OSC 7501) support: terminals that implement it can show whether Claude Code is working, waiting on you, or done",
+      "Added quoted text to the /copy picker, so a drafted message copies without its > markers"
     ],
     "url": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md",
     "srcJa": true
+  },
+  {
+    "id": "anthropic:genesis-mission-commitment",
+    "src": "anthropic",
+    "date": "2026-10-08",
+    "cat": "Announcements",
+    "catJa": "お知らせ",
+    "title": "Building on our commitment to American scientific discovery",
+    "summary": "Anthropic is committing $150 million over three years to the Genesis Mission, a federal initiative to accelerate scientific and technological discovery through AI.",
+    "url": "https://www.anthropic.com/news/genesis-mission-commitment"
+  },
+  {
+    "id": "anthropic:anthropic-cyber-mission",
+    "src": "anthropic",
+    "date": "2026-10-08",
+    "cat": "Announcements",
+    "catJa": "お知らせ",
+    "title": "Introducing the Anthropic Cyber Mission",
+    "summary": "",
+    "url": "https://www.anthropic.com/news/anthropic-cyber-mission"
+  },
+  {
+    "id": "anthropic:2026-usage-policy-update",
+    "src": "anthropic",
+    "date": "2026-10-08",
+    "cat": "Announcements",
+    "catJa": "お知らせ",
+    "title": "2026 Usage Policy update",
+    "summary": "We’re publishing a new version of our Usage Policy. In this post, we summarize the changes we’ve made.",
+    "url": "https://www.anthropic.com/news/2026-usage-policy-update"
   },
   {
     "id": "anthropic:cyber-verification-program",
@@ -159,35 +189,5 @@ var NEWS = [
     "title": "Developing Enterprise Frontier Safeguards with our customers",
     "summary": "",
     "url": "https://www.anthropic.com/news/enterprise-frontier-safeguards"
-  },
-  {
-    "id": "anthropic:improving-alignment-security-efforts",
-    "src": "anthropic",
-    "date": "2026-08-31",
-    "cat": "Announcements",
-    "catJa": "お知らせ",
-    "title": "Improving our alignment and security efforts",
-    "summary": "On July 30, we reported three incidents in which Claude models gained unauthorized access to real computer systems. We are conducting an in-depth analysis of both incidents, and planning to work with METR for an independent review. In the meantime, we’re sharing some of the changes we’ve made over the past month.",
-    "url": "https://www.anthropic.com/news/improving-alignment-security-efforts"
-  },
-  {
-    "id": "anthropic:model-hardware-standard-research-preview",
-    "src": "anthropic",
-    "date": "2026-08-27",
-    "cat": "Announcements",
-    "catJa": "お知らせ",
-    "title": "Previewing the Model Hardware Standard",
-    "summary": "We’re opening a research preview of the Model Hardware Standard (MHS), a shared specification for AI agents to safely operate physical devices, to a first group of scientific research labs and advanced manufacturers.",
-    "url": "https://www.anthropic.com/news/model-hardware-standard-research-preview"
-  },
-  {
-    "id": "anthropic:expanding-support-for-scientists",
-    "src": "anthropic",
-    "date": "2026-08-27",
-    "cat": "Announcements",
-    "catJa": "お知らせ",
-    "title": "Expanding our support for scientists",
-    "summary": "",
-    "url": "https://www.anthropic.com/news/expanding-support-for-scientists"
   }
 ];
