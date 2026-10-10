@@ -5,11 +5,11 @@
       GitHub Actions（.github/workflows/update-news.yml）が毎日つくり直します。
       手元で作り直すときは  python tools/fetch_news.py
 
-   最終取得: 2026-10-09
+   最終取得: 2026-10-10
    ========================================================================== */
 
 var NEWS_META = {
-  "updated": "2026-10-09T10:33:39+09:00",
+  "updated": "2026-10-10T10:24:00+09:00",
   "lang": "en",
   "sources": [
     {
@@ -29,15 +29,15 @@ var NEWS = [
   {
     "id": "claudecode:2026-10-05",
     "src": "claudecode",
-    "date": "2026-10-08",
+    "date": "2026-10-09",
     "cat": "Release notes",
     "catJa": "更新",
-    "title": "Claude Code の更新（10/5〜10/8）",
-    "summary": "6 回リリース（v2.1.290〜v2.1.295）。新機能 35件・修正 285件・改善 165件。",
+    "title": "Claude Code の更新（10/5〜10/9）",
+    "summary": "7 回リリース（v2.1.290〜v2.1.296）。新機能 41件・修正 325件・改善 198件。",
     "bullets": [
-      "Added onFailure: \"block\" for command and HTTP hooks: a hook that can't start, times out, or exits with an unexpected code blocks the action instead of letting it through",
-      "Added Program Status Protocol (OSC 7501) support: terminals that implement it can show whether Claude Code is working, waiting on you, or done",
-      "Added quoted text to the /copy picker, so a drafted message copies without its > markers"
+      "Added a code key to the Claude apps gateway's managed.policies[]: the same settings as cli, also applied in Claude Desktop's Code tab; beside desktop, it turns on Claude Desktop's gateway mode",
+      "Added autoCompactWindow to subagent frontmatter and --agents definitions, so a subagent can auto-compact earlier than the main conversation's window",
+      "Added CLAUDE_CODE_WORKFLOW_SUBAGENT_MODEL to run every workflow agent on one model while other subagents keep theirs"
     ],
     "url": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md",
     "srcJa": true
