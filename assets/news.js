@@ -5,11 +5,11 @@
       GitHub Actions（.github/workflows/update-news.yml）が毎日つくり直します。
       手元で作り直すときは  python tools/fetch_news.py
 
-   最終取得: 2026-10-10
+   最終取得: 2026-10-15
    ========================================================================== */
 
 var NEWS_META = {
-  "updated": "2026-10-10T10:24:00+09:00",
+  "updated": "2026-10-15T09:11:30+09:00",
   "lang": "en",
   "sources": [
     {
@@ -26,6 +26,42 @@ var NEWS_META = {
 };
 
 var NEWS = [
+  {
+    "id": "claudecode:2026-10-12",
+    "src": "claudecode",
+    "date": "2026-10-14",
+    "cat": "Release notes",
+    "catJa": "更新",
+    "title": "Claude Code の更新（10/14）",
+    "summary": "2 回リリース（v2.1.299〜v2.1.300）。新機能 25件・修正 156件・改善 97件。",
+    "bullets": [
+      "Added virtualText to a mod's prompt decorations: text drawn in the prompt box that never enters the draft or the submitted prompt",
+      "Added cache_creation_5m_tokens and cache_creation_1h_tokens to the OpenTelemetry api_request event, splitting cache writes by lifetime",
+      "Added $.ui.view({ agentId }) for mods: shows an agent's transcript in the main view when you ask, and $.ui.view({}) goes back"
+    ],
+    "url": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md",
+    "srcJa": true
+  },
+  {
+    "id": "anthropic:singapore-office-opening",
+    "src": "anthropic",
+    "date": "2026-10-14",
+    "cat": "Announcements",
+    "catJa": "お知らせ",
+    "title": "Anthropic opens Singapore office and signs MOU with the Government of Singapore",
+    "summary": "Anthropic opens its fifth Asia-Pacific office in Singapore and signs an MOU with the government on AI safety, evaluation, and responsible adoption.",
+    "url": "https://www.anthropic.com/news/singapore-office-opening"
+  },
+  {
+    "id": "anthropic:2026-us-midterms",
+    "src": "anthropic",
+    "date": "2026-10-14",
+    "cat": "Policy",
+    "catJa": "政策・提言",
+    "title": "Preparing for the 2026 US midterms",
+    "summary": "Earlier this year, we shared an update on our election safeguards. Here, we outline how we’ve continued to strengthen these safeguards ahead of this year’s US midterms.",
+    "url": "https://www.anthropic.com/news/2026-us-midterms"
+  },
   {
     "id": "claudecode:2026-10-05",
     "src": "claudecode",
@@ -145,22 +181,6 @@ var NEWS = [
     "url": "https://www.anthropic.com/news/claude-discovers-novel-enzyme-system"
   },
   {
-    "id": "claudecode:2026-09-14",
-    "src": "claudecode",
-    "date": "2026-09-19",
-    "cat": "Release notes",
-    "catJa": "更新",
-    "title": "Claude Code の更新（9/14〜9/19）",
-    "summary": "8 回リリース（v2.1.271〜v2.1.278）。新機能 29件・修正 182件・改善 243件。",
-    "bullets": [
-      "Added an Auto mode server row to /status showing whether this session's auto mode classifier runs on the server",
-      "Added AGENTS.md support: in a project with no CLAUDE.md, Claude Code reads AGENTS.md instead; change it under \"Project instructions\" in /config",
-      "Added CLAUDE_GATEWAY_PROXY_IS_EGRESS_BOUNDARY=1 for Claude apps gateways whose only egress is a forward proxy: every outbound request hands the proxy the hostname instead of resolving it locally"
-    ],
-    "url": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md",
-    "srcJa": true
-  },
-  {
     "id": "anthropic:accenture-embedded-evaluation",
     "src": "anthropic",
     "date": "2026-09-18",
@@ -169,25 +189,5 @@ var NEWS = [
     "title": "Partnering with Accenture on embedded evaluation",
     "summary": "We’re partnering with Accenture on independent evaluation of frontier AI—part of our recent commitment to embed evaluators at Anthropic. Both we and Accenture expect to invest at least $1 billion to build capacity in this area over the next five years.",
     "url": "https://www.anthropic.com/news/accenture-embedded-evaluation"
-  },
-  {
-    "id": "anthropic:life-sciences-verification-program",
-    "src": "anthropic",
-    "date": "2026-09-17",
-    "cat": "Announcements",
-    "catJa": "お知らせ",
-    "title": "Introducing the Life Sciences Verification Program",
-    "summary": "",
-    "url": "https://www.anthropic.com/news/life-sciences-verification-program"
-  },
-  {
-    "id": "anthropic:enterprise-frontier-safeguards",
-    "src": "anthropic",
-    "date": "2026-09-01",
-    "cat": "Announcements",
-    "catJa": "お知らせ",
-    "title": "Developing Enterprise Frontier Safeguards with our customers",
-    "summary": "",
-    "url": "https://www.anthropic.com/news/enterprise-frontier-safeguards"
   }
 ];
