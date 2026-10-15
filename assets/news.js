@@ -5,11 +5,11 @@
       GitHub Actions（.github/workflows/update-news.yml）が毎日つくり直します。
       手元で作り直すときは  python tools/fetch_news.py
 
-   最終取得: 2026-10-15
+   最終取得: 2026-10-16
    ========================================================================== */
 
 var NEWS_META = {
-  "updated": "2026-10-15T09:11:30+09:00",
+  "updated": "2026-10-16T08:58:11+09:00",
   "lang": "en",
   "sources": [
     {
@@ -29,18 +29,28 @@ var NEWS = [
   {
     "id": "claudecode:2026-10-12",
     "src": "claudecode",
-    "date": "2026-10-14",
+    "date": "2026-10-15",
     "cat": "Release notes",
     "catJa": "更新",
-    "title": "Claude Code の更新（10/14）",
-    "summary": "2 回リリース（v2.1.299〜v2.1.300）。新機能 25件・修正 156件・改善 97件。",
+    "title": "Claude Code の更新（10/14〜10/15）",
+    "summary": "3 回リリース（v2.1.299〜v2.1.301）。新機能 31件・修正 184件・改善 114件。",
     "bullets": [
-      "Added virtualText to a mod's prompt decorations: text drawn in the prompt box that never enters the draft or the submitted prompt",
-      "Added cache_creation_5m_tokens and cache_creation_1h_tokens to the OpenTelemetry api_request event, splitting cache writes by lifetime",
-      "Added $.ui.view({ agentId }) for mods: shows an agent's transcript in the main view when you ask, and $.ui.view({}) goes back"
+      "Added CLAUDE_CODE_RETRY_WATCHDOG_MAX_USAGE_LIMIT_WAIT_MS so unattended retry mode (CLAUDE_CODE_RETRY_WATCHDOG) ends a request at a usage limit that resets too far away instead of waiting",
+      "Added OpenTelemetry tracing guidance to the claude-api skill, including setting up trace destinations with the ant CLI",
+      "Added the % motion to vim mode: jump to the matching bracket, alone or with d/c/y"
     ],
     "url": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md",
     "srcJa": true
+  },
+  {
+    "id": "anthropic:an-update-on-independent-evaluators",
+    "src": "anthropic",
+    "date": "2026-10-15",
+    "cat": "Announcements",
+    "catJa": "お知らせ",
+    "title": "An update on independent evaluators",
+    "summary": "Anthropic announces updates to embedding independent evaluators",
+    "url": "https://www.anthropic.com/news/an-update-on-independent-evaluators"
   },
   {
     "id": "anthropic:singapore-office-opening",
@@ -179,15 +189,5 @@ var NEWS = [
     "title": "Claude discovers a novel enzyme system with CRISPR-like repeats",
     "summary": "In early results from our new life sciences research lab, Claude agents found an enzyme system whose function is still unknown.",
     "url": "https://www.anthropic.com/news/claude-discovers-novel-enzyme-system"
-  },
-  {
-    "id": "anthropic:accenture-embedded-evaluation",
-    "src": "anthropic",
-    "date": "2026-09-18",
-    "cat": "Announcements",
-    "catJa": "お知らせ",
-    "title": "Partnering with Accenture on embedded evaluation",
-    "summary": "We’re partnering with Accenture on independent evaluation of frontier AI—part of our recent commitment to embed evaluators at Anthropic. Both we and Accenture expect to invest at least $1 billion to build capacity in this area over the next five years.",
-    "url": "https://www.anthropic.com/news/accenture-embedded-evaluation"
   }
 ];
