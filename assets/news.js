@@ -5,11 +5,11 @@
       GitHub Actions（.github/workflows/update-news.yml）が毎日つくり直します。
       手元で作り直すときは  python tools/fetch_news.py
 
-   最終取得: 2026-10-16
+   最終取得: 2026-10-17
    ========================================================================== */
 
 var NEWS_META = {
-  "updated": "2026-10-16T08:58:11+09:00",
+  "updated": "2026-10-17T09:03:26+09:00",
   "lang": "en",
   "sources": [
     {
@@ -29,15 +29,15 @@ var NEWS = [
   {
     "id": "claudecode:2026-10-12",
     "src": "claudecode",
-    "date": "2026-10-15",
+    "date": "2026-10-16",
     "cat": "Release notes",
     "catJa": "更新",
-    "title": "Claude Code の更新（10/14〜10/15）",
-    "summary": "3 回リリース（v2.1.299〜v2.1.301）。新機能 31件・修正 184件・改善 114件。",
+    "title": "Claude Code の更新（10/14〜10/16）",
+    "summary": "4 回リリース（v2.1.299〜v2.1.302）。新機能 34件・修正 205件・改善 153件。",
     "bullets": [
-      "Added CLAUDE_CODE_RETRY_WATCHDOG_MAX_USAGE_LIMIT_WAIT_MS so unattended retry mode (CLAUDE_CODE_RETRY_WATCHDOG) ends a request at a usage limit that resets too far away instead of waiting",
-      "Added OpenTelemetry tracing guidance to the claude-api skill, including setting up trace destinations with the ant CLI",
-      "Added the % motion to vim mode: jump to the matching bracket, alone or with d/c/y"
+      "Added CLAUDE_CODE_AUTO_MODE_MODEL to choose the model the client-side auto mode classifier uses; it does not change the model for server-side auto mode",
+      "Added an Idle compaction row to /config for turning idle compaction off or back on; the notices shown after an idle compaction now say how to turn it off",
+      "Added a notice to /design-sync and /design-login that standalone Claude Design (claude.ai/design) closes by December 14, 2026"
     ],
     "url": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md",
     "srcJa": true
