@@ -5,11 +5,11 @@
       GitHub Actions（.github/workflows/update-news.yml）が毎日つくり直します。
       手元で作り直すときは  python tools/fetch_news.py
 
-   最終取得: 2026-10-17
+   最終取得: 2026-10-19
    ========================================================================== */
 
 var NEWS_META = {
-  "updated": "2026-10-17T09:03:26+09:00",
+  "updated": "2026-10-19T08:47:57+09:00",
   "lang": "en",
   "sources": [
     {
@@ -29,11 +29,11 @@ var NEWS = [
   {
     "id": "claudecode:2026-10-12",
     "src": "claudecode",
-    "date": "2026-10-16",
+    "date": "2026-10-18",
     "cat": "Release notes",
     "catJa": "更新",
-    "title": "Claude Code の更新（10/14〜10/16）",
-    "summary": "4 回リリース（v2.1.299〜v2.1.302）。新機能 34件・修正 205件・改善 153件。",
+    "title": "Claude Code の更新（10/14〜10/18）",
+    "summary": "5 回リリース（v2.1.299〜v2.1.303）。新機能 34件・修正 205件・改善 154件。",
     "bullets": [
       "Added CLAUDE_CODE_AUTO_MODE_MODEL to choose the model the client-side auto mode classifier uses; it does not change the model for server-side auto mode",
       "Added an Idle compaction row to /config for turning idle compaction off or back on; the notices shown after an idle compaction now say how to turn it off",
@@ -41,6 +41,16 @@ var NEWS = [
     ],
     "url": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md",
     "srcJa": true
+  },
+  {
+    "id": "anthropic:public-benefit-fund",
+    "src": "anthropic",
+    "date": "2026-10-18",
+    "cat": "Announcements",
+    "catJa": "お知らせ",
+    "title": "Investing in the public benefit",
+    "summary": "We’re committing a portion of Anthropic’s shares to the Anthropic Public Benefit Fund, a new entity with a structure that increases the stake as the company grows.",
+    "url": "https://www.anthropic.com/news/public-benefit-fund"
   },
   {
     "id": "anthropic:an-update-on-independent-evaluators",
@@ -179,15 +189,5 @@ var NEWS = [
     ],
     "url": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md",
     "srcJa": true
-  },
-  {
-    "id": "anthropic:claude-discovers-novel-enzyme-system",
-    "src": "anthropic",
-    "date": "2026-09-23",
-    "cat": "Science",
-    "catJa": "Science",
-    "title": "Claude discovers a novel enzyme system with CRISPR-like repeats",
-    "summary": "In early results from our new life sciences research lab, Claude agents found an enzyme system whose function is still unknown.",
-    "url": "https://www.anthropic.com/news/claude-discovers-novel-enzyme-system"
   }
 ];
