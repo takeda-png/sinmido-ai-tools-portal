@@ -5,11 +5,11 @@
       GitHub Actions（.github/workflows/update-news.yml）が毎日つくり直します。
       手元で作り直すときは  python tools/fetch_news.py
 
-   最終取得: 2026-10-19
+   最終取得: 2026-10-20
    ========================================================================== */
 
 var NEWS_META = {
-  "updated": "2026-10-19T08:47:57+09:00",
+  "updated": "2026-10-20T09:49:19+09:00",
   "lang": "en",
   "sources": [
     {
@@ -26,6 +26,22 @@ var NEWS_META = {
 };
 
 var NEWS = [
+  {
+    "id": "claudecode:2026-10-19",
+    "src": "claudecode",
+    "date": "2026-10-19",
+    "cat": "Release notes",
+    "catJa": "更新",
+    "title": "Claude Code の更新（10/19）",
+    "summary": "1 回リリース（v2.1.304〜v2.1.304）。新機能 7件・修正 35件・改善 34件。",
+    "bullets": [
+      "Added a transcript line when a plugin that runs first skips one of your mod's hooks, naming the event and the plugin",
+      "Added decider: \"person\" to a mod's tool.check answer: only the permission dialog or a host's callback can approve the ask, and it is refused with the mod's reason where nobody can be asked",
+      "Added e.isReadOnly to a mod's tool.check event, set when the tool call is read-only"
+    ],
+    "url": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md",
+    "srcJa": true
+  },
   {
     "id": "claudecode:2026-10-12",
     "src": "claudecode",
@@ -173,21 +189,5 @@ var NEWS = [
     "title": "Barclays scales Claude to upgrade operations and improve client experience",
     "summary": "Barclays, the British universal bank, is expanding its strategic collaboration with Anthropic to integrate secure, enterprise-grade AI systems across its global operations.",
     "url": "https://www.anthropic.com/news/barclays-scales-claude"
-  },
-  {
-    "id": "claudecode:2026-09-21",
-    "src": "claudecode",
-    "date": "2026-09-25",
-    "cat": "Release notes",
-    "catJa": "更新",
-    "title": "Claude Code の更新（9/22〜9/25）",
-    "summary": "4 回リリース（v2.1.280〜v2.1.283）。新機能 27件・修正 224件・改善 220件。",
-    "bullets": [
-      "Added x-claude-code-prompt-id to the gateway hint headers so LLM gateways can group the requests that serve one user prompt; opt in with CLAUDE_CODE_GATEWAY_HINT_HEADERS=1",
-      "Added availableModelsMatch managed setting: with \"exact\", an availableModels entry allows only the model version it names, so new releases stay blocked until listed",
-      "Added deniedModels managed setting to block specific models, even when availableModels allows them"
-    ],
-    "url": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md",
-    "srcJa": true
   }
 ];
