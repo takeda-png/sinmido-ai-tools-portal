@@ -5,11 +5,11 @@
       GitHub Actions（.github/workflows/update-news.yml）が毎日つくり直します。
       手元で作り直すときは  python tools/fetch_news.py
 
-   最終取得: 2026-10-22
+   最終取得: 2026-10-23
    ========================================================================== */
 
 var NEWS_META = {
-  "updated": "2026-10-22T09:19:21+09:00",
+  "updated": "2026-10-23T09:14:58+09:00",
   "lang": "en",
   "sources": [
     {
@@ -29,11 +29,11 @@ var NEWS = [
   {
     "id": "claudecode:2026-10-19",
     "src": "claudecode",
-    "date": "2026-10-21",
+    "date": "2026-10-22",
     "cat": "Release notes",
     "catJa": "更新",
-    "title": "Claude Code の更新（10/19〜10/21）",
-    "summary": "4 回リリース（v2.1.304〜v2.1.307）。新機能 11件・修正 69件・改善 79件。",
+    "title": "Claude Code の更新（10/19〜10/22）",
+    "summary": "6 回リリース（v2.1.304〜v2.1.309）。新機能 11件・修正 108件・改善 120件。",
     "bullets": [
       "Added /claude-api api-version to move Claude API code to API version 2026-10-21",
       "Added the claude_code.safety_event OpenTelemetry event for each tool call a permission rule, auto mode, a safety check, a hook or the sandbox stopped, prompted or sent back",
@@ -111,6 +111,16 @@ var NEWS = [
     "url": "https://www.anthropic.com/news/public-benefit-fund"
   },
   {
+    "id": "anthropic:open-call-guest-investigators-life-sciences",
+    "src": "anthropic",
+    "date": "",
+    "cat": "",
+    "catJa": "ニュース",
+    "title": "Open call for guest investigators in the life sciences",
+    "summary": "Today, we’re inviting members of the life sciences community to apply to work with us on special projects.",
+    "url": "https://www.anthropic.com/news/open-call-guest-investigators-life-sciences"
+  },
+  {
     "id": "anthropic:life-sciences-verification-program",
     "src": "anthropic",
     "date": "",
@@ -119,16 +129,6 @@ var NEWS = [
     "title": "Introducing the Life Sciences Verification Program",
     "summary": "",
     "url": "https://www.anthropic.com/news/life-sciences-verification-program"
-  },
-  {
-    "id": "anthropic:improving-alignment-security-efforts",
-    "src": "anthropic",
-    "date": "",
-    "cat": "",
-    "catJa": "ニュース",
-    "title": "Improving our alignment and security efforts",
-    "summary": "On July 30, we reported three incidents in which Claude models gained unauthorized access to real computer systems. We are conducting an in-depth analysis of both incidents, and planning to work with METR for an independent review. In the meantime, we’re sharing some of the changes we’ve made over the past month.",
-    "url": "https://www.anthropic.com/news/improving-alignment-security-efforts"
   },
   {
     "id": "anthropic:genesis-mission-commitment",
@@ -141,14 +141,14 @@ var NEWS = [
     "url": "https://www.anthropic.com/news/genesis-mission-commitment"
   },
   {
-    "id": "anthropic:enterprise-frontier-safeguards",
+    "id": "anthropic:donating-agent-skills-to-the-agentic-ai-foundation",
     "src": "anthropic",
     "date": "",
     "cat": "",
     "catJa": "ニュース",
-    "title": "Developing Enterprise Frontier Safeguards with our customers",
+    "title": "Donating Agent Skills to the Agentic AI Foundation",
     "summary": "",
-    "url": "https://www.anthropic.com/news/enterprise-frontier-safeguards"
+    "url": "https://www.anthropic.com/news/donating-agent-skills-to-the-agentic-ai-foundation"
   },
   {
     "id": "anthropic:distillation-defenses",
