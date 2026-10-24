@@ -5,11 +5,11 @@
       GitHub Actions（.github/workflows/update-news.yml）が毎日つくり直します。
       手元で作り直すときは  python tools/fetch_news.py
 
-   最終取得: 2026-10-23
+   最終取得: 2026-10-24
    ========================================================================== */
 
 var NEWS_META = {
-  "updated": "2026-10-23T09:14:58+09:00",
+  "updated": "2026-10-24T09:08:31+09:00",
   "lang": "en",
   "sources": [
     {
@@ -29,15 +29,15 @@ var NEWS = [
   {
     "id": "claudecode:2026-10-19",
     "src": "claudecode",
-    "date": "2026-10-22",
+    "date": "2026-10-23",
     "cat": "Release notes",
     "catJa": "更新",
-    "title": "Claude Code の更新（10/19〜10/22）",
-    "summary": "6 回リリース（v2.1.304〜v2.1.309）。新機能 11件・修正 108件・改善 120件。",
+    "title": "Claude Code の更新（10/19〜10/23）",
+    "summary": "7 回リリース（v2.1.304〜v2.1.310）。新機能 12件・修正 113件・改善 140件。",
     "bullets": [
+      "Added the Monitor tool and plugin monitors on Bedrock, Vertex, and Foundry, and when telemetry or nonessential traffic is disabled; long foreground sleeps are now blocked there too",
       "Added /claude-api api-version to move Claude API code to API version 2026-10-21",
-      "Added the claude_code.safety_event OpenTelemetry event for each tool call a permission rule, auto mode, a safety check, a hook or the sandbox stopped, prompted or sent back",
-      "Added sandbox.allowNestedUserNamespaces so sandboxed commands on Linux can create user namespaces (Chromium, rootless podman); this lets them get around the sandbox's file protections"
+      "Added the claude_code.safety_event OpenTelemetry event for each tool call a permission rule, auto mode, a safety check, a hook or the sandbox stopped, prompted or sent back"
     ],
     "url": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md",
     "srcJa": true
