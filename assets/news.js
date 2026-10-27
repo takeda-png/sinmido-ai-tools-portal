@@ -5,11 +5,11 @@
       GitHub Actions（.github/workflows/update-news.yml）が毎日つくり直します。
       手元で作り直すときは  python tools/fetch_news.py
 
-   最終取得: 2026-10-24
+   最終取得: 2026-10-27
    ========================================================================== */
 
 var NEWS_META = {
-  "updated": "2026-10-24T09:08:31+09:00",
+  "updated": "2026-10-27T09:59:48+09:00",
   "lang": "en",
   "sources": [
     {
@@ -26,6 +26,21 @@ var NEWS_META = {
 };
 
 var NEWS = [
+  {
+    "id": "claudecode:2026-10-26",
+    "src": "claudecode",
+    "date": "2026-10-26",
+    "cat": "Release notes",
+    "catJa": "更新",
+    "title": "Claude Code の更新（10/26）",
+    "summary": "1 回リリース（v2.1.311〜v2.1.311）。新機能 2件・修正 47件・改善 43件。",
+    "bullets": [
+      "Added --hold-idle-file and --max-hold-min to self-hosted-runner, to keep an idle session while your host reports processes it left running",
+      "Added a tip for the Explanatory output style, shown when you ask Claude for explanations"
+    ],
+    "url": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md",
+    "srcJa": true
+  },
   {
     "id": "claudecode:2026-10-19",
     "src": "claudecode",
@@ -75,22 +90,6 @@ var NEWS = [
     "srcJa": true
   },
   {
-    "id": "claudecode:2026-09-28",
-    "src": "claudecode",
-    "date": "2026-10-03",
-    "cat": "Release notes",
-    "catJa": "更新",
-    "title": "Claude Code の更新（9/28〜10/3）",
-    "summary": "6 回リリース（v2.1.284〜v2.1.289）。新機能 30件・修正 266件・改善 250件。",
-    "bullets": [
-      "Added agent.spawn for teammates, one agent id across plugin hook events, and idle and waiting states in $.agent.list()",
-      "Added $.ui.selection() for mods: returns the text you last selected in fullscreen mode and, when the selection lies within one transcript row, that row",
-      "Added a built-in gh api to cloud sessions whose image has no GitHub CLI, and fixed the built-in sending control characters from file names, jq filters or GitHub errors to the terminal"
-    ],
-    "url": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md",
-    "srcJa": true
-  },
-  {
     "id": "anthropic:singapore-office-opening",
     "src": "anthropic",
     "date": "",
@@ -99,6 +98,16 @@ var NEWS = [
     "title": "Anthropic opens Singapore office and signs MOU with the Government of Singapore",
     "summary": "Anthropic opens its fifth Asia-Pacific office in Singapore and signs an MOU with the government on AI safety, evaluation, and responsible adoption.",
     "url": "https://www.anthropic.com/news/singapore-office-opening"
+  },
+  {
+    "id": "anthropic:s1-sec",
+    "src": "anthropic",
+    "date": "",
+    "cat": "",
+    "catJa": "ニュース",
+    "title": "Anthropic files S-1 with the SEC for proposed initial public offering",
+    "summary": "",
+    "url": "https://www.anthropic.com/news/s1-sec"
   },
   {
     "id": "anthropic:public-benefit-fund",
@@ -119,16 +128,6 @@ var NEWS = [
     "title": "Open call for guest investigators in the life sciences",
     "summary": "Today, we’re inviting members of the life sciences community to apply to work with us on special projects.",
     "url": "https://www.anthropic.com/news/open-call-guest-investigators-life-sciences"
-  },
-  {
-    "id": "anthropic:life-sciences-verification-program",
-    "src": "anthropic",
-    "date": "",
-    "cat": "",
-    "catJa": "ニュース",
-    "title": "Introducing the Life Sciences Verification Program",
-    "summary": "",
-    "url": "https://www.anthropic.com/news/life-sciences-verification-program"
   },
   {
     "id": "anthropic:genesis-mission-commitment",
