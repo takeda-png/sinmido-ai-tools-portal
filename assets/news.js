@@ -5,11 +5,11 @@
       GitHub Actions（.github/workflows/update-news.yml）が毎日つくり直します。
       手元で作り直すときは  python tools/fetch_news.py
 
-   最終取得: 2026-10-27
+   最終取得: 2026-10-28
    ========================================================================== */
 
 var NEWS_META = {
-  "updated": "2026-10-27T09:59:48+09:00",
+  "updated": "2026-10-28T09:49:26+09:00",
   "lang": "en",
   "sources": [
     {
@@ -29,14 +29,15 @@ var NEWS = [
   {
     "id": "claudecode:2026-10-26",
     "src": "claudecode",
-    "date": "2026-10-26",
+    "date": "2026-10-27",
     "cat": "Release notes",
     "catJa": "更新",
-    "title": "Claude Code の更新（10/26）",
-    "summary": "1 回リリース（v2.1.311〜v2.1.311）。新機能 2件・修正 47件・改善 43件。",
+    "title": "Claude Code の更新（10/26〜10/27）",
+    "summary": "2 回リリース（v2.1.311〜v2.1.312）。新機能 4件・修正 60件・改善 67件。",
     "bullets": [
-      "Added --hold-idle-file and --max-hold-min to self-hosted-runner, to keep an idle session while your host reports processes it left running",
-      "Added a tip for the Explanatory output style, shown when you ask Claude for explanations"
+      "Added oidc.user_id_claim to the Claude apps gateway, to identify people by an id_token claim other than sub, such as Microsoft Entra ID's oid",
+      "Added click to send: in fullscreen, clicking the \"to send now\" hint under a queued message sends it right away, as its key does",
+      "Added --hold-idle-file and --max-hold-min to self-hosted-runner, to keep an idle session while your host reports processes it left running"
     ],
     "url": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md",
     "srcJa": true
@@ -106,7 +107,7 @@ var NEWS = [
     "cat": "",
     "catJa": "ニュース",
     "title": "Anthropic files S-1 with the SEC for proposed initial public offering",
-    "summary": "",
+    "summary": "Today, Anthropic, PBC filed a registration statement on Form S-1 with the U.S. Securities and Exchange Commission relating to its proposed initial public offering of its Class A common stock.",
     "url": "https://www.anthropic.com/news/s1-sec"
   },
   {
@@ -138,6 +139,16 @@ var NEWS = [
     "title": "Building on our commitment to American scientific discovery",
     "summary": "Anthropic is committing $150 million over three years to the Genesis Mission, a federal initiative to accelerate scientific and technological discovery through AI.",
     "url": "https://www.anthropic.com/news/genesis-mission-commitment"
+  },
+  {
+    "id": "anthropic:expanding-partnership-gsa",
+    "src": "anthropic",
+    "date": "",
+    "cat": "",
+    "catJa": "ニュース",
+    "title": "Expanding our partnership with GSA to bring Claude to all levels of government",
+    "summary": "",
+    "url": "https://www.anthropic.com/news/expanding-partnership-gsa"
   },
   {
     "id": "anthropic:donating-agent-skills-to-the-agentic-ai-foundation",
@@ -218,16 +229,6 @@ var NEWS = [
     "title": "An update on independent evaluators",
     "summary": "Anthropic announces updates to embedding independent evaluators",
     "url": "https://www.anthropic.com/news/an-update-on-independent-evaluators"
-  },
-  {
-    "id": "anthropic:accenture-embedded-evaluation",
-    "src": "anthropic",
-    "date": "",
-    "cat": "",
-    "catJa": "ニュース",
-    "title": "Partnering with Accenture on embedded evaluation",
-    "summary": "We’re partnering with Accenture on independent evaluation of frontier AI—part of our recent commitment to embed evaluators at Anthropic. Both we and Accenture expect to invest at least $1 billion to build capacity in this area over the next five years.",
-    "url": "https://www.anthropic.com/news/accenture-embedded-evaluation"
   },
   {
     "id": "anthropic:2026-usage-policy-update",
