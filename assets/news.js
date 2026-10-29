@@ -5,11 +5,11 @@
       GitHub Actions（.github/workflows/update-news.yml）が毎日つくり直します。
       手元で作り直すときは  python tools/fetch_news.py
 
-   最終取得: 2026-10-28
+   最終取得: 2026-10-29
    ========================================================================== */
 
 var NEWS_META = {
-  "updated": "2026-10-28T09:49:26+09:00",
+  "updated": "2026-10-29T10:24:17+09:00",
   "lang": "en",
   "sources": [
     {
@@ -201,16 +201,6 @@ var NEWS = [
     "url": "https://www.anthropic.com/news/christopher-stubbs-joins-long-term-benefit-trust"
   },
   {
-    "id": "anthropic:barclays-scales-claude",
-    "src": "anthropic",
-    "date": "",
-    "cat": "",
-    "catJa": "ニュース",
-    "title": "Barclays scales Claude to upgrade operations and improve client experience",
-    "summary": "Barclays, the British universal bank, is expanding its strategic collaboration with Anthropic to integrate secure, enterprise-grade AI systems across its global operations.",
-    "url": "https://www.anthropic.com/news/barclays-scales-claude"
-  },
-  {
     "id": "anthropic:anthropic-cyber-mission",
     "src": "anthropic",
     "date": "",
@@ -229,6 +219,16 @@ var NEWS = [
     "title": "An update on independent evaluators",
     "summary": "Anthropic announces updates to embedding independent evaluators",
     "url": "https://www.anthropic.com/news/an-update-on-independent-evaluators"
+  },
+  {
+    "id": "anthropic:ai-for-science-expands-foundations-research-institutions",
+    "src": "anthropic",
+    "date": "",
+    "cat": "",
+    "catJa": "ニュース",
+    "title": "AI for Science expands to foundations and research institutions",
+    "summary": "We’re highlighting 20 scientific foundations, institutions, and research groups from around the world that we’ve partnered with in an expansion of our AI for Science program.",
+    "url": "https://www.anthropic.com/news/ai-for-science-expands-foundations-research-institutions"
   },
   {
     "id": "anthropic:2026-usage-policy-update",
