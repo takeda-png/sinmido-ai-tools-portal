@@ -5,11 +5,11 @@
       GitHub Actions（.github/workflows/update-news.yml）が毎日つくり直します。
       手元で作り直すときは  python tools/fetch_news.py
 
-   最終取得: 2026-10-30
+   最終取得: 2026-10-31
    ========================================================================== */
 
 var NEWS_META = {
-  "updated": "2026-10-30T10:26:10+09:00",
+  "updated": "2026-10-31T10:15:06+09:00",
   "lang": "en",
   "sources": [
     {
@@ -29,15 +29,15 @@ var NEWS = [
   {
     "id": "claudecode:2026-10-26",
     "src": "claudecode",
-    "date": "2026-10-30",
+    "date": "2026-10-31",
     "cat": "Release notes",
     "catJa": "更新",
-    "title": "Claude Code の更新（10/26〜10/30）",
-    "summary": "3 回リリース（v2.1.311〜v2.1.314）。新機能 8件・修正 123件・改善 119件。",
+    "title": "Claude Code の更新（10/26〜10/31）",
+    "summary": "4 回リリース（v2.1.311〜v2.1.316）。新機能 14件・修正 147件・改善 144件。",
     "bullets": [
-      "Added permissions.blockWritesOutsideWorkingDirectories: Write, Edit and NotebookEdit refuse paths outside the working directories in every permission mode",
-      "Added an optional groups list to Claude apps gateway upstreams: only developers in the listed IdP groups are sent to that upstream, on failover too",
-      "Added guardrail_trace to Claude apps gateway Bedrock upstreams, to log which Amazon Bedrock guardrail filter fired on a request, without the matched text"
+      "Added CLAUDE_CODE_DISABLE_ULTRATHINK, which turns the ultrathink keyword off",
+      "Added pooled group budgets to the Claude apps gateway: one monthly budget that a group's members share, on top of each member's own limit, set with pooled_budget on the spend limits admin API",
+      "Added CLAUDE_CODE_DISABLE_LOOPED_CROSS_CERT_DROP to keep system cross-certificates that certify each other in a loop, for servers whose private CA needs one"
     ],
     "url": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md",
     "srcJa": true
