@@ -1,0 +1,56 @@
+# ============================================================================
+# Claude 最新情報を Chatwork へ週1回送る
+# ----------------------------------------------------------------------------
+# 毎週月曜 9:00（日本時間）に、まだ送っていない記事だけを1通にまとめて送る。
+# 送った記事は tools/chatwork_sent.json に記録して二重送信しない。
+# 新しい記事が無い週は何も送らない。
+#
+# 必要な Secret: CHATWORK_TOKEN（APIトークン）／CHATWORK_ROOM_ID（送り先ルーム）
+# 今すぐ送りたいとき: Actions →「Claude 最新情報を Chatwork へ」→ Run workflow
+# ============================================================================
+
+name: Claude 最新情報を Chatwork へ
+
+on:
+  schedule:
+    # UTC で書く。月曜 0:00 UTC = 月曜 9:00 JST
+    - cron: '0 0 * * 1'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: update-news
+  cancel-in-progress: false
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: リポジトリを取得
+        uses: actions/checkout@v4
+
+      - name: Python を用意
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Chatwork に送る
+        env:
+          CHATWORK_TOKEN: ${{ secrets.CHATWORK_TOKEN }}
+          CHATWORK_ROOM_ID: ${{ secrets.CHATWORK_ROOM_ID }}
+        run: python tools/notify_chatwork.py
+
+      - name: 送った記録をコミットする
+        run: |
+          git add tools/chatwork_sent.json
+          if git diff --cached --quiet; then
+            echo "記録の変更なし。"
+            exit 0
+          fi
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Chatwork 送信済みを記録（$(TZ=Asia/Tokyo date +'%Y-%m-%d')）"
+          git push
