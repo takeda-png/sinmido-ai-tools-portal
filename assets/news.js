@@ -5,11 +5,11 @@
       GitHub Actions（.github/workflows/update-news.yml）が毎日つくり直します。
       手元で作り直すときは  python tools/fetch_news.py
 
-   最終取得: 2026-10-31
+   最終取得: 2026-11-03
    ========================================================================== */
 
 var NEWS_META = {
-  "updated": "2026-10-31T10:15:06+09:00",
+  "updated": "2026-11-03T12:10:24+09:00",
   "lang": "en",
   "sources": [
     {
@@ -26,6 +26,22 @@ var NEWS_META = {
 };
 
 var NEWS = [
+  {
+    "id": "claudecode:2026-11-02",
+    "src": "claudecode",
+    "date": "2026-11-02",
+    "cat": "Release notes",
+    "catJa": "更新",
+    "title": "Claude Code の更新（11/2）",
+    "summary": "1 回リリース（v2.1.317〜v2.1.317）。新機能 9件・修正 47件・改善 31件。",
+    "bullets": [
+      "Added a warning to /schedule when a new cloud scheduled task gets connectors you did not ask for, with how to remove them",
+      "Added a check that asks before a web or shell tool call sends your account email address to the network",
+      "Added onFailure: \"block\" for Agent SDK hook callbacks, so a callback that fails blocks the action instead of letting it run"
+    ],
+    "url": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md",
+    "srcJa": true
+  },
   {
     "id": "claudecode:2026-10-26",
     "src": "claudecode",
@@ -70,22 +86,6 @@ var NEWS = [
       "Added CLAUDE_CODE_AUTO_MODE_MODEL to choose the model the client-side auto mode classifier uses; it does not change the model for server-side auto mode",
       "Added an Idle compaction row to /config for turning idle compaction off or back on; the notices shown after an idle compaction now say how to turn it off",
       "Added a notice to /design-sync and /design-login that standalone Claude Design (claude.ai/design) closes by December 14, 2026"
-    ],
-    "url": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md",
-    "srcJa": true
-  },
-  {
-    "id": "claudecode:2026-10-05",
-    "src": "claudecode",
-    "date": "2026-10-09",
-    "cat": "Release notes",
-    "catJa": "更新",
-    "title": "Claude Code の更新（10/5〜10/9）",
-    "summary": "7 回リリース（v2.1.290〜v2.1.296）。新機能 41件・修正 325件・改善 198件。",
-    "bullets": [
-      "Added a code key to the Claude apps gateway's managed.policies[]: the same settings as cli, also applied in Claude Desktop's Code tab; beside desktop, it turns on Claude Desktop's gateway mode",
-      "Added autoCompactWindow to subagent frontmatter and --agents definitions, so a subagent can auto-compact earlier than the main conversation's window",
-      "Added CLAUDE_CODE_WORKFLOW_SUBAGENT_MODEL to run every workflow agent on one model while other subagents keep theirs"
     ],
     "url": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md",
     "srcJa": true
