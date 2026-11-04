@@ -5,11 +5,11 @@
       GitHub Actions（.github/workflows/update-news.yml）が毎日つくり直します。
       手元で作り直すときは  python tools/fetch_news.py
 
-   最終取得: 2026-11-03
+   最終取得: 2026-11-04
    ========================================================================== */
 
 var NEWS_META = {
-  "updated": "2026-11-03T12:10:24+09:00",
+  "updated": "2026-11-04T10:46:01+09:00",
   "lang": "en",
   "sources": [
     {
@@ -29,15 +29,15 @@ var NEWS = [
   {
     "id": "claudecode:2026-11-02",
     "src": "claudecode",
-    "date": "2026-11-02",
+    "date": "2026-11-03",
     "cat": "Release notes",
     "catJa": "更新",
-    "title": "Claude Code の更新（11/2）",
-    "summary": "1 回リリース（v2.1.317〜v2.1.317）。新機能 9件・修正 47件・改善 31件。",
+    "title": "Claude Code の更新（11/2〜11/3）",
+    "summary": "2 回リリース（v2.1.317〜v2.1.318）。新機能 14件・修正 88件・改善 69件。",
     "bullets": [
-      "Added a warning to /schedule when a new cloud scheduled task gets connectors you did not ask for, with how to remove them",
-      "Added a check that asks before a web or shell tool call sends your account email address to the network",
-      "Added onFailure: \"block\" for Agent SDK hook callbacks, so a callback that fails blocks the action instead of letting it run"
+      "Added a record of your answer when Claude Code asks to turn on the mods it writes in a session",
+      "Added assume_role on mantle upstreams of the Claude apps gateway, for a role in another AWS account and for per-developer AWS cost attribution",
+      "Added an effort option to a mod's $.model.fork, so a quick side job can run at low whatever effort the session uses; the result reports the effort sent"
     ],
     "url": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md",
     "srcJa": true
