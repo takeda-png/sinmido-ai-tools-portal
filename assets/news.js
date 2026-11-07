@@ -5,11 +5,11 @@
       GitHub Actions（.github/workflows/update-news.yml）が毎日つくり直します。
       手元で作り直すときは  python tools/fetch_news.py
 
-   最終取得: 2026-11-04
+   最終取得: 2026-11-07
    ========================================================================== */
 
 var NEWS_META = {
-  "updated": "2026-11-04T10:46:01+09:00",
+  "updated": "2026-11-07T10:27:07+09:00",
   "lang": "en",
   "sources": [
     {
@@ -29,15 +29,15 @@ var NEWS = [
   {
     "id": "claudecode:2026-11-02",
     "src": "claudecode",
-    "date": "2026-11-03",
+    "date": "2026-11-06",
     "cat": "Release notes",
     "catJa": "更新",
-    "title": "Claude Code の更新（11/2〜11/3）",
-    "summary": "2 回リリース（v2.1.317〜v2.1.318）。新機能 14件・修正 88件・改善 69件。",
+    "title": "Claude Code の更新（11/2〜11/6）",
+    "summary": "3 回リリース（v2.1.317〜v2.1.319）。新機能 29件・修正 164件・改善 124件。",
     "bullets": [
-      "Added a record of your answer when Claude Code asks to turn on the mods it writes in a session",
-      "Added assume_role on mantle upstreams of the Claude apps gateway, for a role in another AWS account and for per-developer AWS cost attribution",
-      "Added an effort option to a mod's $.model.fork, so a quick side job can run at low whatever effort the session uses; the result reports the effort sent"
+      "Added support for MCP tasks in the terminal: when an MCP server runs a tool call as a task, Claude Code moves it to the background right away and tells Claude the result when it finishes",
+      "Added the CLAUDE_CODE_DISABLE_MCP_TASK_BACKGROUND environment variable to make Claude Code wait for an MCP task inside its tool call instead of moving it to the background right away",
+      "Added permissions.denyInsteadOfPrompting setting: a tool call that would wait on a permission prompt is denied and the turn continues, in terminal sessions, subagents and teammates"
     ],
     "url": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md",
     "srcJa": true
