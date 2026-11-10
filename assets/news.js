@@ -5,11 +5,11 @@
       GitHub Actions（.github/workflows/update-news.yml）が毎日つくり直します。
       手元で作り直すときは  python tools/fetch_news.py
 
-   最終取得: 2026-11-07
+   最終取得: 2026-11-10
    ========================================================================== */
 
 var NEWS_META = {
-  "updated": "2026-11-07T10:27:07+09:00",
+  "updated": "2026-11-10T12:53:48+09:00",
   "lang": "en",
   "sources": [
     {
@@ -26,6 +26,22 @@ var NEWS_META = {
 };
 
 var NEWS = [
+  {
+    "id": "claudecode:2026-11-09",
+    "src": "claudecode",
+    "date": "2026-11-10",
+    "cat": "Release notes",
+    "catJa": "更新",
+    "title": "Claude Code の更新（11/9〜11/10）",
+    "summary": "2 回リリース（v2.1.321〜v2.1.322）。新機能 3件・修正 71件・改善 45件。",
+    "bullets": [
+      "Added fast mode on Vertex in the global, us and eu regions, falling back to standard speed if Vertex refuses it",
+      "Added Claude Fable 5.2 (claude-fable-5-2), now the default Fable model — 1M context, $8/$40 per Mtok with $0.20/Mtok cache reads",
+      "Added --settings <file> to claude remote-control, which applies a settings file to every session it starts; if the file changes, no new session starts until you restart claude remote-control"
+    ],
+    "url": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md",
+    "srcJa": true
+  },
   {
     "id": "claudecode:2026-11-02",
     "src": "claudecode",
@@ -70,22 +86,6 @@ var NEWS = [
       "Added the Monitor tool and plugin monitors on Bedrock, Vertex, and Foundry, and when telemetry or nonessential traffic is disabled; long foreground sleeps are now blocked there too",
       "Added /claude-api api-version to move Claude API code to API version 2026-10-21",
       "Added the claude_code.safety_event OpenTelemetry event for each tool call a permission rule, auto mode, a safety check, a hook or the sandbox stopped, prompted or sent back"
-    ],
-    "url": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md",
-    "srcJa": true
-  },
-  {
-    "id": "claudecode:2026-10-12",
-    "src": "claudecode",
-    "date": "2026-10-18",
-    "cat": "Release notes",
-    "catJa": "更新",
-    "title": "Claude Code の更新（10/14〜10/18）",
-    "summary": "5 回リリース（v2.1.299〜v2.1.303）。新機能 34件・修正 205件・改善 154件。",
-    "bullets": [
-      "Added CLAUDE_CODE_AUTO_MODE_MODEL to choose the model the client-side auto mode classifier uses; it does not change the model for server-side auto mode",
-      "Added an Idle compaction row to /config for turning idle compaction off or back on; the notices shown after an idle compaction now say how to turn it off",
-      "Added a notice to /design-sync and /design-login that standalone Claude Design (claude.ai/design) closes by December 14, 2026"
     ],
     "url": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md",
     "srcJa": true
