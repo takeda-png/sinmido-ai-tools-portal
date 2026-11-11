@@ -6,6 +6,7 @@
 # 新しい記事が無い週は何も送らない。
 #
 # 必要な Secret: CHATWORK_TOKEN（APIトークン）／CHATWORK_ROOM_ID（送り先ルーム）
+# 公式セキュリティ情報（anthropics/claude-code の Security Advisories）も未送信分を先頭に載せる
 # 今すぐ送りたいとき: Actions →「Claude 最新情報を Chatwork へ」→ Run workflow
 # ============================================================================
 
@@ -41,6 +42,7 @@ jobs:
         env:
           CHATWORK_TOKEN: ${{ secrets.CHATWORK_TOKEN }}
           CHATWORK_ROOM_ID: ${{ secrets.CHATWORK_ROOM_ID }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: python tools/notify_chatwork.py
 
       - name: 送った記録をコミットする
