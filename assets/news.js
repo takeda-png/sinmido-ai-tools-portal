@@ -5,11 +5,11 @@
       GitHub Actions（.github/workflows/update-news.yml）が毎日つくり直します。
       手元で作り直すときは  python tools/fetch_news.py
 
-   最終取得: 2026-11-10
+   最終取得: 2026-11-11
    ========================================================================== */
 
 var NEWS_META = {
-  "updated": "2026-11-10T12:53:48+09:00",
+  "updated": "2026-11-11T10:35:58+09:00",
   "lang": "en",
   "sources": [
     {
@@ -111,6 +111,16 @@ var NEWS = [
     "url": "https://www.anthropic.com/news/s1-sec"
   },
   {
+    "id": "anthropic:roadshow-launch",
+    "src": "anthropic",
+    "date": "",
+    "cat": "",
+    "catJa": "ニュース",
+    "title": "Anthropic launches roadshow for proposed initial public offering",
+    "summary": "Today Anthropic, PBC launched the roadshow for its proposed initial public offering of its Class A common stock.",
+    "url": "https://www.anthropic.com/news/roadshow-launch"
+  },
+  {
     "id": "anthropic:public-benefit-fund",
     "src": "anthropic",
     "date": "",
@@ -179,16 +189,6 @@ var NEWS = [
     "title": "Expanding the Cyber Verification Program",
     "summary": "We’re launching a new, expanded version of our Cyber Verification Program, which makes advanced cyber capabilities and reduced blocking classifiers available to qualifying security professionals.",
     "url": "https://www.anthropic.com/news/cyber-verification-program"
-  },
-  {
-    "id": "anthropic:claude-frontier-academy",
-    "src": "anthropic",
-    "date": "",
-    "cat": "",
-    "catJa": "ニュース",
-    "title": "Anthropic invests $100 million to train 10,000 engineers and tackle the enterprise AI talent gap",
-    "summary": "Claude Frontier Academy trains Frontier Deployed Engineers to the standard of Anthropic’s own — a $100 million commitment to train 10,000 by the end of 2027.",
-    "url": "https://www.anthropic.com/news/claude-frontier-academy"
   },
   {
     "id": "anthropic:christopher-stubbs-joins-long-term-benefit-trust",
