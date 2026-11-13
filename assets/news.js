@@ -5,11 +5,11 @@
       GitHub Actions（.github/workflows/update-news.yml）が毎日つくり直します。
       手元で作り直すときは  python tools/fetch_news.py
 
-   最終取得: 2026-11-11
+   最終取得: 2026-11-13
    ========================================================================== */
 
 var NEWS_META = {
-  "updated": "2026-11-11T10:35:58+09:00",
+  "updated": "2026-11-13T11:16:58+09:00",
   "lang": "en",
   "sources": [
     {
@@ -29,15 +29,15 @@ var NEWS = [
   {
     "id": "claudecode:2026-11-09",
     "src": "claudecode",
-    "date": "2026-11-10",
+    "date": "2026-11-12",
     "cat": "Release notes",
     "catJa": "更新",
-    "title": "Claude Code の更新（11/9〜11/10）",
-    "summary": "2 回リリース（v2.1.321〜v2.1.322）。新機能 3件・修正 71件・改善 45件。",
+    "title": "Claude Code の更新（11/9〜11/12）",
+    "summary": "3 回リリース（v2.1.321〜v2.1.323）。新機能 19件・修正 225件・改善 169件。",
     "bullets": [
-      "Added fast mode on Vertex in the global, us and eu regions, falling back to standard speed if Vertex refuses it",
-      "Added Claude Fable 5.2 (claude-fable-5-2), now the default Fable model — 1M context, $8/$40 per Mtok with $0.20/Mtok cache reads",
-      "Added --settings <file> to claude remote-control, which applies a settings file to every session it starts; if the file changes, no new session starts until you restart claude remote-control"
+      "Added Code Mode, an experimental opt-in in which Claude writes JavaScript to call its tools; see https://code.claude.com/docs/en/code-mode to turn it on, or to turn it off for an organization",
+      "Added engines[\"claude-code\"] to plugin.json: plugins outside their stated Claude Code version range are not installed, updated or loaded, and install and update pick the newest version that fits",
+      "Added type checking of a plugin's TypeScript hooks module to claude plugin validate; each finding is a warning, and --strict fails on it"
     ],
     "url": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md",
     "srcJa": true
