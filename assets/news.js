@@ -5,11 +5,11 @@
       GitHub Actions（.github/workflows/update-news.yml）が毎日つくり直します。
       手元で作り直すときは  python tools/fetch_news.py
 
-   最終取得: 2026-11-13
+   最終取得: 2026-11-14
    ========================================================================== */
 
 var NEWS_META = {
-  "updated": "2026-11-13T11:16:58+09:00",
+  "updated": "2026-11-14T10:54:09+09:00",
   "lang": "en",
   "sources": [
     {
@@ -29,15 +29,15 @@ var NEWS = [
   {
     "id": "claudecode:2026-11-09",
     "src": "claudecode",
-    "date": "2026-11-12",
+    "date": "2026-11-13",
     "cat": "Release notes",
     "catJa": "更新",
-    "title": "Claude Code の更新（11/9〜11/12）",
-    "summary": "3 回リリース（v2.1.321〜v2.1.323）。新機能 19件・修正 225件・改善 169件。",
+    "title": "Claude Code の更新（11/9〜11/13）",
+    "summary": "4 回リリース（v2.1.321〜v2.1.325）。新機能 22件・修正 304件・改善 226件。",
     "bullets": [
-      "Added Code Mode, an experimental opt-in in which Claude writes JavaScript to call its tools; see https://code.claude.com/docs/en/code-mode to turn it on, or to turn it off for an organization",
-      "Added engines[\"claude-code\"] to plugin.json: plugins outside their stated Claude Code version range are not installed, updated or loaded, and install and update pick the newest version that fits",
-      "Added type checking of a plugin's TypeScript hooks module to claude plugin validate; each finding is a warning, and --strict fails on it"
+      "Added a spinner tip in VS Code and similar integrated terminals about re-running a notebook cell, shown once Claude has read or edited a Jupyter notebook",
+      "Added a line under the error shown when your organization's policy blocks a request, saying how to continue: run /rewind and change the message, or run /clear",
+      "Added a note for Claude when a sandboxed git checkout, git stash or autostash pull cannot update protected files such as those in .claude"
     ],
     "url": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md",
     "srcJa": true
