@@ -5,11 +5,11 @@
       GitHub Actions（.github/workflows/update-news.yml）が毎日つくり直します。
       手元で作り直すときは  python tools/fetch_news.py
 
-   最終取得: 2026-11-14
+   最終取得: 2026-11-17
    ========================================================================== */
 
 var NEWS_META = {
-  "updated": "2026-11-14T10:54:09+09:00",
+  "updated": "2026-11-17T13:15:08+09:00",
   "lang": "en",
   "sources": [
     {
@@ -26,6 +26,22 @@ var NEWS_META = {
 };
 
 var NEWS = [
+  {
+    "id": "claudecode:2026-11-16",
+    "src": "claudecode",
+    "date": "2026-11-16",
+    "cat": "Release notes",
+    "catJa": "更新",
+    "title": "Claude Code の更新（11/16）",
+    "summary": "1 回リリース（v2.1.326〜v2.1.326）。新機能 10件・修正 217件・改善 140件。",
+    "bullets": [
+      "Added support for turning on Code Mode while agent teams are enabled; if you already turned it on, sessions with teams on now start in Code Mode",
+      "Added a startup warning when an --allowedTools, --disallowedTools or --tools value has an entry that doesn't look like a complete rule",
+      "Added a message explaining why MCP servers stop loading when an administrator adds managed-mcp.json during a session"
+    ],
+    "url": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md",
+    "srcJa": true
+  },
   {
     "id": "claudecode:2026-11-09",
     "src": "claudecode",
@@ -70,22 +86,6 @@ var NEWS = [
       "Added CLAUDE_CODE_DISABLE_ULTRATHINK, which turns the ultrathink keyword off",
       "Added pooled group budgets to the Claude apps gateway: one monthly budget that a group's members share, on top of each member's own limit, set with pooled_budget on the spend limits admin API",
       "Added CLAUDE_CODE_DISABLE_LOOPED_CROSS_CERT_DROP to keep system cross-certificates that certify each other in a loop, for servers whose private CA needs one"
-    ],
-    "url": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md",
-    "srcJa": true
-  },
-  {
-    "id": "claudecode:2026-10-19",
-    "src": "claudecode",
-    "date": "2026-10-23",
-    "cat": "Release notes",
-    "catJa": "更新",
-    "title": "Claude Code の更新（10/19〜10/23）",
-    "summary": "7 回リリース（v2.1.304〜v2.1.310）。新機能 12件・修正 113件・改善 140件。",
-    "bullets": [
-      "Added the Monitor tool and plugin monitors on Bedrock, Vertex, and Foundry, and when telemetry or nonessential traffic is disabled; long foreground sleeps are now blocked there too",
-      "Added /claude-api api-version to move Claude API code to API version 2026-10-21",
-      "Added the claude_code.safety_event OpenTelemetry event for each tool call a permission rule, auto mode, a safety check, a hook or the sandbox stopped, prompted or sent back"
     ],
     "url": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md",
     "srcJa": true
