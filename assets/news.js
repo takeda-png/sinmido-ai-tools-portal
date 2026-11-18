@@ -5,11 +5,11 @@
       GitHub Actions（.github/workflows/update-news.yml）が毎日つくり直します。
       手元で作り直すときは  python tools/fetch_news.py
 
-   最終取得: 2026-11-17
+   最終取得: 2026-11-18
    ========================================================================== */
 
 var NEWS_META = {
-  "updated": "2026-11-17T13:15:08+09:00",
+  "updated": "2026-11-18T12:14:07+09:00",
   "lang": "en",
   "sources": [
     {
@@ -29,15 +29,15 @@ var NEWS = [
   {
     "id": "claudecode:2026-11-16",
     "src": "claudecode",
-    "date": "2026-11-16",
+    "date": "2026-11-17",
     "cat": "Release notes",
     "catJa": "更新",
-    "title": "Claude Code の更新（11/16）",
-    "summary": "1 回リリース（v2.1.326〜v2.1.326）。新機能 10件・修正 217件・改善 140件。",
+    "title": "Claude Code の更新（11/16〜11/17）",
+    "summary": "2 回リリース（v2.1.326〜v2.1.327）。新機能 18件・修正 311件・改善 211件。",
     "bullets": [
-      "Added support for turning on Code Mode while agent teams are enabled; if you already turned it on, sessions with teams on now start in Code Mode",
-      "Added a startup warning when an --allowedTools, --disallowedTools or --tools value has an entry that doesn't look like a complete rule",
-      "Added a message explaining why MCP servers stop loading when an administrator adds managed-mcp.json during a session"
+      "Added a confirmation before /install-github-app changes a repository",
+      "Added claude mcp add-json <name> - to read the server's JSON from stdin, so tokens can stay off the command line; not available inside a Claude Code session",
+      "Added a line when a resumed session's earlier messages can't be loaded"
     ],
     "url": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md",
     "srcJa": true
