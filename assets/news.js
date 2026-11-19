@@ -5,11 +5,11 @@
       GitHub Actions（.github/workflows/update-news.yml）が毎日つくり直します。
       手元で作り直すときは  python tools/fetch_news.py
 
-   最終取得: 2026-11-18
+   最終取得: 2026-11-19
    ========================================================================== */
 
 var NEWS_META = {
-  "updated": "2026-11-18T12:14:07+09:00",
+  "updated": "2026-11-19T11:52:49+09:00",
   "lang": "en",
   "sources": [
     {
@@ -29,15 +29,15 @@ var NEWS = [
   {
     "id": "claudecode:2026-11-16",
     "src": "claudecode",
-    "date": "2026-11-17",
+    "date": "2026-11-18",
     "cat": "Release notes",
     "catJa": "更新",
-    "title": "Claude Code の更新（11/16〜11/17）",
-    "summary": "2 回リリース（v2.1.326〜v2.1.327）。新機能 18件・修正 311件・改善 211件。",
+    "title": "Claude Code の更新（11/16〜11/18）",
+    "summary": "3 回リリース（v2.1.326〜v2.1.328）。新機能 25件・修正 389件・改善 270件。",
     "bullets": [
-      "Added a confirmation before /install-github-app changes a repository",
-      "Added claude mcp add-json <name> - to read the server's JSON from stdin, so tokens can stay off the command line; not available inside a Claude Code session",
-      "Added a line when a resumed session's earlier messages can't be loaded"
+      "Added auto mode for Claude Opus 4.6 and Sonnet 4.6 on Amazon Bedrock, Google Cloud's Agent Platform, Microsoft Foundry and Claude apps gateway; interactive sessions with no permission mode start in it",
+      "Added \"onFailure\": \"block\" for mcp_tool hooks, as for command and HTTP hooks: a hook whose call fails blocks the action",
+      "Added a warning when a message from a session that skips permission prompts may be held and dropped by a cloud session"
     ],
     "url": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md",
     "srcJa": true
@@ -181,16 +181,6 @@ var NEWS = [
     "url": "https://www.anthropic.com/news/distillation-defenses"
   },
   {
-    "id": "anthropic:cyber-verification-program",
-    "src": "anthropic",
-    "date": "",
-    "cat": "",
-    "catJa": "ニュース",
-    "title": "Expanding the Cyber Verification Program",
-    "summary": "We’re launching a new, expanded version of our Cyber Verification Program, which makes advanced cyber capabilities and reduced blocking classifiers available to qualifying security professionals.",
-    "url": "https://www.anthropic.com/news/cyber-verification-program"
-  },
-  {
     "id": "anthropic:christopher-stubbs-joins-long-term-benefit-trust",
     "src": "anthropic",
     "date": "",
@@ -199,6 +189,16 @@ var NEWS = [
     "title": "Physicist Christopher Stubbs joins Anthropic's Long-Term Benefit Trust",
     "summary": "Dr. Christopher Stubbs, an experimental physicist and former Dean of Science at Harvard University, has joined Anthropic’s Long-Term Benefit Trust. He brings to the Trust decades of scientific expertise across observational cosmology and precision measurement. He has also advised the US government on national security and arms control. “I am honored to join Anthropic’s Long-Term Benefit Trust and to help the company deliver on its public benefit mission,” said Stubbs. “I use AI tools in my research every day and see what they make possible, and as an educator I have confronted some of the hard questions they raise. As a grandfather, I want to help ensure that AI is developed and deployed for the long-term benefit of humanity.” Stubbs is the Samuel C. Moncher Professor of Physics and of Astronomy at Harvard, where he served as Dean of Science from 2018 to 2024. In 1998, as a member of the High-Z Supernova Search Team, he helped discover the accelerating expansion of the universe, work that later earned the team the Breakthrough Prize in Fundamental Physics. He was also the inaugural project scientist for what is now the Vera C. Rubin Observatory, which started a 10-year survey of the southern sky in June. One of its aims is to study the accelerating expansion he helped discover. More recently, he’s written about how to keep AI-assisted research reproducible when models can give different answers to the same question. He’s a member of JASON, an independent group of scientists who have advised the US government on defense and technology since 1960. \"When Chris found evidence that the universe was expanding at a rate no one expected, he and his team followed the data even when it went against the prevailing wisdom of the field. As AI starts to transform how science itself is done, Chris’s intellectual honesty, rigor, and commitment to the truth are the values we want shaping the future of this technology, and I’m grateful he’s bringing his deep expertise to the Trust,\" said Daniela Amodei, Co-founder and President of Anthropic. Anthropic is a Public Benefit Corporation, which means we’re structured to balance commercial growth with our public benefit purpose. The Trust exists to help us hold that balance over the long term. It has the authority to appoint a majority of Anthropic’s board, and Trustees advise the board and our leadership on critical decisions, particularly those involving risks and societal impacts of AI. This week we published our first Public Benefit Report [link], a public account of how we’re working toward our mission and where we’re falling short. The Trustees helped define the five mission pillars it measures us against, and the report closes with their assessment of our progress to date. Subject to stockholder approval, we’ve also committed to setting aside a portion of Anthropic’s shares to Anthropic Public Benefit Fund, a new entity with a structure that increases the stake as the company grows. “Anthropic's Public Benefit Report sets out what we’re all working toward: helping the world build powerful AI safely, and making sure the technology drives advances that meaningfully improve people’s lives and society as a whole,” added Neil Buddy Shah, Chair of the Long-Term Benefit Trust. “Both goals depend on a deep understanding of frontier science and leading with integrity. Not only has Chris worked on some of the hardest problems in science, but he has consistently been a high-integrity leader of large, complex, collaborative scientific endeavors across academia, government, and the national laboratories. That will be of great value to the Trust as we support Anthropic in developing AI for the long-term benefit of humanity.” Stubbs, the Trust’s first physicist, joins Shah, national security expert Richard Fontaine, and former Federal Reserve Chair Ben Bernanke. Trustees are independent of the company’s management and investors.",
     "url": "https://www.anthropic.com/news/christopher-stubbs-joins-long-term-benefit-trust"
+  },
+  {
+    "id": "anthropic:anthropic-prices-initial-public-offering",
+    "src": "anthropic",
+    "date": "",
+    "cat": "",
+    "catJa": "ニュース",
+    "title": "Anthropic prices initial public offering",
+    "summary": "Today Anthropic, PBC priced its initial public offering of its Class A common stock.",
+    "url": "https://www.anthropic.com/news/anthropic-prices-initial-public-offering"
   },
   {
     "id": "anthropic:anthropic-cyber-mission",
