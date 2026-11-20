@@ -5,11 +5,11 @@
       GitHub Actions（.github/workflows/update-news.yml）が毎日つくり直します。
       手元で作り直すときは  python tools/fetch_news.py
 
-   最終取得: 2026-11-19
+   最終取得: 2026-11-20
    ========================================================================== */
 
 var NEWS_META = {
-  "updated": "2026-11-19T11:52:49+09:00",
+  "updated": "2026-11-20T11:45:09+09:00",
   "lang": "en",
   "sources": [
     {
@@ -29,15 +29,15 @@ var NEWS = [
   {
     "id": "claudecode:2026-11-16",
     "src": "claudecode",
-    "date": "2026-11-18",
+    "date": "2026-11-19",
     "cat": "Release notes",
     "catJa": "更新",
-    "title": "Claude Code の更新（11/16〜11/18）",
-    "summary": "3 回リリース（v2.1.326〜v2.1.328）。新機能 25件・修正 389件・改善 270件。",
+    "title": "Claude Code の更新（11/16〜11/19）",
+    "summary": "4 回リリース（v2.1.326〜v2.1.329）。新機能 31件・修正 463件・改善 320件。",
     "bullets": [
-      "Added auto mode for Claude Opus 4.6 and Sonnet 4.6 on Amazon Bedrock, Google Cloud's Agent Platform, Microsoft Foundry and Claude apps gateway; interactive sessions with no permission mode start in it",
-      "Added \"onFailure\": \"block\" for mcp_tool hooks, as for command and HTTP hooks: a hook whose call fails blocks the action",
-      "Added a warning when a message from a session that skips permission prompts may be held and dropped by a cloud session"
+      "Added a trust dialog warning that says where a folder's hooks are declared",
+      "Added a warning in the conversation, in Claude Desktop and other non-interactive hosts, when hooks in managed settings fail to load",
+      "Added this session's scheduled tasks, /loop wakeups, the goal and this conversation's forks to /tasks; x stops one after asking"
     ],
     "url": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md",
     "srcJa": true
