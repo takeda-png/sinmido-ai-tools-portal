@@ -5,11 +5,11 @@
       GitHub Actions（.github/workflows/update-news.yml）が毎日つくり直します。
       手元で作り直すときは  python tools/fetch_news.py
 
-   最終取得: 2026-11-20
+   最終取得: 2026-11-21
    ========================================================================== */
 
 var NEWS_META = {
-  "updated": "2026-11-20T11:45:09+09:00",
+  "updated": "2026-11-21T11:54:53+09:00",
   "lang": "en",
   "sources": [
     {
@@ -29,15 +29,15 @@ var NEWS = [
   {
     "id": "claudecode:2026-11-16",
     "src": "claudecode",
-    "date": "2026-11-19",
+    "date": "2026-11-20",
     "cat": "Release notes",
     "catJa": "更新",
-    "title": "Claude Code の更新（11/16〜11/19）",
-    "summary": "4 回リリース（v2.1.326〜v2.1.329）。新機能 31件・修正 463件・改善 320件。",
+    "title": "Claude Code の更新（11/16〜11/20）",
+    "summary": "5 回リリース（v2.1.326〜v2.1.330）。新機能 38件・修正 531件・改善 387件。",
     "bullets": [
-      "Added a trust dialog warning that says where a folder's hooks are declared",
-      "Added a warning in the conversation, in Claude Desktop and other non-interactive hosts, when hooks in managed settings fail to load",
-      "Added this session's scheduled tasks, /loop wakeups, the goal and this conversation's forks to /tasks; x stops one after asking"
+      "Added sign-in to organizations managed in Anthropic's Enterprise Admin Console: after claude auth login, Claude Code applies the organization's settings and uses its cloud provider or gateway",
+      "Added easel, a built-in mod that draws charts when asked and under MCP metrics results, on Pro, Max and, where available, Team and Enterprise on macOS and Linux; turn automatic charts off in /config",
+      "Added CLAUDE_CODE_FULL_SIGN_IN_LINK=1 to print the full sign-in link, if the short one shows an error or a script reads values from it"
     ],
     "url": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md",
     "srcJa": true
@@ -141,14 +141,14 @@ var NEWS = [
     "url": "https://www.anthropic.com/news/open-call-guest-investigators-life-sciences"
   },
   {
-    "id": "anthropic:genesis-mission-commitment",
+    "id": "anthropic:ipo-close",
     "src": "anthropic",
     "date": "",
     "cat": "",
     "catJa": "ニュース",
-    "title": "Building on our commitment to American scientific discovery",
-    "summary": "Anthropic is committing $150 million over three years to the Genesis Mission, a federal initiative to accelerate scientific and technological discovery through AI.",
-    "url": "https://www.anthropic.com/news/genesis-mission-commitment"
+    "title": "Anthropic announces closing of initial public offering, including full exercise of underwriters’ option to purchase additional shares, and closing of concurrent private placement",
+    "summary": "Today Anthropic, PBC announced the closing of its initial public offering of an aggregate of 1,127,000,000 shares of its Class A common stock at a public offering price of $83.00 per share, including the full exercise by the underwriters of their option to purchase an additional 147,000,000 shares of Class A common stock from Anthropic at the initial public offering price.",
+    "url": "https://www.anthropic.com/news/ipo-close"
   },
   {
     "id": "anthropic:expanding-partnership-gsa",
