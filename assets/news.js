@@ -5,11 +5,11 @@
       GitHub Actions（.github/workflows/update-news.yml）が毎日つくり直します。
       手元で作り直すときは  python tools/fetch_news.py
 
-   最終取得: 2026-11-21
+   最終取得: 2026-11-24
    ========================================================================== */
 
 var NEWS_META = {
-  "updated": "2026-11-21T11:54:53+09:00",
+  "updated": "2026-11-24T14:40:50+09:00",
   "lang": "en",
   "sources": [
     {
@@ -26,6 +26,22 @@ var NEWS_META = {
 };
 
 var NEWS = [
+  {
+    "id": "claudecode:2026-11-23",
+    "src": "claudecode",
+    "date": "2026-11-23",
+    "cat": "Release notes",
+    "catJa": "更新",
+    "title": "Claude Code の更新（11/23）",
+    "summary": "1 回リリース（v2.1.331〜v2.1.331）。新機能 8件・修正 32件・改善 95件。",
+    "bullets": [
+      "Added Code Mode support in terminal sessions on Amazon Bedrock, Google Cloud's Agent Platform, Microsoft Foundry and Claude Platform on AWS",
+      "Added oidc.groups_jsonpath to the Claude apps gateway, to read groups from the matching entries of a list of objects with a small subset of JSONPath (RFC 9535)",
+      "Added an API connectivity section to claude doctor that reports whether the API can be reached, with the HTTP status or the error, or says why it wasn't tested"
+    ],
+    "url": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md",
+    "srcJa": true
+  },
   {
     "id": "claudecode:2026-11-16",
     "src": "claudecode",
@@ -70,22 +86,6 @@ var NEWS = [
       "Added support for MCP tasks in the terminal: when an MCP server runs a tool call as a task, Claude Code moves it to the background right away and tells Claude the result when it finishes",
       "Added the CLAUDE_CODE_DISABLE_MCP_TASK_BACKGROUND environment variable to make Claude Code wait for an MCP task inside its tool call instead of moving it to the background right away",
       "Added permissions.denyInsteadOfPrompting setting: a tool call that would wait on a permission prompt is denied and the turn continues, in terminal sessions, subagents and teammates"
-    ],
-    "url": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md",
-    "srcJa": true
-  },
-  {
-    "id": "claudecode:2026-10-26",
-    "src": "claudecode",
-    "date": "2026-10-31",
-    "cat": "Release notes",
-    "catJa": "更新",
-    "title": "Claude Code の更新（10/26〜10/31）",
-    "summary": "4 回リリース（v2.1.311〜v2.1.316）。新機能 14件・修正 147件・改善 144件。",
-    "bullets": [
-      "Added CLAUDE_CODE_DISABLE_ULTRATHINK, which turns the ultrathink keyword off",
-      "Added pooled group budgets to the Claude apps gateway: one monthly budget that a group's members share, on top of each member's own limit, set with pooled_budget on the spend limits admin API",
-      "Added CLAUDE_CODE_DISABLE_LOOPED_CROSS_CERT_DROP to keep system cross-certificates that certify each other in a loop, for servers whose private CA needs one"
     ],
     "url": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md",
     "srcJa": true
