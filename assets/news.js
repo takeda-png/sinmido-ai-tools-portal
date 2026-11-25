@@ -5,11 +5,11 @@
       GitHub Actions（.github/workflows/update-news.yml）が毎日つくり直します。
       手元で作り直すときは  python tools/fetch_news.py
 
-   最終取得: 2026-11-24
+   最終取得: 2026-11-25
    ========================================================================== */
 
 var NEWS_META = {
-  "updated": "2026-11-24T14:40:50+09:00",
+  "updated": "2026-11-25T13:41:31+09:00",
   "lang": "en",
   "sources": [
     {
@@ -29,15 +29,15 @@ var NEWS = [
   {
     "id": "claudecode:2026-11-23",
     "src": "claudecode",
-    "date": "2026-11-23",
+    "date": "2026-11-24",
     "cat": "Release notes",
     "catJa": "更新",
-    "title": "Claude Code の更新（11/23）",
-    "summary": "1 回リリース（v2.1.331〜v2.1.331）。新機能 8件・修正 32件・改善 95件。",
+    "title": "Claude Code の更新（11/23〜11/24）",
+    "summary": "2 回リリース（v2.1.331〜v2.1.332）。新機能 16件・修正 99件・改善 170件。",
     "bullets": [
-      "Added Code Mode support in terminal sessions on Amazon Bedrock, Google Cloud's Agent Platform, Microsoft Foundry and Claude Platform on AWS",
-      "Added oidc.groups_jsonpath to the Claude apps gateway, to read groups from the matching entries of a list of objects with a small subset of JSONPath (RFC 9535)",
-      "Added an API connectivity section to claude doctor that reports whether the API can be reached, with the HTTP status or the error, or says why it wasn't tested"
+      "Added skills from MCP servers (beta). They show as server:skill in the / menu; other skills keep their names",
+      "Added a PreSkillShellCommand hook event that can refuse a skill or command's inline shell commands as it loads; on 2.1.331 and older, a settings file naming it opens a dialog at start",
+      "Added \"Always deliver\" to the prompt for held messages from other sessions"
     ],
     "url": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md",
     "srcJa": true
